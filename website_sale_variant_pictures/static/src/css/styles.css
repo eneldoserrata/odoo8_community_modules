@@ -1,0 +1,26 @@
+#wrapwrap .css_attribute_color
+{
+	position: relative;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+#wrapwrap .css_attribute_color:not(.active)
+{
+	border: 3px solid transparent;
+}
+
+#wrapwrap .css_attribute_color input
+{
+	margin: 46px;
+}
+
+#wrapwrap .css_attribute_color .label
+{
+	position: absolute;
+	left: 2px;
+	bottom: 2px;
+}

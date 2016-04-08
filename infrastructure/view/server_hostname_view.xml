@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- infrastructure.server_hostname -->
+<openerp>
+<data>
+
+<!-- SEARCH VIEW -->
+<record id="view_infrastructure_server_hostname_filter" model="ir.ui.view">
+    <field name="name">infrastructure.server_hostname.select</field>
+    <field name="model">infrastructure.server_hostname</field>
+    <field name="arch" type="xml">
+        <search string="server_hostname">
+            <field name="name"/>
+            <field name="wildcard"/>
+            <field name="partner_id"/>
+        </search>
+    </field>
+</record>
+
+<!-- FORMVIEW -->
+<record id="view_infrastructure_server_hostname_form" model="ir.ui.view">
+    <field name="name">infrastructure.server_hostname.form</field>
+    <field name="model">infrastructure.server_hostname</field>
+    <field name="arch" type="xml">
+        <form string="server_hostname">
+            <header>
+            </header>
+            <sheet string="server_hostname">
+             <group>
+                <field name="name"/>
+                <field name="wildcard"/>
+                <field name="domain_regex"/>
+                <field name="partner_id"/>
+                <field name="ssl_available"/>
+             </group>
+            <notebook attrs="{'invisible':[('ssl_available','=',False)]}">
+                <page string="SSL Certificate">
+                    <field name="ssl_certificate" attrs="{'required':[('ssl_available','=',True)]}"/>
+                </page>
+                <page string="SSL Intermadiate Certificate">
+                    <field name="ssl_intermediate_certificate"/>
+                </page>
+                <page string="SSL Certificate KEY">
+                    <field name="ssl_certificate_key" attrs="{'required':[('ssl_available','=',True)]}"/>
+                </page>
+            </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<!-- TREEVIEW -->
+<record id="view_infrastructure_server_hostname_tree" model="ir.ui.view">
+    <field name="name">infrastructure.server_hostname.tree</field>
+    <field name="model">infrastructure.server_hostname</field>
+    <field name="arch" type="xml">
+        <tree string="server_hostname">
+            <field name="sequence" widget="handle"/>
+            <field name="name"/>
+            <field name="wildcard"/>
+            <field name="domain_regex"/>
+            <field name="partner_id"/>
+            <field name="ssl_available"/>
+        </tree>
+    </field>
+</record>
+
+<record id="action_infrastructure_server_hostname" model="ir.actions.act_window">
+    <field name="name">Server Hostnames</field>
+    <field name="res_model">infrastructure.server_hostname</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+    <field name="view_id" ref="view_infrastructure_server_hostname_tree"/>
+    <field name="search_view_id" ref="view_infrastructure_server_hostname_filter"/>
+    <field name="domain">[]</field>
+</record>
+
+<menuitem
+    name="Server Hostnames"
+    id="menu_server_hostname"
+    sequence="30"
+    action="action_infrastructure_server_hostname"
+    parent="menu_serv__env_and_inst"
+    groups="group_manager"
+    />
+
+</data>
+</openerp>

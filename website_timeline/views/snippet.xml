@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="custom_snippet_timeline" inherit_id="website.snippets">
+            <xpath expr="//div[@id='snippet_structure']" position="inside">
+                <div>
+                    <!-- Thumbnail -->
+                    <div class="oe_snippet_thumbnail">
+                        <img class="oe_snippet_thumbnail_img" src="/website_timeline/static/src/img/thumbnail.png" />
+                        <span class="oe_snippet_thumbnail_title">Timeline</span>
+                    </div>
+			<!-- Timeline -->
+                    <section class="oe_snippet_body mt16 mb16">
+			<div class="container">
+			    <div class="page-header">
+			        <h2>Timeline</h2>
+			    </div>
+			    <div class="timeline">
+<div class="row">
+				<!-- Timeline nodes-->
+			        <div class="col-md-0 node">
+			          <div class="timeline-badge"><span class="fa fa-suitcase fa-1x" style=""></span></div>
+			          <div class="timeline-panel">
+			            <div class="timeline-heading">
+			              <h4 class="timeline-title">His vero dissentias in</h4>
+			              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 9 hours ago via Google+</small></p>
+            			    </div>
+			            <div class="timeline-body">
+			              <p>An nam probo maiorum, pri id putent ponderum interesset, nec mucius maiorum ad. Id eros summo vituperatoribus eam, cu pro saepe mentitum molestiae. Ea ius debet graece utamur. Elit convenire ea nec. No dolorem minimum his, utroque appetere sapientem pro cu, nam cu facer aeterno. Ipsum eirmod integre id nec, pro hendrerit dissentiunt ut. Dolor dissentiunt vix an.</p>
+			            </div>
+			          </div>
+			        </div>
+			        <div class="col-md-0 timeline-inverted node">
+			          <div class="timeline-badge warning"><span class="fa fa-suitcase fa-1x" style=""></span></div>
+			          <div class="timeline-panel">
+			            <div class="timeline-heading">
+			              <h4 class="timeline-title">Sea ferri cetero moderatius</h4>
+			              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago via Twitter</small></p>
+			            </div>
+			            <div class="timeline-body">
+			              <p>Error recteque vix te, copiosae voluptatibus et sea. Per affert aperiri te. Sea no putent tritani. Quando nusquam sadipscing in ius, et graeco rationibus temporibus duo. Pro nisl mutat no. Simul denique constituam quo at.</p>
+			            </div>
+          			  </div>
+			        </div>
+</div>
+			    </div>
+			</div>
+			</section>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</openerp>

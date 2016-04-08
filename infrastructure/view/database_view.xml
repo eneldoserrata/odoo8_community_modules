@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<!-- SEARCH VIEW -->
+<record id="view_infrastructure_database_filter" model="ir.ui.view">
+    <field name="name">infrastructure.database.select</field>
+    <field name="model">infrastructure.database</field>
+    <field name="arch" type="xml">
+        <search string="database">
+            <field name="name"/>
+            <field name="demo_data"/>
+            <field name="partner_id"/>
+            <!-- <field name="database_type_id"/> -->
+            <field name="instance_type_id"/>
+            <field name="server_id"/>
+            <field name="environment_id"/>
+            <field name="instance_id"/>
+            <field name="update_state"/>
+            <filter string="Not Inactive" name="not_inactive" domain="[('state', '!=', 'inactive')]"/>
+            <separator/>
+            <filter string="Check Database" name="check_database" domain="[('check_database', '=', True)]"/>
+            <field name="overall_state"/>
+            <!-- <filter string="Not Cancel" name="check_database" domain="[('check_database', '=', True)]"/> -->
+            <group expand="0" string="Group By...">
+                <filter string="Partner" context="{'group_by':'partner_id'}"/>
+                <!-- <filter string="Type" context="{'group_by':'database_type_id'}"/> -->
+                <filter string="Type" context="{'group_by':'instance_type_id'}"/>
+                <filter string="Server" context="{'group_by':'server_id'}"/>
+                <filter string="Environment" context="{'group_by':'environment_id'}"/>
+                <filter string="Instance" context="{'group_by':'instance_id'}"/>
+                <filter string="Update State" context="{'group_by':'update_state'}"/>
+                <filter string="Overall State" context="{'group_by':'overall_state'}"/>
+            </group>
+        </search>
+    </field>
+</record>
+
+<!-- FORMVIEW -->
+<record id="view_infrastructure_database_form" model="ir.ui.view">
+    <field name="name">infrastructure.database.form</field>
+    <field name="model">infrastructure.database</field>
+    <field name="arch" type="xml">
+        <form string="database">
+            <field name="id" invisible="1"/>
+            <header>
+                <button name="action_to_draft"
+                    type="object"
+                    states="cancel"
+                    string="to Draft"
+                    />
+<!--                 <button name="action_to_maintenance"
+                    type="object"
+                    states="active"
+                    string="to Maintenance"
+                    /> -->
+<!--                 <button name="action_deactivate"
+                    type="object"
+                    states="active"
+                    string="Deactivate"
+                    /> -->
+                <button name="action_activate"
+                    type="object"
+                    states="deactivated,draft,maintenance"
+                    string="to Active"
+                    />
+                <button name="action_cancel"
+                    type="object"
+                    states="active,deactivated,maintenance"
+                    string="Cancel"
+                    />
+                <field name="state" widget="statusbar"
+                    statusbar_colors='{}'
+                    />
+            </header>
+            <sheet string="database">
+                <div class="col-md-6">
+                    <h2>
+                        <field name="server_id" class="oe_inline"/> / <field name="environment_id" class="oe_inline"/> / <field name="instance_id" options="{'no_create': True}" class="oe_inline"/>
+                    </h2>
+                    <!-- <field name="database_type_id" options="{'no_create': True}" class="oe_edit_only" default_focus="1" placeholder="Type..."/> -->
+                    <h1>
+                        <field name="name" placeholder="Name..."/>
+                    </h1>
+                </div>
+                <div class="oe_right oe_button_box" name="buttons">
+                </div>
+                <div class="oe_right oe_button_box" name="buttons_action">
+                    <button icon="fa-sun-o" type="object" string="Create" class="oe_inline oe_stat_button" name="create_db" states="draft"/>
+                    <button icon="fa-download" type="action" string="Backup Now" class="oe_inline oe_stat_button" name="%(action_infrastructure_backup_now_wizard)d" states="active"/>
+                    <button icon="fa-copy" type="action" string="Duplicate" class="oe_stat_button" name="%(action_infrastructure_duplicate_db_wizard)d" states="active"/>
+                    <button icon="fa-trash-o" type="action" string="Drop" class="oe_stat_button" name="%(action_infrastructure_database_drop_wizard)d" states="active"/>
+                    <button icon="fa-pencil" type="action" string="Rename" class="oe_stat_button" name="%(action_infrastructure_rename_database_wizard)d" states="active"/>
+                    <button icon="fa-key" type="action" string="Change Pass" class="oe_stat_button" name="%(action_infrastructure_change_db_passwd_wizard)d" states="active"/>
+                    <button icon="fa-arrow-circle-up" type="action" string="Restore" class="oe_stat_button" name="%(action_infrastructure_restore_from_file_wizard)d" states="draft"/>
+                </div>
+                 <group>
+                    <group>
+                        <field name="partner_id"/>
+                        <label for="admin_password"/>
+                        <div>
+                            <field
+                                name="admin_password"
+                                password="True"
+                                class="oe_inline"/>
+                            <button name="show_passwd"
+                                string="⇒ View Password"
+                                type="object"
+                                class="oe_link"/>
+                        </div>
+                        <field name="main_hostname" widget="url"/>
+                        <label for="update_state"/>
+                        <div>
+                            <field
+                                name="update_state"
+                                class="oe_inline"/>
+                            <button name="refresh_update_state"
+                                string="⇒ Refresh"
+                                type="object"
+                                states="active"
+                                class="oe_link"/>
+                            <button name="%(action_infrastructure_database_fix_wizard)d"
+                                string="⇒ Fix Database"
+                                attrs="{'invisible': ['|', ('update_state', '=', 'ok'), ('state', '!=', 'active')]}"
+                                type="action"
+                                class="oe_link"/>
+                        </div>
+                        <label for="base_modules_state"/>
+                        <div>
+                            <field
+                                name="base_modules_state"
+                                class="oe_inline"/>
+                            <button name="refresh_base_modules_state"
+                                string="⇒ Refresh"
+                                type="object"
+                                states="active"
+                                class="oe_link"/>
+                            <button name="install_base_modules"
+                                string="⇒ Install Base Modules"
+                                attrs="{'invisible': ['|', ('base_modules_state', '=', 'ok'), ('state', '!=', 'active')]}"
+                                type="object"
+                                class="oe_link"/>
+                        </div>
+                        <label for="backups_state"/>
+                        <div>
+                            <field
+                                name="backups_state"
+                                class="oe_inline"/>
+                            <button name="refresh_backups_state"
+                                string="⇒ Refresh"
+                                type="object"
+                                states="active"
+                                class="oe_link"/>
+                        </div>
+                        <label for="instante_state"/>
+                        <div>
+                            <field
+                                name="instante_state"
+                                class="oe_inline"/>
+                            <button name="restart_instance"
+                                string="⇒ Start/Restart"
+                                type="object"
+                                attrs="{'invisible': ['|', ('instante_state', '=', 'ok'), ('state', '!=', 'active')]}"
+                                class="oe_link"/>
+                        </div>
+                        <label for="overall_state"/>
+                        <div>
+                            <field
+                                name="overall_state"
+                                class="oe_inline"/> - 
+                            <field
+                                name="last_overall_check_date"
+                                class="oe_inline"/>
+                            <button name="refresh_overall_state"
+                                string="⇒ Refresh"
+                                type="object"
+                                states="active"
+                                class="oe_link"/>
+                            <button name="clean_overall_state"
+                                string="⇒ Clean"
+                                type="object"
+                                class="oe_link"/>
+                        </div>
+                    </group>
+                    <group>
+                        <field name="demo_data"/>
+                        <field name="advance_type"/>
+                        <field name="issue_date"/>
+                        <field name="deactivation_date"/>
+                        <field name="drop_date"/>
+                        <field name="check_database"/>
+                    </group>
+                 </group>
+                <notebook>
+                    <page string="Backups" states="active" name="backups">
+                        <group>
+                            <label for="backups_enable"/>
+                            <div class="oe_inline">
+                                <field name="backups_enable"/><button class="oe_link" type="object" name="config_backups" states='active' string="Config Backups"/>
+                            </div>
+                            <field name="backup_format" attrs="{'required': [('backups_enable', '=', True)], 'invisible': [('backups_enable', '=', False)]}"/>
+                        </group>
+                        <button type="object" name="update_backups_data" string="Update Backups Data"/>
+                        <field name="backup_ids"/>
+                    </page>
+                    <page string="email Config" states="active" name="email_config">
+                        <p>You can only choose hostnames that are configured in this server and that has partner = False or partner = this environment partner</p>
+                        <p>You can only choose smtp servers that has partner = False or partner = this environment partner</p>
+                        <group>
+                            <label for="smtp_server_id"/>
+                            <div class="oe_inline">
+                                <field name="smtp_server_id" domain="['|', ('partner_id','=', False), ('partner_id','=', partner_id)]" context="{'default_partner_id': partner_id}" class="oe_inline"/>
+                                <button class="oe_link oe_inline" type="object" name="upload_mail_server_config" attrs="{'invisible':['|',('state','!=','active'),('smtp_server_id','=',False)]}" string="Upload Config"/>
+                            </div>
+                            <label for="catchall_enable"/>
+                            <div class="oe_inline">
+                                <field name="catchall_enable"/><button class="oe_link" type="object" name="config_catchall" attrs="{'invisible':['|',('state','!=','active'),('catchall_enable','=',False)]}" string="Config Catchall"/>
+                            </div>
+                            <field name="alias_hostname_id" attrs="{'invisible':[('catchall_enable','=',False)],'required':[('catchall_enable','=',True)]}" domain="[('server_id','=',server_id), '|', ('partner_id','=', False), ('partner_id','=', partner_id)]" options="{'no_create': True}"/>
+                            <field name="alias_prefix" attrs="{'invisible':['|',('catchall_enable','=',False),('alias_hostname_wildcard','=',False)], 'required':[('catchall_enable','=',True),('alias_hostname_wildcard','=',True)]}"/>
+                            <field name="domain_alias" attrs="{'invisible':[('catchall_enable','=',False)]}"/>
+                            <field name="alias_hostname_wildcard" attrs="{'invisible':[('catchall_enable','=',False)]}" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="mailgate_path"/>
+                            <field name="virtual_alias"/>
+                            <field name="local_alias"/>
+                        </group>
+                    </page>
+                    <page string="Users" states="active">
+                        <button name="update_users_data" string="Update" type="object"/>
+                        <field name="user_ids"/>
+                    </page>
+                    <page string="Errors">
+                        <group col="1">
+                            <field name="update_state_detail"/>
+                            <field name="base_modules_state_detail"/>
+                            <field name="backups_state_detail"/>
+                        </group>
+                    </page>
+                    <page string="Notes">
+                        <field name="note"/>
+                    </page>
+                </notebook>
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+        </form>
+    </field>
+</record>
+
+<!-- TREEVIEW -->
+<record id="view_infrastructure_database_tree" model="ir.ui.view">
+    <field name="name">infrastructure.database.tree</field>
+    <field name="model">infrastructure.database</field>
+    <field name="arch" type="xml">
+        <tree string="database"
+            fonts="bold:message_unread==True"
+            colors="red:overall_state == 'error'; grey:state=='cancelled';blue:state in ('draft',); black:state in ('active', 'deactivated', 'maintenance')"
+            >
+            <field name="message_unread" invisible="1"/>
+            <!-- <field name="database_type_id"/> -->
+            <field name="instance_type_id"/>
+            <field name="name"/>
+            <field name="partner_id"/>
+            <field name="server_id"/>
+            <field name="environment_id"/>
+            <field name="instance_id" invisible="1"/>
+            <field name="state"/>
+            <!-- <field name="update_state"/> -->
+            <field name="overall_state" invisible="1"/>
+        </tree>
+    </field>
+</record>
+
+<!-- KANBAN -->
+<record model="ir.ui.view" id="view_database_kanban">
+    <field name="name">infrastructure.database.kanban</field>
+    <field name="model">infrastructure.database</field>
+    <field name="arch" type="xml">
+        <kanban class="oe_background_grey">
+            <field name="name"/>
+            <field name="main_hostname"/>
+            <field name="color"/>
+            <field name="state"/>
+            <field name="update_state"/>
+            <field name="overall_state"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card">
+                        <div class="oe_kanban_content" style="width: 150px; height: 80px; margin: 0 auto;">
+                            <h4 class="text-center"><a type="open"><field name="name"/></a></h4>
+                            <a t-att-href="record.main_hostname.value" target="_blank"><field name="main_hostname"/></a>
+                            <!-- <h5>Update Status:<field name="update_state"/></h5> -->
+                            <h5>Overall Status:<field name="overall_state"/></h5>
+                        </div>
+                        <div class="oe_clear"/> 
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
+
+<record id="action_infrastructure_database_databases" model="ir.actions.act_window">
+    <field name="name">Databases</field>
+    <field name="res_model">infrastructure.database</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">kanban,tree,form</field>
+    <field name="view_id" ref="view_database_kanban"/>
+    <field name="search_view_id" ref="view_infrastructure_database_filter"/>
+    <field name="domain">[]</field>
+    <field name="context">{'search_default_not_inactive': 1}</field>
+</record>
+
+<record id="action_infrastructure_databases_to_correct" model="ir.actions.act_window">
+    <field name="name">Databases To Correct</field>
+    <field name="res_model">infrastructure.database</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">kanban,tree,form</field>
+    <field name="view_id" ref="view_database_kanban"/>
+    <field name="search_view_id" ref="view_infrastructure_database_filter"/>
+    <field name="domain">[]</field>
+    <field name="context">{'search_default_overall_state': 'error', 'search_default_check_database': True, 'search_default_not_inactive': 1}</field>
+</record>
+
+<menuitem
+    name="Databases"
+    id="menu_databases"
+    sequence="40"
+    action="action_infrastructure_database_databases"
+    parent="menu_infra_main"
+    groups="group_user"
+    />
+
+<menuitem
+    id="menu_databases_to_correct"
+    sequence="5"
+    action="action_infrastructure_databases_to_correct"
+    parent="menu_infra_main"
+    />
+
+<menuitem
+    name="Databases"
+    id="menu_databases_conf"
+    sequence="30"
+    parent="menu_configuration"
+    groups="group_manager"
+    />
+
+</data>
+</openerp>

@@ -1,0 +1,94 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+        
+        <template id="report_invoice_custom" 
+			inherit_id="account.report_invoice_document">
+				<xpath expr="//div[@class='row']" position="replace">
+				   <div class="row">
+						<div class="col-xs-5 col-xs-offset-7">
+						<address t-field="o.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+						<span t-if="o.partner_id.ref">RNC / Cedula: <span t-field="o.partner_id.ref"/></span>
+                </div>
+            </div>
+				</xpath>
+				<xpath expr="//h2" position="replace">
+					
+				   <div style="font-size:18px">
+						<span t-if="o.type == 'out_invoice' and (o.state == 'open' or o.state == 'paid')">Invoice</span>
+						<span t-if="o.type == 'out_invoice' and o.state == 'proforma2'">PRO-FORMA</span>
+						<span t-if="o.type == 'out_invoice' and o.state == 'draft'">Draft Invoice</span>
+						<span t-if="o.type == 'out_invoice' and o.state == 'cancel'">Cancelled Invoice</span>
+						<span t-if="o.type == 'out_refund'">Refund</span>
+						<span t-if="o.type == 'in_refund'">Supplier Refund</span>
+						<span t-if="o.type == 'in_invoice'">Supplier Invoice</span>
+						<span t-field="o.internal_sequence_number"/>
+					</div>
+					<hr></hr>
+					<div style="font-size:18px">
+						<strong t-field="o.journal_id.name"/>
+					</div>
+					<div>
+						<span>NCF: </span>
+						<span t-field="o.number"/>
+					</div>
+					<hr></hr>
+				</xpath>
+				
+				<!--xpath expr="//div[@class='row']" position="after">
+					<div class="h2">
+						<strong t-field="o.journal_id.name"/>
+					</div>
+					<div class="h2">
+						<span>NCF: </span>
+						<span t-field="o.number"/>
+					</div>
+				</xpath-->
+				<!--xpath expr="//h2[@class='row']" position="after">
+				</xpath-->
+		</template>
+		
+		<record id="customer_invoice_form_invoice_number" model="ir.ui.view">
+			<field name="name">account.invoice.form.number</field>
+			<field name="model">account.invoice</field>
+			<field name="inherit_id" ref="account.invoice_form"/>
+				<field name="arch" type="xml">
+					<field name="fiscal_position" position="after">
+						<field name="internal_sequence_number"/>
+					</field>
+					<field name="number" position="replace">
+						<field name="number" string="Numero NCF" />
+					</field>
+				</field>
+		</record>
+		
+		<record id="customer_invoice_search_invoice_number" model="ir.ui.view">
+			<field name="name">customer.invoice.search.invoice.number</field>
+			<field name="model">account.invoice</field>
+			<field name="inherit_id" ref="account.view_account_invoice_filter"></field>
+			<field name="arch" type="xml">
+				<field name="number" position="replace">
+					<field name="internal_number" string="Numero NCF" />
+				</field>
+				<field name="internal_number" position="before">
+					<field name="internal_sequence_number" filter_domain="['|', ('internal_sequence_number','ilike',self),('origin','ilike',self)]" />
+				</field>								
+			</field>
+		</record>
+		
+		<record id="customer_invoice_tree_invoice_number" model="ir.ui.view">
+			<field name="name">account.invoice.tree.number</field>
+			<field name="model">account.invoice</field>
+			<field name="inherit_id" ref="account.invoice_tree"/>
+				<field name="arch" type="xml">
+					<field name="number" position="replace">
+						<field name="internal_number" string="Numero NCF" />
+					</field>
+					<field name="company_id" position="before">
+						<field name="internal_sequence_number"/>
+					</field>
+				</field>
+		</record>
+		
+    </data>
+</openerp>

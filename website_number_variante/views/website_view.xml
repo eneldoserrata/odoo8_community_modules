@@ -1,0 +1,21 @@
+<openerp>
+    <data>
+
+
+        <template id="list_product_number_variante" inherit_id="website_sale.products_item" name="number variante">
+
+            <xpath expr="//div[@class='product_price']" position="after">
+            <t t-if="len(product.product_variant_ids) > 1"> <p>Variantes : <span  t-esc="len(product.product_variant_ids)"/></p>
+            </t>
+            <t t-if="len(product.product_variant_ids) == 1"> <p></p>
+            </t>
+            </xpath>
+        </template>
+
+</data>
+</openerp>
+
+
+
+
+

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="custom_snippet_cycle" inherit_id="website.snippets">
+            <xpath expr="//div[@id='snippet_structure']" position="inside">
+
+                <div>
+                    <!-- Thumbnail -->
+                    <div class="oe_snippet_thumbnail">
+                        <img class="oe_snippet_thumbnail_img" src="/website_cycle/static/src/css/img/thumbnail.png" />
+                        <span class="oe_snippet_thumbnail_title">Cycle</span>
+                    </div>
+
+                    <!-- Snippet Body -->
+                    <section class="oe_snippet_body csc" style="height:305px;" data-timeout="2s" data-effect="fade">
+                        <div class="row">
+                            <div class="col-md-12" data-snippet-id="colmd">
+                                <div class="csc-slides">
+                                    <div class="oe_structure csc-current-slide" style="background-image:url('/website_cycle/static/src/css/img/pics/initial.png');"></div>
+                                    <div class="oe_structure" style="background-image:url('/website_cycle/static/src/css/img/pics/dirty.png');"></div>
+                                    <div class="oe_structure" style="background-image:url('/website_cycle/static/src/css/img/pics/grass.png');"></div>
+                                    <div class="oe_structure" style="background-image:url('/website_cycle/static/src/css/img/pics/green.png');"></div>
+                                    <div class="oe_structure" style="background-image:url('/website_cycle/static/src/css/img/pics/grey.png');"></div>
+                                    <div class="oe_structure" style="background-image:url('/website_cycle/static/src/css/img/pics/orange.png');"></div>
+                                    <div class="oe_structure" style="background-image:url('/website_cycle/static/src/css/img/pics/blue.png');"></div>
+                                    <div class="oe_structure" style="background-image:url('/website_cycle/static/src/css/img/pics/darkblue.png');"></div>
+                                    <div class="oe_structure" style="background-image:url('/website_cycle/static/src/css/img/pics/darkgreen.png');"></div>
+                                </div>
+                                <div class="csc-slideshow-left"></div>
+                                <div class="csc-slideshow-right"></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            </xpath>
+        </template>
+
+        <template id="custom_snippet_cycle_options" inherit_id="website.snippet_options">
+            <xpath expr="." position="inside">
+                <div data-snippet-option-id="custom_snippet_cycle" 
+                     data-selector=".csc" 
+                     data-selector-children=".oe_structure">
+
+                    <li class="oe_snippet_options dropdown-submenu">
+                        <a tabindex="-1" href="#">Image</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="js_remove">Remove current image</a></li>
+                            <li><a href="#" class="js_add">Add new image after this</a></li>
+                        </ul>
+                    </li>
+                    <li class="oe_snippet_options dropdown-submenu">
+                        <a tabindex="-2" href="#">Interval</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="js_timeout" data-timeout="no-interval">None</a></li>
+                            <li><a href="#" class="js_timeout" data-timeout="05s">0.5s</a></li>
+                            <li><a href="#" class="js_timeout" data-timeout="1s">1s</a></li>
+                            <li><a href="#" class="js_timeout" data-timeout="2s">2s</a></li>
+                            <li><a href="#" class="js_timeout" data-timeout="5s">5s</a></li>
+                            <li><a href="#" class="js_timeout" data-timeout="10s">10s</a></li>
+                        </ul>
+                    </li>
+                    <li class="oe_snippet_options dropdown-submenu">
+                        <a tabindex="-3" href="#">Effect</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="js_effect" data-effect="blindX">blindX</a></li>
+                            <li><a href="#" class="js_effect" data-effect="blindY">blindY</a></li>
+                            <li><a href="#" class="js_effect" data-effect="blindZ">blindZ</a></li>
+                            <li><a href="#" class="js_effect" data-effect="curtainY">curtainY</a></li>
+                            <li><a href="#" class="js_effect" data-effect="fade">fade</a></li>
+                            <li><a href="#" class="js_effect" data-effect="fadeZoom">fadeZoom</a></li>
+                            <li><a href="#" class="js_effect" data-effect="growX">growX</a></li>
+                            <li><a href="#" class="js_effect" data-effect="growY">growY</a></li>
+                            <li><a href="#" class="js_effect" data-effect="none">none</a></li>
+                            <li><a href="#" class="js_effect" data-effect="scrollUp">scrollUp</a></li>
+                            <li><a href="#" class="js_effect" data-effect="scrollDown">scrollDown</a></li>
+                            <li><a href="#" class="js_effect" data-effect="scrollLeft">scrollLeft</a></li>
+                            <li><a href="#" class="js_effect" data-effect="scrollRight">scrollRight</a></li>
+                            <li><a href="#" class="js_effect" data-effect="scrollHorz">scrollHorz</a></li>
+                            <li><a href="#" class="js_effect" data-effect="scrollVert">scrollVert</a></li>
+                            <li><a href="#" class="js_effect" data-effect="shuffle">shuffle</a></li>
+                            <li><a href="#" class="js_effect" data-effect="slideX">slideX</a></li>
+                            <li><a href="#" class="js_effect" data-effect="slideY">slideY</a></li>
+                            <li><a href="#" class="js_effect" data-effect="toss">toss</a></li>
+                            <li><a href="#" class="js_effect" data-effect="turnUp">turnUp</a></li>
+                            <li><a href="#" class="js_effect" data-effect="turnDown">turnDown</a></li>
+                            <li><a href="#" class="js_effect" data-effect="turnLeft">turnLeft</a></li>
+                            <li><a href="#" class="js_effect" data-effect="turnRight">turnRight</a></li>
+                            <li><a href="#" class="js_effect" data-effect="uncover">uncover</a></li>
+                            <li><a href="#" class="js_effect" data-effect="wipe">wipe</a></li>
+                            <li><a href="#" class="js_effect" data-effect="zoom">zoom</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </xpath>
+        </template>
+
+    </data>
+</openerp>

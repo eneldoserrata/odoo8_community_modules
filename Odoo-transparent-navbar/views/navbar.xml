@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="assets_frontend" inherit_id="website.assets_frontend" name="Odoo-transparent-navbar">
+            <xpath expr="." position="inside">
+                <link href="/Odoo-transparent-navbar/static/src/css/navbar.css" rel="stylesheet"/>
+                <script type="text/javascript" src="/Odoo-transparent-navbar/static/src/js/navbar.js"></script>
+            </xpath>
+        </template>
+
+        <template id="transparent_navbar" inherit_id="website.layout">
+            <xpath expr="//header" position="replace">
+
+                <header>
+                    <div id="custom-nav" class="navbar navbar-default navbar-fixed-top">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                        data-target=".navbar-top-collapse">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="/" t-field="res_company.name"/>
+                            </div>
+                            <div class="collapse navbar-collapse navbar-top-collapse">
+                                <ul class="nav navbar-nav navbar-right" id="top_menu">
+                                    <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                                        <t t-call="website.submenu"/>
+                                    </t>
+                                    <li class="divider" t-ignore="true" t-if="website.user_id != user_id"/>
+                                    <li class="dropdown" t-ignore="true" t-if="website.user_id != user_id">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <b>
+                                                <span t-esc="user_id.name"/>
+                                                <span class="caret"></span>
+                                            </b>
+                                        </a>
+                                        <ul class="dropdown-menu js_usermenu" role="menu">
+                                            <li>
+                                                <a href="/web" role="menuitem">My Account</a>
+                                            </li>
+                                            <li>
+                                                <a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+            </xpath>
+        </template>
+
+        <!--<template id="zap_header" inherit_id="Odoo-transparent-navbar.transparent_navbar" name="Theme Header">-->
+            <!--<xpath expr="//div[@id='wrapwrap']/header/div" position="before">-->
+                <!--<div id="preheader" class="bg-alpha">-->
+                    <!--<div class="container">-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-md-12">-->
+                                <!--<div id="capital_profile_DIV_1">-->
+                                    <!--<div id="capital_profile_DIV_2">-->
+                                        <!--<div id="capital_profile_DIV_3">-->
+                                            <!--<span id="capital_profile_SPAN_4">Descarga-->
+                                                <!--<strong id="capital_profile_STRONG_5">Catcher®</strong>-->
+
+                                            <!--</span>-->
+                                            <!--<a href="https://itunes.apple.com/es/app/catcher/id958185080?mt=8 "-->
+                                               <!--id="capital_profile_A_6">-->
+                                                <!--<img src="http://www.visanetdominicana.com/img/apple3.png" id="capital_profile_IMG_7"/>-->
+                                            <!--</a>-->
+                                            <!--<a href="https://play.google.com/store/apps/details?id=com.visanet.qt&amp;hl=es"-->
+                                               <!--id="capital_profile_A_8">-->
+                                                <!--<img src="http://www.visanetdominicana.com/img/play.png" id="capital_profile_IMG_9"/>-->
+                                            <!--</a>-->
+                                            <!--<a href="/solicitudes-online" id="capital_profile_A_10">Llena la solicitud de-->
+                                                <!--<strong id="capital_profile_STRONG_11">Catcher®</strong>-->
+                                            <!--</a>-->
+                                            <!--<a href="https://www.facebook.com/VisaNetDominicana?fref=ts"-->
+                                               <!--id="capital_profile_A_12">-->
+                                                <!--<img src="http://www.visanetdominicana.com/img/fb2.png" id="capital_profile_IMG_13"/>-->
+                                            <!--</a>-->
+                                            <!--<a href="http://instagram.com/visanetdom" id="capital_profile_A_14">-->
+                                                <!--<img src="http://www.visanetdominicana.com/img/ins2.png" id="capital_profile_IMG_15"/>-->
+                                            <!--</a>-->
+                                            <!--<a href="https://www.youtube.com/channel/UCiYNDsvaxrEHCZ2gp5Ca9mQ"-->
+                                               <!--id="capital_profile_A_16">-->
+                                                <!--<img src="http://www.visanetdominicana.com/img/yt2.png" id="capital_profile_IMG_17"/>-->
+                                            <!--</a>-->
+                                        <!--</div>-->
+                                        <!--<div id="capital_profile_DIV_18">-->
+                                            <!--<a href="/" id="capital_profile_A_19">-->
+                                                <!--<img src="http://www.visanetdominicana.com/img/logo-color2.png" id="capital_profile_IMG_20"/>-->
+                                            <!--</a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</xpath>-->
+        <!--</template>-->
+
+    </data>
+</openerp>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+    	<!-- CSS includes -->
+    	<template id="theme" inherit_id="website.theme">
+    		<xpath expr="." position="inside">
+                <link href="/website_tip/static/src/css/bootstrap-colorpicker.css" rel="stylesheet" groups="base.group_website_publisher"/>
+                <link href="/website_tip/static/src/css/animate.css" rel="stylesheet"/>
+		        <link href="/website_tip/static/src/css/tipso.css" rel="stylesheet"/>
+    		</xpath>
+    	</template>
+
+        <!-- JS includes -->
+        <template id="assets_editor" inherit_id="website.assets_editor">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/website_tip/static/src/js/bootstrap-colorpicker.js" groups="base.group_website_publisher"/>
+                <script type="text/javascript" src="/website_tip/static/src/js/tipso.js"/>
+                <script type="text/javascript" src="/website_tip/static/src/js/website.editor.js" groups="base.group_website_publisher"/>
+                <script type="text/javascript" src="/website_tip/static/src/js/main.js"/>
+            </xpath>
+        </template>
+
+    </data>
+</openerp>

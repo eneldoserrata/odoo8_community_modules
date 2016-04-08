@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+    <!--
+==============================================
+Product by Stock  (stock_product_by_location > stock_product_by_location)
+generated 2009-09-19 23:51:03+02
+==============================================
+-->
+
+        <record id="view_move_by_location_search" model="ir.ui.view">
+            <field name="name">stock_move_by_location.search</field>
+            <field name="model">stock_move_by_location</field>
+            <field name="type">search</field>
+            <field eval="3" name="priority"/>
+            <field name="arch" type="xml">
+                <search string="Stock Moves">
+                    <group>
+                        <field name="product_id"/>
+                        <field name="location_id" string="Location" filter_domain="['|',('location_id','ilike',self),('location_dest_id','ilike',self)]"/>
+                        <field name="date"/>
+                        <field name="prodlot_id"/>
+                    </group>
+                    <newline/>
+                    <group expand="0" string="Group By..." groups="base.group_extended">
+                        <filter string="Product" name="by_product" icon="terp-accessories-archiver" domain="[]"  context="{'group_by':'product_id'}"/>
+                        <filter string="Picking" name="groupby_picking_id" icon="terp-accessories-archiver" domain="[]"  context="{'group_by':'picking_id'}"/>
+                        <filter string="Lot" name="groupby_prodlot_id" icon="terp-accessories-archiver" domain="[]"  context="{'group_by':'prodlot_id'}"/>
+                        <separator orientation="vertical"/>
+                        <filter string="Location" name="groupby_location_id" icon="terp-gtk-jump-to-rtl" domain="[]" context="{'group_by':'location_id'}"/>
+                        <separator orientation="vertical"/>
+                        <filter string="Delivered" name="groupby_date" icon="terp-go-month" domain="[]" context="{'group_by':'date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+    <record model="ir.ui.view" id="stock_move_by_location_form">
+      <field name="name">stock_move_by_location.form</field>
+      <field name="model">stock_move_by_location</field>
+      <field name="priority">1</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Product Moves by Location">
+          <field name="categ_id" />
+          <field name="date" />
+          <field name="picking_id" />
+          <field name="prodlot_id" />
+          <field name="product_id" />
+          <field name="uom_id" />
+          <field name="location_id" />
+          <field name="name" />
+          <field name="product_qty_pending" />
+          <field name="description" />
+          <notebook colspan="4">
+            <page string="invisible" invisible="1"/>
+          </notebook>
+        </form>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="stock_move_by_location_list">
+      <field name="name">stock_move_by_location.list</field>
+      <field name="model">stock_move_by_location</field>
+      <field name="priority">1</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="Product Moves by Location" editable="bottom">
+          <field name="categ_id" />
+          <field name="date" />
+          <field name="product_id" />
+          <field name="uom_id" />
+          <field name="name"  sum="Product Qty"/>
+          <field name="product_qty_pending"  sum="Product Qty Pending"/>
+          <field name="picking_id" />
+          <field name="prodlot_id" />
+          <field name="location_id" />
+          <field name="description" />
+        </tree>
+      </field>
+    </record>
+    <record model="ir.actions.act_window" id="stock_move_by_location_act1">
+      <field name="name">Product Moves by Location</field>
+      <field name="res_model">stock_move_by_location</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="stock_move_by_location_list"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="stock_move_by_location_act1_view2">
+      <field name="sequence" eval="1"/>
+      <field name="view_mode">tree</field>
+      <field name="view_id" ref="stock_move_by_location_list"/>
+      <field name="act_window_id" ref="stock_move_by_location_act1"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="stock_move_by_location_act1_view1">
+      <field name="sequence" eval="2"/>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="stock_move_by_location_form"/>
+      <field name="act_window_id" ref="stock_move_by_location_act1"/>
+    </record>
+    <menuitem
+      action="stock_move_by_location_act1"
+      id="menu_stock_move_by_location_list"
+      parent="stock.next_id_61"
+      sequence="150"/>
+    <act_window
+      domain="[('product_id','=',active_id)]"
+      id="act_product_moves"
+      name="Product Moves"
+      res_model="stock_move_by_location"
+      src_model="product.product"/>
+
+    <!--
+==============================================
+Product by Stock  (stock_product_by_location > stock_product_by_location)
+generated 2009-09-19 23:51:03+02
+==============================================
+-->
+    <record model="ir.ui.view" id="stock_product_by_location_form">
+      <field name="name">stock_product_by_location.form</field>
+      <field name="model">stock_product_by_location</field>
+      <field name="priority">1</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Product by Stock ">
+          <field name="categ_id" />
+          <field name="product_id" />
+          <field name="location_id" />
+          <field name="name" />
+          <field name="product_qty_pending" />
+          <notebook colspan="4">
+            <page string="invisible" invisible="1"/>
+          </notebook>
+        </form>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="stock_product_by_location_list">
+      <field name="name">stock_product_by_location.list</field>
+      <field name="model">stock_product_by_location</field>
+      <field name="priority">1</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="Product by Stock " editable="bottom">
+          <field name="categ_id" />
+          <field name="product_id" />
+          <field name="uom_id" />
+          <field name="location_id" />
+          <field name="name"  sum="Product Qty"/>
+          <field name="product_qty_pending"  sum="Product Qty Pending"/>
+          <field name="cost_method" groups="base.group_extended"/>
+        </tree>
+      </field>
+    </record>
+    <record model="ir.actions.act_window" id="stock_product_by_location_act1">
+      <field name="name">Product by Stock </field>
+      <field name="res_model">stock_product_by_location</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="stock_product_by_location_list"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="stock_product_by_location_act1_view2">
+      <field name="sequence" eval="1"/>
+      <field name="view_mode">tree</field>
+      <field name="view_id" ref="stock_product_by_location_list"/>
+      <field name="act_window_id" ref="stock_product_by_location_act1"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="stock_product_by_location_act1_view1">
+      <field name="sequence" eval="2"/>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="stock_product_by_location_form"/>
+      <field name="act_window_id" ref="stock_product_by_location_act1"/>
+    </record>
+    <menuitem
+      action="stock_product_by_location_act1"
+      id="menu_stock_product_by_location_list"
+      parent="stock.next_id_61"
+      sequence="150"/>
+    <act_window
+      domain="[('product_id','=',active_id)]"
+      id="act_product_stock"
+      name="Product by Stock"
+      res_model="stock_product_by_location"
+      src_model="product.product"/>
+    <!--
+==============================================
+Product by Stock  (stock_product_by_location_prodlot
+generated 2009-09-19 23:51:03+02
+==============================================
+-->
+    <record model="ir.ui.view" id="stock_product_by_location_prodlot_form">
+      <field name="name">stock_product_by_location_prodlot.form</field>
+      <field name="model">stock_product_by_location_prodlot</field>
+      <field name="priority">1</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Product by Stock ">
+          <field name="categ_id" />
+          <field name="product_id" />
+          <field name="location_id" />
+          <field name="prodlot_id" />
+          <field name="name" />
+          <field name="product_qty_pending" />
+          <notebook colspan="4">
+            <page string="invisible" invisible="1"/>
+          </notebook>
+        </form>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="stock_product_by_location_prodlot_list">
+      <field name="name">stock_product_by_location_prodlot.list</field>
+      <field name="model">stock_product_by_location_prodlot</field>
+      <field name="priority">1</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="Product by Stock " editable="bottom">
+          <field name="categ_id" />
+          <field name="product_id" />
+          <field name="uom_id" />
+          <field name="location_id" />
+          <field name="prodlot_id" />
+          <field name="name"  sum="Product Qty"/>
+          <field name="product_qty_pending"  sum="Product Qty Pending"/>
+          <field name="cost_method" groups="base.group_extended"/>
+        </tree>
+      </field>
+    </record>
+    <record model="ir.actions.act_window" id="stock_product_by_location_prodlot_act1">
+      <field name="name">Product by Stock and Production Lot</field>
+      <field name="res_model">stock_product_by_location_prodlot</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="stock_product_by_location_prodlot_list"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="stock_product_by_location_prodlot_act1_view2">
+      <field name="sequence" eval="1"/>
+      <field name="view_mode">tree</field>
+      <field name="view_id" ref="stock_product_by_location_prodlot_list"/>
+      <field name="act_window_id" ref="stock_product_by_location_prodlot_act1"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="stock_product_by_location_prodlot_act1_view1">
+      <field name="sequence" eval="2"/>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="stock_product_by_location_prodlot_form"/>
+      <field name="act_window_id" ref="stock_product_by_location_prodlot_act1"/>
+    </record>
+    <menuitem
+      action="stock_product_by_location_prodlot_act1"
+      id="menu_stock_product_by_location_prodlot_list"
+      parent="stock.next_id_61"
+      sequence="150"/>
+    <!-- DBA -->
+    <record id="view_move_dba_search" model="ir.ui.view">
+        <field name="name">stock.move.dba.search</field>
+        <field name="model">stock.move</field>
+        <field name="type">search</field>
+        <field name="inherit_id" ref="stock.view_move_search"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="location_id" />
+                <field name="location_dest_id" />
+            </field>
+        </field>
+    </record>
+                
+    <record model="ir.ui.view" id="stock_move_dba_form">
+      <field name="name">stock.move.dba.form</field>
+      <field name="model">stock.move</field>
+      <field name="priority">99</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Stock Moves DBA">
+          <field name="picking_id" readonly="1"/>
+          <field name="date" readonly="1"/>
+          <field name="product_id" readonly="1"/>
+          <field name="location_id" readonly="1"/>
+          <field name="location_dest_id" readonly="1"/>
+          <field name="prodlot_id" readonly="1"/>
+          <field name="product_qty" readonly="1"/>
+          <field name="price_unit_id" readonly="1"/>
+          <!--
+          <field name="price_unit_sale_id" readonly="1"/>
+-->
+          <field name="name" readonly="1"/>
+        </form>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="stock_move_dba_tree">
+      <field name="name">stock.move.dba.tree</field>
+      <field name="model">stock.move</field>
+      <field name="priority">1</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="Stock Moves DBA" colors="grey:state=='cancel';blue:state=='draft'">
+          <field name="picking_id" />
+          <field name="date" />
+          <field name="product_id" />
+          <field name="location_id" />
+          <field name="location_dest_id" />
+          <field name="prodlot_id" />
+          <field name="product_qty"  sum="Product Qty"/>
+          <field name="name" />
+          <field name="state" />
+        </tree>
+      </field>
+    </record>
+    <record model="ir.actions.act_window" id="stock_move_act1">
+      <field name="name">Stock Moves DBA</field>
+      <field name="res_model">stock.move</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="stock_move_dba_tree"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="stock_move_act1_view2">
+      <field name="sequence" eval="1"/>
+      <field name="view_mode">tree</field>
+      <field name="view_id" ref="stock_move_dba_tree"/>
+      <field name="act_window_id" ref="stock_move_act1"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="stock_product_by_location_prodlot_act1_view1">
+      <field name="sequence" eval="2"/>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="stock_move_dba_form"/>
+      <field name="act_window_id" ref="stock_move_act1"/>
+    </record>
+    <menuitem
+      action="stock_move_act1"
+      id="menu_stock_move_dba_list"
+      parent="stock.next_id_61"
+      sequence="150"/>
+    <act_window
+      domain="[('product_id','=',active_id)]"
+      id="act_product_stock_prodlot"
+      name="Product by Stock and ProdLot"
+      res_model="stock_product_by_location_prodlot"
+      src_model="product.product"/>
+    <act_window
+      domain="[('product_id','=',product_id),('location_id','=',location_id)]"
+      id="act_product_location_2_stock_move"
+      name="Product Moves by Stock Location"
+      res_model="stock_move_by_location"
+      src_model="stock_product_by_location"/>
+    <act_window
+      domain="[('product_id','=',product_id),('location_id','=',location_id),('prodlot_id','=',prodlot_id)]"
+      id="act_product_location_prodlot_2_stock_move"
+      name="Product Moves by Stock Location and ProdLot"
+      res_model="stock_move_by_location"
+      src_model="stock_product_by_location_prodlot"/>
+    <!--
+==============================================
+Modification of Parents (only for matching table prefixes)
+==============================================
+-->
+  </data>
+</openerp>

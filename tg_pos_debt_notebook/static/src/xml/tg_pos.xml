@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="PaypadButtonWidget">
+        <button t-attf-class="paypad-button #{widget.cashregister.journal.debt and 'debt' or ''}" t-att-cash-register-id="widget.cashregister.id">
+           <t t-esc="widget.cashregister.journal.name"/>
+        </button>
+    </t>
+	<t t-extend="ClientDetails">
+		<t t-jquery=".client-details-right" t-operation="append">
+			<div class="client-detail">
+				<span class='label'>Debt</span>
+				<span t-attf-class="detail client-debt #{partner.debt gt 0 and 'positive' or partner.debt lt 0 and 'negative' or 'empty'}"><t t-esc='widget.format_currency(partner.debt)'/></span>
+			</div>
+		</t>
+	</t>
+</templates>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="custom_snippet_tabs" inherit_id="website.snippets">
+            <xpath expr="//div[@id='snippet_structure']" position="inside">
+
+                <div>
+                    <!-- Thumbnail -->
+                    <div class="oe_snippet_thumbnail">
+                        <img class="oe_snippet_thumbnail_img" src="/website_tabs/static/src/img/thumbnail.png" />
+                        <span class="oe_snippet_thumbnail_title">Tabs</span>
+                    </div>
+
+                    <!-- Snippet Body -->
+                    <section class="oe_snippet_body cst mt16 mb16">
+                        <div class="container">
+                            <div class="row">
+                                <div role="tabpanel">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Text Block</a></li>
+                                        <li role="presentation"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Text-Image</a></li>
+                                        <li role="presentation"><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Image-Text</a></li>
+                                    </ul>
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="oe_structure oe_empty tab-pane active" id="tab1">
+                                            <section class="mb16">
+                                                <!-- Text Block snippet -->
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-12 text-center mt16 mb32">
+                                                            <h2>A Great Headline</h2>
+
+                                                            <h3 class="text-muted">A good subtitle</h3>
+                                                        </div>
+
+                                                        <div class="col-md-12 mb16 mt16">
+                                                            <p>A great way to catch your reader's attention is to tell a
+                                                            story. Everything you consider writing can be told as a
+                                                            story.</p>
+
+                                                            <p><b>Great stories have personality.</b> Consider telling a
+                                                            great story that provides personality. Writing a story with
+                                                            personality for potential clients will asist with making a
+                                                            relationship connection. This shows up in small quirks like
+                                                            word choices or phrases. Write from your point of view, not
+                                                            from someone else's experience.</p>
+
+                                                            <p><b>Great stories are for everyone even when only written for
+                                                            just one person.</b> If you try to write with a wide general
+                                                            audience in mind, your story will ring false and be bland. No
+                                                            one will be interested. Write for one person. If it’s genuine
+                                                            for the one, it’s genuine for the rest.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                        <div role="tabpanel" class="oe_structure oe_empty tab-pane" id="tab2">
+                                            <section class="mt16 mb16">
+                                                <!-- Text-Image snippet -->
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-6 mt16">
+                                                            <h3>A Section Subtitle</h3>
+
+                                                            <p>Write one or two paragraphs describing your product or
+                                                            services. To be successful your content needs to be useful to
+                                                            your readers.</p>
+
+                                                            <p>Start with the customer – find out what they want and give
+                                                            it to them.</p>
+                                                        </div>
+
+                                                        <div class="col-md-6 mt16"><img alt="Odoo text and image block"
+                                                        class="img img-responsive shadow mb16" src=
+                                                        "/website/static/src/img/text_image.png"/></div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                        <div role="tabpanel" class="oe_structure oe_empty tab-pane" id="tab3">
+                                            <!-- Image-Text snippet -->
+                                            <section class="mt16 mb16">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-6 mt16"><img alt="Odoo image and text block"
+                                                        class="img img-responsive shadow mb16" src=
+                                                        "/website/static/src/img/image_text.jpg"/></div>
+
+                                                        <div class="col-md-6 mt16">
+                                                            <h3>A Section Subtitle</h3>
+
+                                                            <p>Write one or two paragraphs describing your product,
+                                                            services or a specific feature. To be successful your content
+                                                            needs to be useful to your readers.</p>
+
+                                                            <p>Start with the customer – find out what they want and give
+                                                            it to them.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            </xpath>
+        </template>
+
+        <template id="custom_snippet_tabs_options" inherit_id="website.snippet_options">
+            <xpath expr="." position="inside">
+                <div data-snippet-option-id="custom_snippet_tabs" 
+                     data-selector=".cst">
+                    <li class="divider"></li>
+                    <li><a href="#" class="js_add">Add New Tab</a></li>
+                    <li><a href="#" class="js_remove">Remove Current Tab</a></li>
+                </div>
+            </xpath>
+        </template>
+
+    </data>
+</openerp>

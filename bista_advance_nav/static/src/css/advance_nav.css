@@ -1,0 +1,158 @@
+    .navbar-header .oe_leftbar_open , .navbar-collapse .oe_leftbar_open  {
+        background-color: rgba(0, 0, 0, 0);
+        border: 1px solid rgba(0, 0, 0, 0);
+        border-radius: 4px;
+        float: left;
+        border-color: #333333;
+    }
+    .navbar-header .oe_leftbar_open:hover, .navbar-collapse .oe_leftbar_open:hover{
+        background-color:#444444;
+    }
+    .navbar-header .oe_leftbar_open:focus, .navbar-collapse .oe_leftbar_open:focus {
+        outline: 0 none;
+    }
+    .navbar-header .oe_leftbar_open .icon-bar, .navbar-collapse .oe_leftbar_open .icon-bar {
+        border-radius: 1px;
+        display: inline-block;
+        height: 22px;
+        width: 2px;
+        background-color: #FFFFFF;
+    }
+    .navbar-header .oe_leftbar_open .icon-bar + .icon-bar, .navbar-collapse .oe_leftbar_open .icon-bar + .icon-bar{
+        margin-top: 4px;
+    }
+    .openerp .oe_webclient{
+        display:table;
+    }
+    .openerp .oe_webclient .oe_leftbar {
+        background: none repeat scroll 0 0 #F0EEEE;
+        border-right: 1px solid #AFAFB6;
+        display: table-cell;
+        height: 100%;
+        padding-bottom: 16px;
+        text-shadow: 0 1px 1px #FFFFFF;
+        width: 218px;
+    }
+    .openerp .oe_webclient .oe_application {
+        display: table-cell;
+    }
+    .openerp .oe_webclient .oe_leftbar.leftbarhide{
+        display:none !important;
+    }
+
+@media (min-width: 768px){.navbar .navbar-collapse .oe_leftbar_open.show1{display:inline-block !important;}}
+@media (max-width: 768px){.navbar .navbar-header .oe_leftbar_open.show1{display:inline-block !important;}}
+
+    /* New navigation style 28092015 */
+    nav div ul ul.tnav.oe_secondary_submenu {
+        display: none !important;
+        -webkit-transition: display 2s; /* For Safari 3.1 to 6.0 */
+        transition: display 2s;
+    }
+    nav div ul ul.tnav.oe_secondary_submenu li a{
+        color:#333333
+    }
+    nav div ul li:hover ul.tnav.oe_secondary_submenu {
+        display: block !important;
+        position: absolute;
+        width: 200px;
+        background-clip: padding-box;
+        background-color: #FFFFFF;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 4px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+        z-index:1;
+    }
+    nav div ul li ul.tnav.oe_secondary_submenu ul.oe_secondary_submenu {
+        display: none !important;
+    }
+    nav div ul li ul.tnav.oe_secondary_submenu li:hover ul.oe_secondary_submenu {
+        display: block !important;
+        float: left;
+        left: 198px;
+        top: 0px;
+        z-index:1;
+    }
+    nav div ul li ul.tnav.oe_secondary_submenu ul.oe_secondary_submenu ul.oe_secondary_submenu{
+        display:none !important;
+    }
+    nav div ul li ul.tnav.oe_secondary_submenu ul.oe_secondary_submenu li:hover ul.oe_secondary_submenu{
+        display:block !important;
+        z-index:1;
+    }
+    nav div ul li ul.tnav.oe_secondary_submenu ul.oe_secondary_submenu ul.oe_secondary_submenu ul.oe_secondary_submenu{
+        display:none !important;
+    }
+    nav div ul li ul.tnav.oe_secondary_submenu ul.oe_secondary_submenu ul.oe_secondary_submenu li:hover ul.oe_secondary_submenu{
+        display:block !important;
+        z-index:1;
+    }
+    nav div ul li ul.tnav.oe_secondary_submenu ul.oe_secondary_submenu ul.oe_secondary_submenu ul.oe_secondary_submenu ul.oe_secondary_submenu{
+        display:none !important;
+    }
+    nav div ul li ul.tnav.oe_secondary_submenu ul.oe_secondary_submenu ul.oe_secondary_submenu ul.oe_secondary_submenu li:hover ul.oe_secondary_submenu{
+        display:block !important;
+        z-index:1;
+    }
+    .navbar-nav > li > .dropdown-menu {
+        display: none !important;
+    }
+    .navbar-nav > li:hover > .dropdown-menu {
+        display: block !important;
+    }    
+    nav div ul li.dropdown.open1 ul li.tnav{
+        position:relative;
+    }
+    nav div ul li.dropdown.open1 ul li.tnav ul {
+        display: none !important;
+    }
+    nav div ul li.dropdown.open1 ul li.tnav:hover > ul.oe_secondary_submenu {
+        float: none !important;
+        right: 158px !important;
+        display: inline-block !important;
+        width: 200px;
+        top: 0;
+        position: absolute;
+    }
+    nav div ul li ul.oe_secondary_submenu li a:hover > b.caret, nav div ul li.dropdown.open1 ul li.tnav a:hover > b.caret {
+        border-left: 4px solid #4285F4;
+    }
+    nav div ul li.dropdown.open1 ul li.tnav a > b.caret,nav div ul li ul.oe_secondary_submenu li a > b.caret,nav div.navbar-collapse.in ul li a > b.caret {
+        border-bottom: 4px solid rgba(0, 0, 0, 0);
+        border-left: 4px solid;
+        border-top: 4px solid rgba(0, 0, 0, 0);
+        float: right;
+        height: 0;
+        margin-left: 2px;
+        margin-top: 5px;
+        right: 0;
+        width: 0;
+        vertical-align: middle;
+    }
+    /*For responsive*/
+    nav div.navbar-collapse.in {
+        height: 200px;
+    }
+    nav div.navbar-collapse.in ul li ul.tnav.oe_secondary_submenu {
+        display:none !important;
+    }
+    nav div.navbar-collapse.in ul li:hover ul.tnav.oe_secondary_submenu {
+        display: block !important;
+        position: relative !important;
+        width: 100%;
+        background-clip: padding-box;
+        background-color: #FFFFFF;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 4px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+        z-index:1;
+    }
+    /*Full screen form*/
+    .openerp .oe_view_manager .oe_view_manager_body {
+        height: auto;
+    }
+    .openerp .oe_form_sheet_width {
+        margin: 0 auto;
+        max-width: 90%;
+        min-width: 650px;
+    }

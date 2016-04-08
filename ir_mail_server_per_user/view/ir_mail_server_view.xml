@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<record model="ir.ui.view" id="ir_mail_server_form_ept">
+            <field name="name">ir.mail.server.form.ept</field>
+            <field name="model">ir.mail_server</field>
+            <field name="inherit_id" ref="base.ir_mail_server_form"/>
+            <field name="arch" type="xml">
+                <field name="smtp_pass" password="True" position="after">
+                    <field name="user_id_ept" groups="base.group_outgoing_mail_per_user"/>
+                </field>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="ir_mail_server_tree_ept">
+            <field name="name">ir.mail.server.tree.ept</field>
+            <field name="model">ir.mail_server</field>
+            <field name="inherit_id" ref="base.ir_mail_server_list"/>
+            <field name="arch" type="xml">
+                 <field name="smtp_user" position="after">
+                    <field name="user_id_ept" groups="base.group_outgoing_mail_per_user"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

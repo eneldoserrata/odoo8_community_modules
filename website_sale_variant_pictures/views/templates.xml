@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Product Variants Template -->
+        <template id="variants" inherit_id="website_sale.variants">
+            <xpath expr="//label[contains(@t-attf-class, 'css_attribute_color')]" position="replace">
+            	<t t-set="color_product_ids" t-value="[o[0] for o in attribute_value_ids if value_id.id in o[1]]"/>
+            	<label t-attf-style="background-image:url(/website/image?field=image&amp;model=product.product&amp;id=#{color_product_ids[0] if len(color_product_ids) else None})"
+                       t-attf-class="css_attribute_color #{'active' if not inc else ''}">
+                    <input type="radio" class="js_variant_change"
+                      	   t-att-checked="'checked' if not inc else ''"
+                      	   t-att-name="'attribute-%s-%s' % (product.id, variant_id.attribute_id.id)"
+                      	   t-att-value="value_id.id"
+                      	   t-att-title="value_id.name"/>
+                    <span class="label label-default" t-field="value_id.name"/>
+                  </label>
+            </xpath>
+        </template>
+
+    </data>
+</openerp>

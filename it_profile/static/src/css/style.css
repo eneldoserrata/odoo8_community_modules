@@ -1,0 +1,158 @@
+﻿/*=============================================================
+    Authour URL: www.designbootstrap.com
+    
+    http://www.designbootstrap.com/
+
+    License: MIT
+
+    http://opensource.org/licenses/MIT
+
+    100% Free To use For Personal And Commercial Use.
+
+    IN EXCHANGE JUST TELL PEOPLE ABOUT THIS WEBSITE
+   
+========================================================  */
+
+/*=================================
+    GENERAL STYLES
+=================================== */
+
+body {
+	font-family: 'Dosis', sans-serif;
+}
+
+
+.pad-bottom {
+    padding-bottom: 10px;
+}
+
+section {
+    padding-bottom: 10px;
+    padding-top: 0px;
+}
+
+.get-right {
+    text-align: right;
+}
+/*=================================
+    HOME SECTION STYLES
+=================================== */
+#home-sec {
+    background: url(../img/home.jpg) no-repeat center center;
+    padding: 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -moz-background-size: cover;
+    background-attachment: fixed;
+
+}
+
+    #home-sec .overlay {
+        padding-top: 90px;
+        background-image: url('../img/1.png');
+        min-height: 450px;
+        color: #fff;
+    }
+
+    #home-sec h1 {
+        font-size: 70px;
+    }
+
+#fixed-menu-custom {
+    position: fixed;
+    right: 10px;
+    top: 100px;
+    max-width: 50px;
+    z-index: 999;
+}
+
+    #fixed-menu-custom a {
+        margin-bottom: 5px;
+        width: 45px;
+    }
+/*=================================
+    ABOUT SECTION STYLES
+=================================== */
+#about {
+    background-color: #f4f4f4;
+}
+
+    #about img {
+        margin-top: 30px;
+        border: 8px solid #CB7C00;
+        padding: 4px;
+    }
+
+    #about h3 {
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+/*=================================
+    STATS SECTION STYLES
+=================================== */
+#stats-sec {
+    background: url(../img/stats.jpg) no-repeat center center;
+    padding: 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -moz-background-size: cover;
+    background-attachment: fixed;
+}
+
+    #stats-sec .overlay {
+        background-color: rgba(0,0,0,0.7);
+        padding-top: 90px;
+        min-height: 300px;
+        color: #fff;
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+
+/*=================================
+    SKILL SECTION STYLES
+=================================== */
+#skills .progress {
+    height: 10px;
+}
+
+#skills .alert {
+    font-family: 'Dosis', sans-serif;
+}
+/*=================================
+    CONTACT SECTION STYLES
+=================================== */
+#contact-sec {
+   background-color: #CB7C00;
+color: #fff;
+}
+
+    #contact-sec a {
+        margin-bottom: 5px;
+    }
+
+.btn-social {
+    color: white;
+    opacity: 0.8;
+    display: block;
+}
+
+    .btn-social:hover {
+        color: white;
+        opacity: 1;
+        text-decoration: none;
+    }
+
+.btn-facebook {
+    background-color: #3b5998;
+}
+
+.btn-twitter {
+    background-color: #00aced;
+}
+
+
+.btn-google {
+    background-color: #c32f10;
+}
+

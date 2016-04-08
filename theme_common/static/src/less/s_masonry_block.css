@@ -1,0 +1,35 @@
+.s_masonry_block .item {
+  min-height: 170px;
+  padding: 0;
+}
+.s_masonry_block .main-block {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.s_masonry_block .block {
+  float: left;
+  display: inline;
+  min-height: 170px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+@media only screen and (min-width: 768px) {
+  .s_masonry_block .item {
+    height: 100%;
+  }
+  .s_masonry_block .block {
+    width: 50%;
+    height: 50%;
+  }
+  .s_masonry_block .main-block .content,
+  .s_masonry_block .block .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 30%;
+    width: 50%;
+    margin: -15% 0 0 -25%;
+  }
+}

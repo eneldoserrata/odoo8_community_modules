@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <report
+            id="report_voucher"
+            string="Voucher"
+            model="house_booking.booking"
+            name="house_booking.voucher"
+            rml="addons/house_booking/report/voucher.rml"
+            auto="False"
+            header="True"/>
+
+    </data>
+</openerp>

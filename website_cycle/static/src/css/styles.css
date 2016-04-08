@@ -1,0 +1,53 @@
+#wrapwrap .csc {
+  min-height: 80px;
+  height: 305px;
+  overflow: hidden;
+}
+#wrapwrap .csc .row {
+  height: 100%;
+  width: auto;
+}
+#wrapwrap .csc .row [data-snippet-id="colmd"] {
+  height: 100%;
+  min-width: 195px;
+}
+#wrapwrap .csc .row [data-snippet-id="colmd"] .csc-slides {
+  width: 100%;
+  height: 100%;
+}
+#wrapwrap .csc .row [data-snippet-id="colmd"] .csc-slides > div {
+  width: 100% !important;
+  height: 100% !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#wrapwrap .csc .row [data-snippet-id="colmd"] .csc-slideshow-left {
+  width: 32px;
+  height: 52px;
+  position: absolute;
+  top: 50%;
+  margin-top: -26px;
+  left: 45px;
+  z-index: 1000;
+  cursor: pointer;
+  background-image: url(/website_cycle/static/src/css/img/left_arrow.png);
+}
+#wrapwrap .csc .row [data-snippet-id="colmd"] .csc-slideshow-left:hover {
+  background-image: url(/website_cycle/static/src/css/img/left_arrow_hover.png);
+}
+#wrapwrap .csc .row [data-snippet-id="colmd"] .csc-slideshow-right {
+  width: 32px;
+  height: 52px;
+  position: absolute;
+  top: 50%;
+  margin-top: -26px;
+  right: 45px;
+  z-index: 1000;
+  cursor: pointer;
+  background-image: url(/website_cycle/static/src/css/img/right_arrow.png);
+}
+#wrapwrap .csc .row [data-snippet-id="colmd"] .csc-slideshow-right:hover {
+  background-image: url(/website_cycle/static/src/css/img/right_arrow_hover.png);
+}

@@ -1,0 +1,27 @@
+/* FA-(@i)x
+   ========================================================================== */
+/* BLOCKQUOTE
+   ========================================================================== */
+/* CAROUSEL
+   ========================================================================== */
+.Vertical-Align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.VAlignMiddle {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.VAlignTop {
+  float: none;
+  display: table-cell;
+  vertical-align: top;
+}
+/* ====================== button ======================== */
+.btn-fullwidth {
+  width: 100%;
+}

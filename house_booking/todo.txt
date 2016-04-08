@@ -1,0 +1,11 @@
+> Refaire toute la partie configuration en respectant les normes (voir licence)
+> Rajouter les conditions de paiement pour la caution, le paiement par avance, le solde, ...
+> Rajouter le paramétrage de l'heure de départ et de l'heure d'arrivée
+
+> Rajouter la possibilité de gérer plusieurs chambres
+	> chaque chambre est décrite
+	> chaque chambre peut accueillir un nombre minimal et maximal de personnes
+	> chaque chambre a son propre calendrier
+	> un calendrier fictif est le croisement des calendriers disponibles
+	> une réservation peut concerner plusieurs chambres
+

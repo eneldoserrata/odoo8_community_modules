@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- infrastructure.instance_host -->
+<openerp>
+<data>
+
+<!-- SEARCH VIEW -->
+<record id="view_infrastructure_instance_host_filter" model="ir.ui.view">
+    <field name="name">infrastructure.instance_host.select</field>
+    <field name="model">infrastructure.instance_host</field>
+    <field name="arch" type="xml">
+        <search string="instance_host">
+            <field name="server_hostname_id"/>
+            <field name="subdomain"/>
+        </search>
+    </field>
+</record>
+
+<!-- FORMVIEW -->
+<record id="view_infrastructure_instance_host_form" model="ir.ui.view">
+    <field name="name">infrastructure.instance_host.form</field>
+    <field name="model">infrastructure.instance_host</field>
+    <field name="arch" type="xml">
+        <form string="instance_host">
+            <header>
+            </header>
+            <sheet string="instance_host">
+                <p>You can only choose hostnames that are configured in this server and that has partner = False or partner = this environment partner</p>
+             <group>
+                <field name="server_hostname_id" domain="[('server_id','=',parent.server_id),'|', ('partner_id','=', False), ('partner_id','=', partner_id)]" options="{'no_create': True}"/>
+                <field name="subdomain" attrs="{'invisible':[('wildcard','!=',True)]}"/>
+                <field name="wildcard" invisible="True"/>
+                <field name="prefix" attrs="{'invisible':[('wildcard','!=',True)]}"/>
+                <field name="type"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+             </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<!-- TREEVIEW -->
+<record id="view_infrastructure_instance_host_tree" model="ir.ui.view">
+    <field name="name">infrastructure.instance_host.tree</field>
+    <field name="model">infrastructure.instance_host</field>
+    <field name="arch" type="xml">
+        <tree string="instance_host">
+            <field name="type"/>
+            <field name="server_hostname_id"/>
+            <field name="subdomain"/>
+            <field name="name"/>
+        </tree>
+    </field>
+</record>
+
+</data>
+</openerp>

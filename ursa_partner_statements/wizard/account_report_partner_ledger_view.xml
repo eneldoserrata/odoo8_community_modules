@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+     <data>
+        
+         <record id="ursa_account_partner_ledger_view" model="ir.ui.view">
+            <field name="name">Partner Statements</field>
+            <field name="model">account.partner.ledger</field>
+            <field name="inherit_id" ref="account.account_common_report_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='target_move']" position="after">
+                    <field name="no_pmts" string="All Account Activity"/>
+                    <newline/>
+                </xpath>
+                <xpath expr="//field[@name='filter']" position="replace">
+                    <field name="filter" on_change="onchange_filter(filter, fiscalyear_id)"/>
+                </xpath>
+            </field>
+        </record>
+
+         <record id="ursa_action_account_partner_ledger" model="ir.actions.act_window">
+             <field name="name">Partner Statement</field>
+             <field name="res_model">account.partner.ledger</field>
+             <field name="type">ir.actions.act_window</field>
+             <field name="view_type">form</field>
+             <field name="view_mode">tree,form</field>
+             <field name="view_id" ref="ursa_account_partner_ledger_view"/>
+             <field name="context">{}</field>
+             <field name="target">new</field>
+       </record>
+
+       <record model="ir.values" id="ir_values_ursa_account_partner_ledger">
+           <field name="key2" eval="'client_print_multi'"/>
+           <field name="model" eval="'res.partner'"/>
+           <field name="name">Print Partner Statement</field>
+           <field name="value" eval="'ir.actions.act_window,%d'%ursa_action_account_partner_ledger"/>
+       </record>
+
+     </data>
+ </openerp>

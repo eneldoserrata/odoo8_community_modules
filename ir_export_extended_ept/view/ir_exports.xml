@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<menuitem id="exports_data_parent_menu_ept" name="Export Data"
+			parent="base.menu_reporting" sequence="2" />
+
+        <record id="view_ieee_search_form" model="ir.ui.view">
+            <field name="name">Export Data search</field>
+            <field name="model">ir.exports</field>
+            <field name="arch" type="xml">
+               <search string="Export Data">
+                    <field name="name"/>
+                    <field name="create_uid"/>
+                    <field name="name"/>
+                    <field name="model_name"/>
+                    <field name="resource"/>
+                    <filter string="My Export List" name="my_export_list" domain="[('create_uid','=',uid)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Category" name="model_name_ept" context="{'group_by':'model_name'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+		<record id="ir_exports_view_ept" model="ir.ui.view">
+			<field name="name">Export With Domain</field>
+			<field name="model">ir.exports</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Export" version="7.0">
+					<header>
+						<button name="popup_wizard" string="Export" colspan="2"
+							type="object" icon="gtk-ok" class="oe_highlight" />
+						<button name="export_and_send" string="Export and email"
+							colspan="2" type="object" icon="gtk-ok" class="oe_highlight" />
+					</header>
+
+					<sheet>
+						<div class="oe_title oe_left">
+							<h1>
+								<field name="name" default_focus="1" placeholder="Name"
+									nolabel="True" />
+							</h1>
+						</div>
+
+						<group>
+							<group>
+								<field name="resource" required="1" />
+								<field name="model_name" />
+							</group>
+							<group>
+								<field name="domain" domain="[('model_id','=',resource)]" />
+								<field name="attachment_date" string="Last Export date"
+									readonly="1"></field>
+							</group>
+						</group>
+
+						<separator string="Fields to Export" colspan="4" />
+						<field name="export_fields" colspan="4" nolabel="1">
+							<tree string="Export Fields" editable="bottom">
+								<field name="sequence" />
+								<field name="name" required="1" />
+								<field name="heading" required="1" />
+							</tree>
+						</field>
+						<separator string="Notes" colspan="4" />
+						<field name="notes" colspan="4" nolabel="1" />
+					</sheet>
+				</form>
+
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_ir_export_kanban_ept">
+			<field name="name">Ir.Exports.kanban</field>
+			<field name="model">ir.exports</field>
+			<field name="arch" type="xml">
+
+				<kanban version="7.0" edit="false" quick_create="false"
+					class="oe_background_grey" >
+					<field name="name" />
+					<field name="color" />
+					<field name="model_name" />
+					<templates>
+						<t t-name="kanban-box">
+							<div
+								t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click">
+								<div class="oe_dropdown_toggle oe_dropdown_kanban">
+									<span class="oe_e">í</span>
+									<ul class="oe_dropdown_menu">
+										<t t-if="widget.view.is_action_enabled('edit')">
+											<li>
+												<a type="edit">Edit</a>
+											</li>
+										</t>
+										<t t-if="widget.view.is_action_enabled('delete')">
+											<li>
+												<a type="delete">Delete</a>
+											</li>
+										</t>
+										<li>
+											<ul class="oe_kanban_colorpicker" data-field="color" />
+										</li>
+									</ul>
+								</div>
+								<div class="oe_kanban_content">
+	                                <h3 class="text-left" name="name"><field name="name"/></h3>
+                                    <p class="text-left" name="name"><field name="model_name"/></p>
+									<div class="oe_clear" />
+									<div class="oe_kanban_footer_left">
+										<a name="popup_wizard" type="object"
+											style="color:#168D93;;margin-right: 10px">Export Data</a>
+										<a name="export_and_send" type="object"
+											style="color:#168D93;;margin-right: 10px">Export By Email</a>
+									</div>
+
+								</div>
+							</div>
+						</t>
+					</templates>
+				</kanban>
+			</field>
+		</record>
+
+		<record id="ir_exports_action_ept" model="ir.actions.act_window">
+			<field name="name">Export Data</field>
+			<field name="res_model">ir.exports</field>
+			<field name="view_mode">kanban,form</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="ir_exports_view_ept" />
+			<field name="context">{"search_default_my_export_list":1} </field>
+		</record>
+
+		<record model="ir.actions.act_window.view" id="ir_exports_action_kanban_view_ept">
+			<field name="sequence" eval="5" />
+			<field name="view_mode">kanban</field>
+			<field name="view_id" ref="view_ir_export_kanban_ept" />
+			<field name="act_window_id" ref="ir_exports_action_ept" />
+		</record>
+
+		<record model="ir.actions.act_window.view" id="ir_exports_action_form_view_ept">
+			<field name="sequence" eval="15" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="ir_exports_view_ept" />
+			<field name="act_window_id" ref="ir_exports_action_ept" />
+		</record>
+
+		<menuitem id="export_with_domain_menu_ept" name="Export"
+			action="ir_exports_action_ept" parent="ir_export_extended_ept.exports_data_parent_menu_ept"
+			sequence="2" />
+	</data>
+</openerp>

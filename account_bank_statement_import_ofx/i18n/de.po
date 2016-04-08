@@ -1,0 +1,33 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * account_bank_statement_import_ofx
+# 
+# Translators:
+# Rudolf Schnapka <rs@techno-flex.de>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: bank-statement-import (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-25 22:36+0000\n"
+"PO-Revision-Date: 2015-10-26 07:22+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>\n"
+"Language-Team: German (http://www.transifex.com/oca/OCA-bank-statement-import-8-0/language/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: account_bank_statement_import_ofx
+#: model:ir.model,name:account_bank_statement_import_ofx.model_account_bank_statement_import
+msgid "Import Bank Statement"
+msgstr "Kontoauszug importieren"
+
+#. module: account_bank_statement_import_ofx
+#: code:addons/account_bank_statement_import_ofx/account_bank_statement_import_ofx.py:67
+#, python-format
+msgid ""
+"The following problem occurred during import. The file might not be valid.\n"
+"\n"
+" %s"
+msgstr "Das Folgende Problem trat während dem Import auf. Die Datei ist wahrscheinlich ungültig.\n\n%s"

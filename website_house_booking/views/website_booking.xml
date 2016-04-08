@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+
+    <template id="contactus" inherit_id="website.contactus" name="Contact us">
+        <xpath expr="//div[@class='col-md-4 mb32']" position="replace">
+            <div class="col-md-4 mb32">
+                <img class="img img-responsive shadow mb16" src="/website/static/src/img/image_text.jpg"/>
+                <img class="img img-responsive shadow mb16" src="/website/static/src/img/image_text.jpg"/>
+            </div>
+        </xpath>
+    </template>
+
+
+    <template id="assets_frontend" inherit_id="website.assets_frontend" name="House Booking additional assets">
+        <xpath expr="." position="inside">
+            <link rel='stylesheet' href='/website_house_booking/static/src/css/calendar-widget.min.css'/>
+            <script t-if="not editable" type="text/javascript" src="/web/static/lib/jquery.ui/js/jquery-ui-1.9.1.custom.js"></script>
+            <script type="text/javascript" src="/website_house_booking/static/src/js/backbone-min.js"></script>
+            <script type="text/javascript" src="/website_house_booking/static/src/js/calendar-widget.js"></script>
+        </xpath>
+    </template>
+
+    <template id="booking_form" name="Booking form" page="True">
+
+        <t t-call="website.layout">
+            <t t-set="head">
+                <script type="text/javascript">
+                    $( document ).ready(function() {
+                        function pickDateStart(element, startDate) {
+                            console.log('pickDateStart');
+                            if ('<t t-esc="today" />' > startDate) {
+                                $('.calendar_error').text("Booking dates should be in the future.").show();
+                                <t t-if="lang == 'fr_FR'">
+                                    $('.calendar_error').text("Vous ne pouvez pas réserver à une date passée.");
+                                </t>
+                                return;
+                            }
+                            $('input[name=arrival_day]').val(startDate);
+                            $('.calendar').calendar('addReservations', {
+                                calendar: {
+                                    range: {
+                                        "startDate": startDate,
+                                        "endDate": startDate,
+                                        "reservationId": "inquiry"
+                                    },
+                                },
+                                reservations: {
+                                    "inquiry": {
+                                        "checkinDate": startDate,
+                                        "checkoutDate": startDate,
+                                        "checkinTime": "19:00",
+                                        "checkoutTime": "22:00",
+                                        "status": "INQUIRY",
+                                    }
+                                },
+                            });
+                            var edata = element.parent().data();
+                            $('.calendar').calendar('setDataBounds', new Date(edata.year, (edata.month), 1));
+                            $('.calendar_info').text("Click another time to choose your departure date and view your reservation in the calendar.");
+                            $('.calendar_error').text("").hide();
+                            <t t-if="lang == 'fr_FR'">
+                                $('.calendar_info').text("Cliquez une seconde fois pour choisir votre date de départ et visualiser votre séjour.");
+                            </t>
+                        }
+                        function pickDateEnd(element, startDate, endDate) {
+                            console.log('pickDateEnd');
+                            if (startDate >= endDate) {
+                                var temp = startDate;
+                                startDate = endDate;
+                                endDate = temp;
+                            }
+                            $('.calendar').calendar('validateDates', {start: startDate, end: endDate});
+                            if ($('.calendar').data().validation == false) {
+                                $('.calendar_error').text("Your dates are already booked, please Reset the calendar and try again.").show();
+                                <t t-if="lang == 'fr_FR'">
+                                    $('.calendar_error').text("Certaines des dates sont déjà réservées. Veuillez réinitialiser le calendrier et recommencer.");
+                                </t>
+                                return;
+                            }
+                            $('input[name=departure_day]').val(endDate);
+                            $('.calendar').calendar('removeReservations', 'INQUIRY');
+                            $('.calendar').calendar('addReservations', {
+                                calendar: {
+                                    "range": {
+                                        "startDate": startDate,
+                                        "endDate": endDate,
+                                        "reservationId": "inquiry"
+                                    },
+                                },
+                                reservations: {
+                                    "inquiry": {
+                                        "status": "INQUIRY"
+                                    },
+                                },
+                            });
+                            var edata = element.parent().data();
+                            $('.calendar').calendar('setDataBounds', new Date(edata.year, (edata.month), 1));
+                            $('.calendar_info').text("Please fill in the form in the left and confirm your reservation.");
+                            $('.calendar_error').text("").hide();
+                            <t t-if="lang == 'fr_FR'">
+                                $('.calendar_info').text("Veuillez compléter le formulaire sur votre gauche pour terminer votre réservation.");
+                            </t>
+                        }
+
+                        $('.calendar').calendar({
+                            'fetch': false,
+                            'numberOfMonths': 1,
+                            "calendar": {
+                                <t t-foreach="reservedays" t-as="day">
+                                "<t t-esc="day[0]" />": {
+                                    "status": "RESERVE",
+                                    "reservationId": "<t t-esc="day[1]" />"
+                                },
+                                </t>
+                            },
+                            "reservations": {
+                                <t t-foreach="reservations" t-as="reservation">
+                                "<t t-esc="reservation['id']" />": {
+                                    "checkinDate": "<t t-esc="reservation['arrival_day']" />",
+                                    "checkoutDate": "<t t-esc="reservation['departure_day']" />",
+                                    "checkinTime": "16:00",
+                                    "checkoutTime": "12:00",
+                                    "status": "RESERVE"
+                                },
+                                </t>
+                            },
+                            'defaultDate': '<t t-esc="start_day" />',
+                            <t t-if="lang == 'fr_FR'">
+                            "language": {
+                                'closeText': 'Terminé',
+                                'prevText': 'Précédent',
+                                'nextText': 'Suivant',
+                                'currentText': "Ajourd'hui",
+                                'monthNames': ['Janvier','Février','Mars','Avril','Mai','Juin', 'Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+                                'monthNamesShort': ['Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec'],
+                                'dayNames': ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+                                'dayNamesShort': ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+                                'dayNamesMin': ['Di','Lu','Ma','Me','Je','Ve','Sa'],
+                                'weekHeader': 'S',
+                            },
+                            'startOfWeek': 1,
+                            </t>
+                            "clicked": {
+                                'inquiry': function(element, reservation) {
+                                    console.log('inquiry hook');
+                                },
+                                'unavailable': function(element, reservation) {
+                                    console.log('unavailable hook');
+                                },
+                                'hold': function(element, reservation) {
+                                    console.log('hold hook');
+                                },
+                                'delete': function(element, reservation) {
+                                    console.log('delete hook');
+                                },
+                                'reserve': function(element, reservation) {
+                                    console.log('reserve hook');
+                                    var a_day = $('input[name=arrival_day]').val();
+                                    var d_day = $('input[name=departure_day]').val();
+                                    if (a_day == "") {
+                                        if (reservation['duration'] == 'am') {
+                                            if (!$(element).parent().hasClass('pm-reserve')) {
+                                                pickDateStart(element, reservation['date']);
+                                            }
+                                        } else {
+                                            /* NOTHING TO DO */
+                                        }
+                                    } else if (d_day == "") {
+                                        if (reservation['duration'] == 'pm') {
+                                            pickDateEnd(element, a_day, reservation['date']);
+                                        } else {
+                                            /* NOTHING TO DO */
+                                        }
+                                    } else {
+                                        /* NOTHING TO DO */
+                                    }/* EndIf */
+                                },
+                                'available': function(element, reservation) {
+                                    console.log('available hook');
+                                    var a_day = $('input[name=arrival_day]').val();
+                                    var d_day = $('input[name=departure_day]').val();
+                                    if (a_day == "") {
+                                        pickDateStart(element, reservation);
+                                    } else if (d_day == "") {
+                                        pickDateEnd(element, a_day, reservation);
+                                    } else {
+                                        /* NOTHING TO DO */
+                                    }/* EndIf */
+                                },
+                            },
+                        });
+
+                        $('.calendar_reset').click(function() {
+                            $('input[name=arrival_day]').val("");
+                            $('input[name=departure_day]').val("");
+                            $('.calendar_error').text("").hide();
+                            $('.calendar_info').text("Click one time on the calendar to choose your arrival date and a second time to choose your departure date.");
+                            <t t-if="lang == 'fr_FR'">
+                                $('.calendar_info').text("Cliquez une première fois pour choisir votre date d'arrivée et une seconde fois pour votre date de départ.");
+                            </t>
+
+                            $('.calendar').calendar('removeReservations', 'INQUIRY');
+                        });
+
+                    });
+                </script>
+                <t t-raw="head or ''"/>
+            </t>
+            <div id="wrap">
+                <div class="oe_structure"/>
+                <div class="container">
+                    <h1>Book your villa</h1>
+                    <form action="/booking" method="post" class="form-horizontal mt32">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h3>Your reservation</h3>
+
+                                <input type="hidden" name="arrival_day" required="True" t-attf-value="#{arrival_day or ''}"/>
+                                <input type="hidden" name="departure_day" required="True" t-attf-value="#{departure_day or ''}"/>
+
+                                <!-- Nom -->
+                                <div t-attf-class="form-group #{error and 'name' in error and 'has-error' or ''}">
+                                    <label class="col-md-3 col-sm-4 control-label" for="name">Your name</label>
+                                    <div class="col-md-7 col-sm-8">
+                                        <input type="text" class="form-control" name="name" required="True" t-attf-value="#{name or ''}"/>
+                                    </div>
+                                </div>
+                                <div t-attf-class="form-group #{error and 'company' in error and 'has-error' or ''}">
+                                    <label class="col-md-3 col-sm-4 control-label" for="company">Company</label>
+                                    <div class="col-md-7 col-sm-8">
+                                        <input type="text" class="form-control" name="company" t-attf-value="#{company or ''}"/>
+                                    </div>
+                                </div>
+
+                                <!-- Information partner -->
+                                <div t-attf-class="form-group #{error and 'street' in error and 'has-error' or ''}">
+                                    <label class="col-md-3 col-sm-4 control-label" for="street">Address</label>
+                                    <div class="col-md-7 col-sm-8">
+                                        <input type="text" class="form-control" name="street" required="True" t-attf-value="#{street or ''}"/>
+                                    </div>
+                                </div>
+                                <div t-attf-class="form-group #{error and 'street2' in error and 'has-error' or ''}">
+                                    <label class="col-md-3 col-sm-4 control-label" for="street2"></label>
+                                    <div class="col-md-7 col-sm-8">
+                                        <input type="text" class="form-control" name="street2" t-attf-value="#{street2 or ''}"/>
+                                    </div>
+                                </div>
+                                <div t-attf-class="form-group #{error and 'zipcode' in error and 'has-error' or ''}">
+                                    <label class="col-md-3 col-sm-4 control-label" for="zipcode">Zip code</label>
+                                    <div class="col-md-2 col-sm-8">
+                                        <input type="text" class="form-control" name="zipcode" required="True" t-attf-value="#{zipcode or ''}"/>
+                                    </div>
+                                </div>
+                                <div t-attf-class="form-group #{error and 'city' in error and 'has-error' or ''}">
+                                    <label class="col-md-3 col-sm-4 control-label" for="city">City</label>
+                                    <div class="col-md-7 col-sm-8">
+                                        <input type="text" class="form-control" name="city" required="True" t-attf-value="#{city or ''}"/>
+                                    </div>
+                                </div>
+                                <div t-attf-class="form-group #{error and 'phone' in error and 'has-error' or ''}">
+                                    <label class="col-md-3 col-sm-4 control-label" for="phone">Phone number</label>
+                                    <div class="col-md-7 col-sm-8">
+                                        <input type="tel" class="form-control" name="phone" placeholder="mobile phone recommended" required="True" t-attf-value="#{phone or ''}"/>
+                                    </div>
+                                </div>
+                                <div t-attf-class="form-group #{error and 'email' in error and 'has-error' or ''}">
+                                    <label class="col-md-3 col-sm-4 control-label" for="email">E-mail</label>
+                                    <div class="col-md-7 col-sm-8">
+                                        <input type="email" class="form-control" name="email" required="True" t-attf-value="#{email or ''}"/>
+                                    </div>
+                                </div>
+
+                                <!-- Bouton -->
+                                <div class="form-group">
+                                    <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
+                                        <button class="btn btn-primary btn-lg">Book</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-4">
+                                <h3>Pick your reservation dates</h3>
+                                <label class="calendar_info control-label" style="text-align: left;">Click one time on the calendar to choose your arrival date and a second time to choose your departure date.</label>
+                                <div class="calendar_error alert alert-danger" style="display: none;"></div>
+                                <div class="calendar" style="margin-top: 20px;"></div>
+                                <button class="calendar_reset btn btn-danger">Reset</button>
+                                <div t-attf-class="form-group #{error and 'persons_number' in error and 'has-error' or ''}">
+                                    <label class="control-label" for="persons_number">Number of persons</label>
+                                    <input type="number" class="form-control" name="persons_number" min="1" max="10" required="True" t-attf-value="#{persons_number or ''}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="oe_structure"/>
+            </div>
+        </t>
+
+    </template>
+
+
+    <template id="booking_changedate" name="Booking form - Change of date">
+        <t t-call="website.layout">
+            <t t-set="head">
+                <script type="text/javascript">
+                    $( document ).ready(function() {
+                        $('.calendar').calendar({
+                            'fetch': false,
+                            'numberOfMonths': [1,3],
+                            "calendar": {
+                                "range": {
+                                    "startDate": '<t t-esc="arrival_day" />',
+                                    "endDate": '<t t-esc="departure_day" />',
+                                    "reservationId": "inquiry"
+                                },
+                                <t t-foreach="reservedays" t-as="day">
+                                "<t t-esc="day[0]" />": {
+                                    "status": "RESERVE",
+                                    "reservationId": "<t t-esc="day[1]" />"
+                                },
+                                </t>
+                            },
+                            "reservations": {
+                                "inquiry": {
+                                    "status": "INQUIRY"
+                                },
+                                <t t-foreach="reservations" t-as="reservation">
+                                "<t t-esc="reservation['id']" />": {
+                                    "checkinDate": "<t t-esc="reservation['arrival_day']" />",
+                                    "checkoutDate": "<t t-esc="reservation['departure_day']" />",
+                                    "checkinTime": "16:00",
+                                    "checkoutTime": "12:00",
+                                    "status": "RESERVE"
+                                },
+                                </t>
+                            },
+                            'defaultDate': '<t t-esc="start_day" />',
+                            "language": {
+                                'closeText': 'Terminé',
+                                'prevText': 'Précédent',
+                                'nextText': 'Suivant',
+                                'currentText': "Ajourd'hui",
+                                'monthNames': ['Janvier','Février','Mars','Avril','Mai','Juin', 'Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+                                'monthNamesShort': ['Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec'],
+                                'dayNames': ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+                                'dayNamesShort': ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+                                'dayNamesMin': ['Di','Lu','Ma','Me','Je','Ve','Sa'],
+                                'weekHeader': 'S',
+                            },
+                            'startOfWeek': 1,
+                        });
+                    });
+                </script>
+                <t t-raw="head or ''"/>
+            </t>
+            <div id="wrap">
+                <div class="oe_structure"/>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="alert alert-error">
+                                The villa is not available for the selected dates
+                                <button type="button" class="close" data-dismiss="alert">&amp;times;</button>
+                            </div>
+                            <div class="calendar"></div>
+                            <p>
+                                Please check our reservation calendar and pick another dates :
+                            </p>
+                            <form action="/booking/dates" method="post">
+    
+                                <!-- Hidden pour le formulaire -->
+                                <input type="hidden" class="form-control" name="name" required="True" t-attf-value="#{name or ''}"/>
+                                <input type="hidden" class="form-control" name="persons_number" required="True" t-attf-value="#{persons_number or ''}"/>
+                                <input type="hidden" class="form-control" name="partner_id" required="True" t-attf-value="#{partner_id or ''}"/>
+    
+                                <!-- Dates -->
+                                <div t-attf-class="form-group #{error and 'arrival_day' in error and 'has-error' or ''}">
+                                    <label class="col-md-2 col-sm-3 control-label" for="arrival_day">Arrival date</label>
+                                    <div class="col-md-2 col-sm-3">
+                                        <input type="date" class="form-control" name="arrival_day" required="True" t-attf-value="#{arrival_day or ''}"/>
+                                    </div>
+                                </div>
+                                <div t-attf-class="form-group #{error and 'departure_day' in error and 'has-error' or ''}">
+                                    <label class="col-md-2 col-sm-3 control-label" for="departure_day">Departure date</label>
+                                    <div class="col-md-2 col-sm-3">
+                                        <input type="date" class="form-control" name="departure_day" required="True" t-attf-value="#{departure_day or ''}"/>
+                                    </div>
+                                </div>
+    
+                                <!-- Bouton -->
+                                <div class="form-group">
+                                    <div class="col-sm-2 col-md-2">
+                                        <button class="btn btn-primary btn-lg">Book</button>
+                                    </div>
+                                </div>
+    
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="oe_structure"/>
+            </div>
+        </t>
+
+    </template>
+
+
+    <template id="booking_thanks" name="Booking form - Thanks">
+
+        <t t-call="website.layout">
+          <div id="wrap">
+            <div class="oe_structure"/>
+            <div class="container">
+                <h1>Thank you!</h1>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="alert alert-success">
+                            Your booking application has been sent!
+                            <button type="button" class="close" data-dismiss="alert">&amp;times;</button>
+                        </div>
+                        <p>
+                            You will receive an confirmation email soon.
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <t t-call="website.company_description"/>
+                    </div>
+                </div>
+            </div>
+            <div class="oe_structure"/>
+          </div>
+        </t>
+
+    </template>
+
+</data>
+</openerp>

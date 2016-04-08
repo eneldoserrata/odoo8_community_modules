@@ -1,0 +1,1358 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_credit_control
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-13 13:11+0000\n"
+"PO-Revision-Date: 2015-03-21 06:32-0400\n"
+"Last-Translator: Eneldo Serrata <eneldoserrata@gmail.com>\n"
+"Language-Team: \n"
+"Language: es_DO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.7.5\n"
+
+#. module: account_credit_control
+#: model:credit.control.policy.level,custom_text:account_credit_control.3_time_3
+msgid ""
+"\n"
+"        Our records indicate that we still have not received the payment of "
+"the above mentioned invoice despite our two reminders.\n"
+"        If payment have already been sent, please disregard this notice. If "
+"not, please proceed with payment.\n"
+"        If your payment has not been received in the next 5 days, your file "
+"will be transfered to our debt collection agency.\n"
+"\n"
+"        Should you need us to arrange a payment plan for you, please "
+"advise.\n"
+"        A customer account statement is enclosed for you convenience.\n"
+"\n"
+"        Thank you in advance for your anticipated cooperation in this "
+"matter.\n"
+"\n"
+"        Best regards\n"
+"      "
+msgstr ""
+"\n"
+"Nuestros registros indican que todavía no hemos recibido el pago de la "
+"factura mencionada anteriormente a pesar de nuestras dos recordatorios.\n"
+"        Si el pago ya se han enviado, por favor ignore este aviso. Si no es "
+"así, por favor proceda con el pago.\n"
+"        Si el pago no se ha recibido en los próximos 5 días, el archivo será "
+"transferido a nuestra agencia de cobro de deudas.\n"
+"\n"
+"        En caso de que nos necesitan para organizar un plan de pago para "
+"usted, por favor avise.\n"
+"        Una declaración puede encontrarse adjunto.\n"
+"\n"
+"        Gracias de antemano por su cooperación prevista en este asunto.\n"
+"\n"
+"\tSaludos cordiales."
+
+#. module: account_credit_control
+#: model:email.template,body_html:account_credit_control.email_template_credit_control_base
+msgid ""
+"\n"
+"      Dear ${object.contact_address.name or ''}\n"
+"      <br/>\n"
+"      <br/>\n"
+"      ${object.current_policy_level.custom_mail_text}\n"
+"      "
+msgstr ""
+"\n"
+"      Estimado / Estimada ${object.contact_address.name or ''}\n"
+"      <br/>\n"
+"      <br/>\n"
+"      ${object.current_policy_level.custom_mail_text}\n"
+"      "
+
+#. module: account_credit_control
+#: model:credit.control.policy.level,name:account_credit_control.3_time_3
+msgid "10 days last reminder"
+msgstr "10 días último recordatorio"
+
+#. module: account_credit_control
+#: model:credit.control.policy.level,name:account_credit_control.3_time_1
+msgid "10 days net"
+msgstr "10 días"
+
+#. module: account_credit_control
+#: model:credit.control.policy.level,name:account_credit_control.2_time_1
+#: model:credit.control.policy.level,name:account_credit_control.3_time_2
+msgid "30 days end of month"
+msgstr "30 días finales de mes"
+
+#. module: account_credit_control
+#: model:credit.control.policy.level,name:account_credit_control.2_time_2
+msgid "60 days last reminder"
+msgstr "60 días último recordatorio"
+
+#. module: account_credit_control
+#: model:ir.model,name:account_credit_control.model_credit_control_line
+msgid "A credit control line"
+msgstr "Una línea de control de crédito"
+
+#. module: account_credit_control
+#: code:addons/account_credit_control/run.py:93
+#, python-format
+msgid "A credit control line more recent than %s exists at %s"
+msgstr "Existe una línea de control de crédito más reciente de%s en%s"
+
+#. module: account_credit_control
+#: model:ir.model,name:account_credit_control.model_credit_control_policy_level
+msgid "A credit control policy level"
+msgstr "A nivel de las políticas de control de crédito"
+
+#. module: account_credit_control
+#: code:addons/account_credit_control/run.py:161
+#, python-format
+msgid ""
+"A credit control run is already running in background, please try later."
+msgstr ""
+"Un control de crédito de ejecución ya se está ejecutando en segundo plano, "
+"por favor intente más tarde."
+
+#. module: account_credit_control
+#: code:addons/account_credit_control/run.py:86
+#, python-format
+msgid "A run has already been executed more recently than %s"
+msgstr "Una carrera que ya se ha ejecutado más recientemente que %s"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+#: field:credit.control.line,account_id:0
+#: model:ir.model,name:account_credit_control.model_account_account
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: account_credit_control
+#: view:credit.control.policy:account_credit_control.credit_control_policy_form
+#: field:credit.control.policy,account_ids:0
+msgid "Accounts"
+msgstr "Cuentas"
+
+#. module: account_credit_control
+#: field:credit.control.policy,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: account_credit_control
+#: model:ir.actions.act_window,help:account_credit_control.action_wizard_credit_policy_changer
+msgid "Allows to manually change credit level"
+msgstr "Permite cambiar manualmente el nivel de crédito"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+msgid "An error has occured during the sending of the email."
+msgstr "Ha ocurrido un error durante el envío del correo electrónico."
+
+#. module: account_credit_control
+#: code:addons/account_credit_control/policy.py:308
+#, python-format
+msgid "Can not get function for computation mode: %s is not implemented"
+msgstr ""
+"No se puede obtener la función para el modo de cálculo: %s no se ha "
+"implementado"
+
+#. module: account_credit_control
+#: view:credit.control.emailer:account_credit_control.credit_line_emailer_form
+#: view:credit.control.marker:account_credit_control.credit_line_marker_form
+#: view:credit.control.policy.changer:account_credit_control.credit_control_policy_changer_form
+#: view:credit.control.printer:account_credit_control.credit_line_printer_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: account_credit_control
+#: view:credit.control.marker:account_credit_control.credit_line_marker_form
+#: model:ir.actions.act_window,name:account_credit_control.open_credit_line_marker_wizard
+#: model:ir.actions.act_window,name:account_credit_control.open_credit_line_marker_wizard_menu_action
+msgid "Change Lines' State"
+msgstr "Cambie Estado Lines"
+
+#. module: account_credit_control
+#: model:ir.actions.act_window,name:account_credit_control.action_wizard_credit_policy_changer
+#: model:ir.actions.act_window,name:account_credit_control.action_wizard_credit_policy_changer_menu_action
+msgid "Change current credit policy"
+msgstr "Cambiar la política de crédito actual"
+
+#. module: account_credit_control
+#: view:credit.control.policy.changer:account_credit_control.credit_control_policy_changer_form
+msgid "Change the overdue level of current invoice"
+msgstr "Cambiar el nivel de retraso de la factura actual"
+
+#. module: account_credit_control
+#: view:credit.control.marker:account_credit_control.credit_line_marker_form
+msgid "Change the state of the selected lines"
+msgstr "Cambiar el estado de las líneas seleccionadas"
+
+#. module: account_credit_control
+#: model:ir.actions.act_window,help:account_credit_control.open_credit_line_marker_wizard
+msgid "Change the state of the selected lines."
+msgstr "Cambiar el estado de las líneas seleccionadas."
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+#: field:credit.control.line,channel:0
+#: field:credit.control.policy.level,channel:0
+msgid "Channel"
+msgstr "Canal"
+
+#. module: account_credit_control
+#: model:ir.model,name:account_credit_control.model_res_company
+msgid "Companies"
+msgstr "Empresas"
+
+#. module: account_credit_control
+#: field:credit.control.communication,company_id:0
+#: field:credit.control.line,company_id:0
+#: field:credit.control.policy,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: account_credit_control
+#: view:credit.control.run:account_credit_control.credit_control_run_form
+msgid "Compute Credit Control Lines"
+msgstr "Calcular crédito líneas de control"
+
+#. module: account_credit_control
+#: field:credit.control.policy.level,computation_mode:0
+msgid "Compute Mode"
+msgstr "Modo Compute"
+
+#. module: account_credit_control
+#: field:credit.control.communication,contact_address:0
+msgid "Contact Address"
+msgstr "Dirección de contacto"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_form
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+#: view:credit.control.line:account_credit_control.credit_control_line_tree
+msgid "Control Credit Lines"
+msgstr "Control de Líneas de Crédito"
+
+#. module: account_credit_control
+#: field:credit.control.run,date:0
+msgid "Controlling Date"
+msgstr "Controlado Fecha"
+
+#. module: account_credit_control
+#: field:credit.control.line,date:0
+msgid "Controlling date"
+msgstr "Controlado Fecha"
+
+#. module: account_credit_control
+#: field:credit.control.communication,create_uid:0
+#: field:credit.control.emailer,create_uid:0
+#: field:credit.control.line,create_uid:0
+#: field:credit.control.marker,create_uid:0
+#: field:credit.control.policy,create_uid:0
+#: field:credit.control.policy.changer,create_uid:0
+#: field:credit.control.policy.level,create_uid:0
+#: field:credit.control.printer,create_uid:0
+#: field:credit.control.run,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: account_credit_control
+#: field:credit.control.communication,create_date:0
+#: field:credit.control.emailer,create_date:0
+#: field:credit.control.line,create_date:0
+#: field:credit.control.marker,create_date:0
+#: field:credit.control.policy,create_date:0
+#: field:credit.control.policy.changer,create_date:0
+#: field:credit.control.policy.level,create_date:0
+#: field:credit.control.printer,create_date:0
+#: field:credit.control.run,create_date:0
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: account_credit_control
+#: view:account.invoice:account_credit_control.invoice_followup_form_view
+#: model:ir.ui.menu,name:account_credit_control.base_credit_control_configuration_menu
+#: model:ir.ui.menu,name:account_credit_control.base_credit_control_menu
+msgid "Credit Control"
+msgstr "Control de crédito"
+
+#. module: account_credit_control
+#: model:res.groups,name:account_credit_control.group_account_credit_control_info
+msgid "Credit Control Info"
+msgstr "Información de crédito"
+
+#. module: account_credit_control
+#: view:account.invoice:account_credit_control.invoice_followup_form_view
+#: field:credit.control.emailer,line_ids:0
+#: field:credit.control.marker,line_ids:0
+#: field:credit.control.printer,line_ids:0
+#: model:ir.actions.act_window,name:account_credit_control.credit_control_line_action
+#: model:ir.ui.menu,name:account_credit_control.credit_control_line_action_menu
+#: field:res.partner,credit_control_line_ids:0
+msgid "Credit Control Lines"
+msgstr "Líneas de control de crédito"
+
+#. module: account_credit_control
+#: model:res.groups,name:account_credit_control.group_account_credit_control_manager
+msgid "Credit Control Manager"
+msgstr "Gerente de Control de Crédito"
+
+#. module: account_credit_control
+#: model:ir.actions.act_window,name:account_credit_control.credit_policy_configuration_action
+#: model:ir.ui.menu,name:account_credit_control.credit_policy_configuration_action_menu
+msgid "Credit Control Policies"
+msgstr "Políticas de Control de Crédito"
+
+#. module: account_credit_control
+#: field:account.invoice,credit_policy_id:0
+#: field:res.company,credit_policy_id:0 field:res.partner,credit_policy_id:0
+msgid "Credit Control Policy"
+msgstr "Política de Control de Crédito"
+
+#. module: account_credit_control
+#: model:ir.actions.act_window,name:account_credit_control.credit_control_run
+#: model:ir.ui.menu,name:account_credit_control.credit_control_run_menu
+msgid "Credit Control Run"
+msgstr "Control de Crédito Run"
+
+#. module: account_credit_control
+#: model:ir.actions.report.xml,name:account_credit_control.credit_control_summary
+msgid "Credit Control Summary"
+msgstr "Resumen Control de Crédito"
+
+#. module: account_credit_control
+#: field:res.company,credit_control_tolerance:0
+msgid "Credit Control Tolerance"
+msgstr "Tolerancia de control de crédito"
+
+#. module: account_credit_control
+#: model:res.groups,name:account_credit_control.group_account_credit_control_user
+msgid "Credit Control User"
+msgstr "Control de Crédito del Usuario"
+
+#. module: account_credit_control
+#: model:email.template,subject:account_credit_control.email_template_credit_control_base
+msgid "Credit Control: (${object.current_policy_level.name or 'n/a'})"
+msgstr "Control de Crédito: (${object.current_policy_level.name or 'n/a'})"
+
+#. module: account_credit_control
+#: field:account.account,credit_control_line_ids:0
+#: field:account.invoice,credit_control_line_ids:0
+#: field:credit.control.communication,credit_control_line_ids:0
+#: model:ir.actions.act_window,name:account_credit_control.act_account_credit_relation_relation
+#: model:ir.actions.act_window,name:account_credit_control.act_partner_credit_relation_relation
+msgid "Credit Lines"
+msgstr "línea de crédito"
+
+#. module: account_credit_control
+#: model:ir.model,name:account_credit_control.model_credit_control_run
+msgid "Credit control line generator"
+msgstr "Generador de la línea de control de crédito"
+
+#. module: account_credit_control
+#: view:credit.control.policy:account_credit_control.credit_control_policy_form
+#: view:credit.control.policy:account_credit_control.credit_control_policy_tree
+msgid "Credit control policy"
+msgstr "Política de Control de Crédito"
+
+#. module: account_credit_control
+#: view:credit.control.policy:account_credit_control.credit_control_policy_form
+msgid "Credit control policy Level"
+msgstr "A nivel de las políticas de control de crédito"
+
+#. module: account_credit_control
+#: view:credit.control.policy.level:account_credit_control.credit_control_policy_level_tree
+msgid "Credit control policy level"
+msgstr "A nivel de las políticas de control de crédito"
+
+#. module: account_credit_control
+#: view:credit.control.run:account_credit_control.credit_control_run_form
+#: view:credit.control.run:account_credit_control.credit_control_run_tree
+msgid "Credit control run"
+msgstr "Control de Crédito Run"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+msgid "Credit policy"
+msgstr "política de crédito"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+msgid "Credit policy level"
+msgstr "Nivel de las políticas de crédito"
+
+#. module: account_credit_control
+#: field:credit.control.communication,currency_id:0
+#: field:credit.control.line,currency_id:0
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: account_credit_control
+#: field:credit.control.policy.level,custom_mail_text:0
+msgid "Custom Mail Message"
+msgstr "Mensaje Personalizado"
+
+#. module: account_credit_control
+#: field:credit.control.policy.level,custom_text:0
+msgid "Custom Message"
+msgstr "Mensaje Personalizado"
+
+#. module: account_credit_control
+#: view:website:account_credit_control.report_credit_control_summary_document
+msgid "Date due"
+msgstr "Fecha de vencimiento:"
+
+#. module: account_credit_control
+#: view:website:account_credit_control.report_credit_control_summary_document
+msgid "Dear,"
+msgstr "Estimado/a:"
+
+#. module: account_credit_control
+#: model:ir.model,name:account_credit_control.model_credit_control_policy
+msgid "Define a reminder policy"
+msgstr "Definir una política recordatorio"
+
+#. module: account_credit_control
+#: field:credit.control.policy.level,delay_days:0
+msgid "Delay (in days)"
+msgstr "Retraso (días)"
+
+#. module: account_credit_control
+#: view:credit.control.policy:account_credit_control.credit_control_policy_form
+#: view:credit.control.policy.level:account_credit_control.credit_mangement_policy_level_form
+msgid "Delay Setting"
+msgstr "Ajuste de retardo"
+
+#. module: account_credit_control
+#: field:credit.control.policy,do_nothing:0
+msgid "Do nothing"
+msgstr "no hago nada"
+
+#. module: account_credit_control
+#: selection:credit.control.line,state:0
+#: selection:credit.control.marker,name:0 selection:credit.control.run,state:0
+msgid "Done"
+msgstr "Hecho"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+#: selection:credit.control.line,state:0 selection:credit.control.run,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+msgid "Draft lines have to be triaged."
+msgstr "Los proyectos de las líneas tienen que ser disparados."
+
+#. module: account_credit_control
+#: help:credit.control.line,state:0
+msgid ""
+"Draft lines need to be triaged.\n"
+"Ignored lines are lines for which we do not want to send something.\n"
+"Draft and ignored lines will be generated again on the next run."
+msgstr ""
+"Los proyectos de las líneas tienen que ser disparados.\n"
+"Líneas ignoradas son líneas acerca de las cuales no desea enviar algo.\n"
+"Proyectos e ignoradas líneas se generarán de nuevo en la próxima ejecución."
+
+#. module: account_credit_control
+#: field:credit.control.line,amount_due:0
+msgid "Due Amount Tax incl."
+msgstr "Monto del Impuesto Debido incl."
+
+#. module: account_credit_control
+#: selection:credit.control.policy.level,computation_mode:0
+msgid "Due Date"
+msgstr "Fecha vencimiento"
+
+#. module: account_credit_control
+#: selection:credit.control.policy.level,computation_mode:0
+msgid "Due Date, End Of Month"
+msgstr "Fecha de vencimiento, al final del mes"
+
+#. module: account_credit_control
+#: field:credit.control.line,balance_due:0
+msgid "Due balance"
+msgstr "saldo vencido y pendiente de pago"
+
+#. module: account_credit_control
+#: field:credit.control.line,date_due:0
+msgid "Due date"
+msgstr "Fecha de vencimiento"
+
+#. module: account_credit_control
+#: selection:credit.control.line,channel:0
+#: selection:credit.control.policy.level,channel:0
+msgid "Email"
+msgstr "Email"
+
+#. module: account_credit_control
+#: field:credit.control.policy.level,email_template_id:0
+msgid "Email Template"
+msgstr "Plantilla de correo electrónico"
+
+#. module: account_credit_control
+#: selection:credit.control.line,state:0
+msgid "Emailing Error"
+msgstr "Envío por correo electrónico de error"
+
+#. module: account_credit_control
+#: field:credit.control.line,date_entry:0
+msgid "Entry date"
+msgstr "Fecha de entrada"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+#: selection:credit.control.line,state:0
+msgid "Error"
+msgstr "Error"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+msgid "Filters"
+msgstr "Filtros"
+
+#. module: account_credit_control
+#: help:credit.control.policy,do_nothing:0
+msgid "For policies which should not generate lines or are obsolete"
+msgstr "Para que las políticas que no deben generar líneas o están obsoletos"
+
+#. module: account_credit_control
+#: field:credit.control.run,line_ids:0
+msgid "Generated lines"
+msgstr "Líneas generadas"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: account_credit_control
+#: field:credit.control.communication,id:0 field:credit.control.emailer,id:0
+#: field:credit.control.line,id:0 field:credit.control.marker,id:0
+#: field:credit.control.policy,id:0 field:credit.control.policy.changer,id:0
+#: field:credit.control.policy.level,id:0 field:credit.control.printer,id:0
+#: field:credit.control.run,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: account_credit_control
+#: help:credit.control.run,manual_ids:0
+msgid ""
+"If a credit control line has been generatedon a policy and the policy has "
+"been changed in the meantime, it has to be handled manually"
+msgstr ""
+"Si una línea de control de crédito ha sido generada una política y la "
+"política ha cambiado, mientras tanto, tiene que ser manejado manualmente"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+#: selection:credit.control.line,state:0
+#: selection:credit.control.marker,name:0
+msgid "Ignored"
+msgstr "Ignorado"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+#: field:credit.control.line,invoice_id:0
+#: model:ir.model,name:account_credit_control.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: account_credit_control
+#: view:website:account_credit_control.report_credit_control_summary_document
+msgid "Invoice date"
+msgstr "Fecha de factura"
+
+#. module: account_credit_control
+#: view:website:account_credit_control.report_credit_control_summary_document
+msgid "Invoice number"
+msgstr "Número de factura"
+
+#. module: account_credit_control
+#: view:website:account_credit_control.report_credit_control_summary_document
+msgid "Invoiced amount"
+msgstr "Importe facturado"
+
+#. module: account_credit_control
+#: view:account.invoice:account_credit_control.invoice_followup_form_view
+msgid "Issued Lines"
+msgstr "Líneas emitidos"
+
+#. module: account_credit_control
+#: field:credit.control.communication,write_uid:0
+#: field:credit.control.emailer,write_uid:0
+#: field:credit.control.line,write_uid:0
+#: field:credit.control.marker,write_uid:0
+#: field:credit.control.policy,write_uid:0
+#: field:credit.control.policy.changer,write_uid:0
+#: field:credit.control.policy.level,write_uid:0
+#: field:credit.control.printer,write_uid:0
+#: field:credit.control.run,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: account_credit_control
+#: field:credit.control.communication,write_date:0
+#: field:credit.control.emailer,write_date:0
+#: field:credit.control.line,write_date:0
+#: field:credit.control.marker,write_date:0
+#: field:credit.control.policy,write_date:0
+#: field:credit.control.policy.changer,write_date:0
+#: field:credit.control.policy.level,write_date:0
+#: field:credit.control.printer,write_date:0
+#: field:credit.control.run,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: account_credit_control
+#: selection:credit.control.line,channel:0
+#: selection:credit.control.policy.level,channel:0
+msgid "Letter"
+msgstr "Carta"
+
+#. module: account_credit_control
+#: field:credit.control.communication,current_policy_level:0
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+#: field:credit.control.policy.level,level:0
+msgid "Level"
+msgstr "Nivel"
+
+#. module: account_credit_control
+#: view:credit.control.emailer:account_credit_control.credit_line_emailer_form
+#: view:credit.control.marker:account_credit_control.credit_line_marker_form
+#: view:credit.control.printer:account_credit_control.credit_line_printer_form
+msgid "Lines"
+msgstr "Líneas"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+msgid "Lines already sent."
+msgstr "La carta ya ha sido enviada."
+
+#. module: account_credit_control
+#: view:credit.control.marker:account_credit_control.credit_line_marker_form
+msgid "Lines marker"
+msgstr "Líneas marcador"
+
+#. module: account_credit_control
+#: view:credit.control.printer:account_credit_control.credit_line_printer_form
+msgid "Lines report"
+msgstr "Informe de las líneas de impresión"
+
+#. module: account_credit_control
+#: field:credit.control.run,manual_ids:0
+msgid "Lines to handle manually"
+msgstr "Líneas para manejar manualmente"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+msgid "Lines which have been ignored from previous runs."
+msgstr "Las líneas que han sido ignorados de procesos anteriores."
+
+#. module: account_credit_control
+#: view:credit.control.policy:account_credit_control.credit_control_policy_form
+#: view:credit.control.policy.level:account_credit_control.credit_mangement_policy_level_form
+msgid "Mail and reporting"
+msgstr "Elementos de correos y noticias"
+
+#. module: account_credit_control
+#: view:credit.control.emailer:account_credit_control.credit_line_emailer_form
+msgid "Mailer"
+msgstr "gestor de correo"
+
+#. module: account_credit_control
+#: view:account.invoice:account_credit_control.invoice_followup_form_view
+msgid "Manual Credit Control Policy"
+msgstr "Manual de Políticas de Control de Crédito"
+
+#. module: account_credit_control
+#: view:credit.control.run:account_credit_control.credit_control_run_form
+msgid "Manual Lines"
+msgstr "línea de enlace manual"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+msgid "Manual change"
+msgstr "Cambio manual"
+
+#. module: account_credit_control
+#: model:credit.control.policy.level,custom_mail_text:account_credit_control.no_follow_1
+#: model:credit.control.policy.level,custom_text:account_credit_control.no_follow_1
+msgid "Manual no follow"
+msgstr "Registro manual: no"
+
+#. module: account_credit_control
+#: field:credit.control.line,manually_overridden:0
+msgid "Manually overridden"
+msgstr "Reemplazado manualmente"
+
+#. module: account_credit_control
+#: field:credit.control.marker,name:0
+msgid "Mark as"
+msgstr "Marcar como"
+
+#. module: account_credit_control
+#: field:credit.control.printer,mark_as_sent:0
+msgid "Mark letter lines as sent"
+msgstr "Líneas de cartas Marcar como enviados"
+
+#. module: account_credit_control
+#: model:ir.model,name:account_credit_control.model_credit_control_emailer
+msgid "Mass credit line emailer"
+msgstr "Envío masivo"
+
+#. module: account_credit_control
+#: model:ir.model,name:account_credit_control.model_credit_control_marker
+msgid "Mass marker"
+msgstr "Marcador de masivo"
+
+#. module: account_credit_control
+#: model:ir.model,name:account_credit_control.model_credit_control_printer
+msgid "Mass printer"
+msgstr "Impresión Masiva"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+msgid "More..."
+msgstr "más."
+
+#. module: account_credit_control
+#: field:credit.control.line,move_line_id:0
+msgid "Move line"
+msgstr "Mover línea"
+
+#. module: account_credit_control
+#: field:credit.control.policy.changer,move_line_ids:0
+msgid "Move line to change"
+msgstr "Mover línea para cambiar"
+
+#. module: account_credit_control
+#: view:credit.control.policy.changer:account_credit_control.credit_control_policy_changer_form
+msgid "Move lines to affect"
+msgstr "Mover líneas para afectar"
+
+#. module: account_credit_control
+#: field:credit.control.policy,name:0 field:credit.control.policy.level,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: account_credit_control
+#: field:credit.control.policy.changer,new_policy_id:0
+msgid "New Policy to Apply"
+msgstr "Nueva política para Aplicar"
+
+#. module: account_credit_control
+#: field:credit.control.policy.changer,new_policy_level_id:0
+msgid "New level to apply"
+msgstr "Nuevo nivel de aplicar"
+
+#. module: account_credit_control
+#: code:addons/account_credit_control/wizard/credit_control_emailer.py:62
+#: code:addons/account_credit_control/wizard/credit_control_marker.py:74
+#: code:addons/account_credit_control/wizard/credit_control_printer.py:60
+#, python-format
+msgid "No credit control lines selected."
+msgstr "No hay líneas de control de crédito seleccionados."
+
+#. module: account_credit_control
+#: model:credit.control.policy.level,name:account_credit_control.no_follow_1
+msgid "No follow"
+msgstr "Sin seguimiento"
+
+#. module: account_credit_control
+#: field:credit.control.policy.changer,do_nothing:0
+msgid "No follow  policy"
+msgstr "No existe una política de seguimiento"
+
+#. module: account_credit_control
+#: code:addons/account_credit_control/wizard/credit_control_marker.py:78
+#, python-format
+msgid "No lines will be changed. All the selected lines are already done."
+msgstr ""
+"Serán cambiados sin líneas. Todas las líneas seleccionadas ya están hechas."
+
+#. module: account_credit_control
+#: help:credit.control.printer,mark_as_sent:0
+msgid "Only letter lines will be marked."
+msgstr "Sólo las líneas de cartas serán marcados."
+
+#. module: account_credit_control
+#: view:credit.control.run:account_credit_control.credit_control_run_form
+msgid "Open Credit Control Lines"
+msgstr "Líneas de Control de Crédito Abierto"
+
+#. module: account_credit_control
+#: view:website:account_credit_control.report_credit_control_summary_document
+msgid "Open amount"
+msgstr "Importe pendiente"
+
+#. module: account_credit_control
+#: model:credit.control.policy.level,custom_text:account_credit_control.2_time_1
+msgid ""
+"Our records indicate that we have not received the payment of the above "
+"mentioned invoice.\n"
+"        If it has already been sent, please disregard this notice. If not, "
+"please proceed with payment within 10 days.\n"
+"\n"
+"        Thank you in advance for your anticipated cooperation in this "
+"matter.\n"
+"\n"
+"        Best regards\n"
+"      "
+msgstr ""
+"Nuestros registros indican que no hemos recibido el pago de la factura "
+"mencionada anteriormente.\n"
+"\tSi ya se ha enviado, por favor ignore este aviso. Si no es así, por favor "
+"proceda con el pago dentro de los 10 días.\n"
+"\n"
+"\tGracias de antemano por su cooperación prevista en este asunto.\n"
+"\n"
+"\tAtentamente"
+
+#. module: account_credit_control
+#: model:credit.control.policy.level,custom_text:account_credit_control.3_time_1
+msgid ""
+"Our records indicate that we have not received the payment of the above "
+"mentioned invoice.\n"
+"If it has already been sent, please disregard this notice. If not, please "
+"proceed with payment within 10 days.\n"
+"\n"
+"Thank you in advance for your anticipated cooperation in this matter.\n"
+"\n"
+"Best regards\n"
+"      "
+msgstr ""
+"Nuestros registros indican que no hemos recibido el pago de la factura "
+"mencionada anteriormente.\n"
+"Si ya se ha enviado, por favor ignore este aviso. Si no es así, por favor "
+"proceda con el pago dentro de 10 días.\n"
+"\n"
+"Gracias de antemano por su cooperación prevista en esta materia.\n"
+"\n"
+"Atentamente"
+
+#. module: account_credit_control
+#: model:credit.control.policy.level,custom_mail_text:account_credit_control.3_time_1
+msgid ""
+"Our records indicate that we have not received the payment of the invoices "
+"mentioned in the attached document.\n"
+"\n"
+"If it has already been sent, please disregard this notice. If not, please "
+"proceed with payment within 10 days.\n"
+"\n"
+"Thank you in advance for your anticipated cooperation in this matter.\n"
+"\n"
+"Best regards\n"
+"      "
+msgstr ""
+"Nuestra contabilidad nos informa de que los proyectos de ley mencionados en "
+"el documento adjunto no se han pagado a pesar de un retiro anterior.\n"
+"        Si esta carta cruzó su pago por favor considere nulo y sin efecto. "
+"De lo contrario, por favor hacer el pago dentro de los 10 días.\n"
+"\n"
+"  Gracias por su cooperación.\n"
+"\n"
+"Saludos"
+
+#. module: account_credit_control
+#: model:credit.control.policy.level,custom_mail_text:account_credit_control.2_time_1
+msgid ""
+"Our records indicate that we have not received the payment of the invoices "
+"mentioned in the attached document.\n"
+"If it has already been sent, please disregard this notice. If not, please "
+"proceed with payment within 10 days.\n"
+"\n"
+"Thank you in advance for your anticipated cooperation in this matter.\n"
+"\n"
+"Best regards\n"
+"      "
+msgstr ""
+"Nuestra contabilidad nos informa de que los proyectos de ley mencionados en "
+"el documento adjunto no se han pagado a pesar de un retiro anterior.\n"
+"        Si esta carta cruzó su pago por favor considere nulo y sin efecto. "
+"De lo contrario, por favor hacer el pago dentro de los 10 días.\n"
+"\n"
+"  Gracias por su cooperación.\n"
+"\n"
+"Saludos"
+
+#. module: account_credit_control
+#: model:credit.control.policy.level,custom_text:account_credit_control.3_time_2
+msgid ""
+"Our records indicate that we have not yet received the payment of the above "
+"mentioned invoice despite our first reminder.\n"
+"        If it has already been sent, please disregard this notice. If not, "
+"please proceed with payment within 5 days.\n"
+"\n"
+"Thank you in advance for your anticipated cooperation in this matter.\n"
+"\n"
+"Best regards\n"
+"      "
+msgstr ""
+"Nos informa de que nuestras cuentas contables a continuación no se han "
+"pagado a pesar de una recuperación anterior.\n"
+"        Si se cruzó correo su pago, por favor considerarla como nula y sin "
+"efecto. Si no, por favor el pago dentro de los 5 días.\n"
+"\n"
+"  Gracias por su cooperación.\n"
+"\n"
+"Saludos"
+
+#. module: account_credit_control
+#: model:credit.control.policy.level,custom_mail_text:account_credit_control.3_time_2
+msgid ""
+"Our records indicate that we have not yet received the payment of the "
+"invoices mentioned in the attached document despite our first reminder.\n"
+"        If it has already been sent, please disregard this notice. If not, "
+"please proceed with payment within 5 days.\n"
+"\n"
+"Thank you in advance for your anticipated cooperation in this matter.\n"
+"\n"
+"Best regards\n"
+"      "
+msgstr ""
+"Nuestra contabilidad nos informa de que los proyectos de ley mencionados en "
+"el documento adjunto no se han pagado a pesar de un retiro anterior.\n"
+"        Si se cruzó correo su pago, por favor considerarla como nula y sin "
+"efecto. Si no, por favor el pago dentro de los 5 días.\n"
+"\n"
+"  Gracias por su cooperación.\n"
+"\n"
+"Saludos"
+
+#. module: account_credit_control
+#: model:credit.control.policy.level,custom_text:account_credit_control.2_time_2
+msgid ""
+"Our records indicate that we still have not received the payment of the "
+"above mentioned invoice despite our reminder.\n"
+"\n"
+"        If payment have already been sent, please disregard this notice. If "
+"not, please proceed with payment.\n"
+"        If your payment has not been received in the next 5 days, your file "
+"will be transfered to our debt\n"
+"        collection agency.\n"
+"\n"
+"        Should you need us to arrange a payment plan for you, please "
+"advise.\n"
+"        A customer account statement is enclosed for you convenience.\n"
+"\n"
+"        Thank you in advance for your anticipated cooperation in this "
+"matter.\n"
+"\n"
+"        Best regards\n"
+"      "
+msgstr ""
+"Nuestros registros indican que usted todavía tiene que abramos nuestras "
+"facturas anteriores a pesar de los recordatorios.\n"
+"         Si esta carta cruzó su pago por favor considere nulo y sin efecto.\n"
+"         Si el pago no se realiza dentro de 5 días será trasladado a una "
+"agencia de colección.\n"
+"\n"
+"         Si usted quiere un acuerdo de pago por favor póngase en contacto "
+"con nosotros.\n"
+"         Una declaración puede encontrarse adjunto.\n"
+"\n"
+"         Gracias por su cooperación"
+
+#. module: account_credit_control
+#: model:credit.control.policy.level,custom_mail_text:account_credit_control.2_time_2
+msgid ""
+"Our records indicate that we still have not received the payment of the "
+"invoices mentioned in the attached document despite our reminder.\n"
+"\n"
+"If payment have already been sent, please disregard this notice. If not, "
+"please proceed with payment.\n"
+"If your payment has not been received in the next 5 days, your file will be "
+"transfered to our debt\n"
+"        collection agency.\n"
+"\n"
+"        Should you need us to arrange a payment plan for you, please "
+"advise.\n"
+"        A customer account statement is enclosed for you convenience.\n"
+"\n"
+"        Thank you in advance for your anticipated cooperation in this "
+"matter.\n"
+"\n"
+"        Best regards\n"
+"      "
+msgstr ""
+"Nuestros registros indican que usted todavía tiene que abramos nuestras "
+"facturas anteriores a pesar de los recordatorios.\n"
+"         Si esta carta cruzó su pago por favor considere nulo y sin efecto.\n"
+"         Si el pago no se realiza dentro de 5 días será trasladado a una "
+"agencia de colección.\n"
+"\n"
+"         Si usted quiere un acuerdo de pago por favor póngase en contacto "
+"con nosotros.\n"
+"         Una declaración puede encontrarse adjunto.\n"
+"\n"
+"         Gracias por su colaboración"
+
+#. module: account_credit_control
+#: model:credit.control.policy.level,custom_mail_text:account_credit_control.3_time_3
+msgid ""
+"Our records indicate that we still have not received the payment of the "
+"invoices mentioned in the attached document despite our two reminders.\n"
+"        If payment have already been sent, please disregard this notice. If "
+"not, please proceed with payment.\n"
+"        If your payment has not been received in the next 5 days, your file "
+"will be transfered to our debt collection agency.\n"
+"\n"
+"        Should you need us to arrange a payment plan for you, please "
+"advise.\n"
+"        A customer account statement is enclosed for you convenience.\n"
+"\n"
+"        Thank you in advance for your anticipated cooperation in this "
+"matter.\n"
+"\n"
+"        Best regards\n"
+"      "
+msgstr ""
+"Nuestros registros indican que todavía no hemos recibido el pago de las "
+"facturas mencionadas en el documento adjunto a pesar de nuestras dos "
+"recordatorios.\n"
+"         Si el pago ya se han enviado, por favor ignore este aviso. Si no es "
+"así, por favor proceda con el pago.\n"
+"         Si el pago no se ha recibido en los próximos 5 días, el archivo "
+"será transferido a nuestra agencia de cobro de deudas.\n"
+"\n"
+"         En caso de que nos necesitan para organizar un plan de pago para "
+"usted, por favor avise.\n"
+"         Un estado de cuenta del cliente se adjunta para su conveniencia.\n"
+"\n"
+"         Gracias de antemano por su cooperación prevista en esta materia.\n"
+"\n"
+"         Saludos cordiales"
+
+#. module: account_credit_control
+#: model:ir.model,name:account_credit_control.model_mail_mail
+msgid "Outgoing Mails"
+msgstr "Correos salientes"
+
+#. module: account_credit_control
+#: field:credit.control.line,policy_level_id:0
+msgid "Overdue Level"
+msgstr "Nivel Atrasado"
+
+#. module: account_credit_control
+#: field:credit.control.communication,partner_id:0
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+#: field:credit.control.line,partner_id:0
+#: model:ir.model,name:account_credit_control.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: account_credit_control
+#: code:addons/account_credit_control/run.py:109
+#, python-format
+msgid "Please select a policy"
+msgstr "Por favor, seleccione una política"
+
+#. module: account_credit_control
+#: code:addons/account_credit_control/wizard/credit_control_policy_changer.py:61
+#, python-format
+msgid "Please use wizard on customer invoices"
+msgstr "Por favor, utilizar el asistente de facturas de clientes"
+
+#. module: account_credit_control
+#: view:credit.control.run:account_credit_control.credit_control_run_form
+#: field:credit.control.run,policy_ids:0
+msgid "Policies"
+msgstr "Políticas"
+
+#. module: account_credit_control
+#: code:addons/account_credit_control/run.py:132
+#, python-format
+msgid "Policy \"<b>%s</b>\" has generated <b>%d Credit Control Lines.</b><br/>"
+msgstr ""
+"Política de <b>&quot;%s&quot;</b> ha <b>generado% d líneas de control de "
+"crédito.</b> <br/>"
+
+#. module: account_credit_control
+#: code:addons/account_credit_control/run.py:136
+#, python-format
+msgid "Policy \"<b>%s</b>\" has not generated any Credit Control Lines.<br/>"
+msgstr ""
+"Política de <b>&quot;%s&quot;</b> no ha generado líneas de control de "
+"crédito. <br/>"
+
+#. module: account_credit_control
+#: field:credit.control.policy,level_ids:0
+msgid "Policy Levels"
+msgstr "Niveles de directiva"
+
+#. module: account_credit_control
+#: view:credit.control.policy:account_credit_control.credit_control_policy_form
+#: view:credit.control.policy.level:account_credit_control.credit_mangement_policy_level_form
+msgid "Policy level"
+msgstr "A nivel de políticas"
+
+#. module: account_credit_control
+#: view:credit.control.policy:account_credit_control.credit_control_policy_form
+msgid "Policy levels"
+msgstr "Niveles de Política"
+
+#. module: account_credit_control
+#: selection:credit.control.policy.level,computation_mode:0
+msgid "Previous Reminder"
+msgstr "Recordatorio Anterior"
+
+#. module: account_credit_control
+#: view:credit.control.printer:account_credit_control.credit_line_printer_form
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: account_credit_control
+#: model:ir.actions.act_window,name:account_credit_control.open_credit_line_printer_wizard
+#: model:ir.actions.act_window,name:account_credit_control.open_credit_line_printer_wizard_menu_action
+msgid "Print Lines"
+msgstr "Imprimir selección"
+
+#. module: account_credit_control
+#: model:ir.actions.act_window,help:account_credit_control.open_credit_line_printer_wizard
+msgid "Print selected lines"
+msgstr "Imprimir documentos seleccionados"
+
+#. module: account_credit_control
+#: view:credit.control.printer:account_credit_control.credit_line_printer_form
+msgid "Print the selected lines"
+msgstr "Imprimir las líneas seleccionadas"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+#: selection:credit.control.line,state:0
+#: selection:credit.control.marker,name:0
+msgid "Ready To Send"
+msgstr "Listo para enviar"
+
+#. module: account_credit_control
+#: field:credit.control.line,policy_id:0
+#: field:credit.control.policy.level,policy_id:0
+msgid "Related Policy"
+msgstr "Políticas Relacionadas"
+
+#. module: account_credit_control
+#: view:website:account_credit_control.report_credit_control_summary_document
+msgid "Reminder"
+msgstr "Recordatorio"
+
+#. module: account_credit_control
+#: view:credit.control.run:account_credit_control.credit_control_run_form
+#: field:credit.control.run,report:0
+msgid "Report"
+msgstr "Carta"
+
+#. module: account_credit_control
+#: field:credit.control.communication,report_date:0
+msgid "Report Date"
+msgstr "Fecha del reporte:"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+msgid "Run date"
+msgstr "Fecha de ejecución"
+
+#. module: account_credit_control
+#: model:ir.actions.act_window,name:account_credit_control.open_credit_line_emailer_wizard
+#: model:ir.actions.act_window,name:account_credit_control.open_credit_line_emailer_wizard_menu_action
+msgid "Send By Email"
+msgstr "Enviarme por email"
+
+#. module: account_credit_control
+#: model:ir.actions.act_window,help:account_credit_control.open_credit_line_emailer_wizard
+msgid "Send an email for the selected lines."
+msgstr "Enviar un correo electrónico para las líneas seleccionadas."
+
+#. module: account_credit_control
+#: view:credit.control.emailer:account_credit_control.credit_line_emailer_form
+msgid "Send emails for the selected lines"
+msgstr "Enviar mensajes de correo electrónico de las líneas seleccionadas"
+
+#. module: account_credit_control
+#: view:credit.control.emailer:account_credit_control.credit_line_emailer_form
+msgid "Send the emails"
+msgstr "Enviar emails"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+msgid "Sent"
+msgstr "Enviar"
+
+#. module: account_credit_control
+#: field:credit.control.line,mail_message_id:0
+msgid "Sent Email"
+msgstr "Enviado por correo electrónico"
+
+#. module: account_credit_control
+#: field:credit.control.line,date_sent:0
+msgid "Sent date"
+msgstr "Fecha de envío"
+
+#. module: account_credit_control
+#: view:credit.control.policy.changer:account_credit_control.credit_control_policy_changer_form
+msgid "Set current credit level"
+msgstr "Ajuste el nivel actual de crédito"
+
+#. module: account_credit_control
+#: view:credit.control.policy.changer:account_credit_control.credit_control_policy_changer_form
+msgid "Set new policy"
+msgstr "Establecer una nueva política"
+
+#. module: account_credit_control
+#: field:credit.control.line,run_id:0
+msgid "Source"
+msgstr "Origen"
+
+#. module: account_credit_control
+#: field:credit.control.line,state:0 field:credit.control.run,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: account_credit_control
+#: view:website:account_credit_control.report_credit_control_summary_document
+msgid "Summary"
+msgstr "Resumen"
+
+#. module: account_credit_control
+#: help:account.invoice,credit_policy_id:0
+msgid ""
+"The Credit Control Policy used for this invoice. If nothing is defined, it "
+"will use the account setting or the partner setting."
+msgstr ""
+"La política de control de crédito utilizada para esta factura. Si no se "
+"define, se utilizará la configuración de cuenta o el ajuste de pareja."
+
+#. module: account_credit_control
+#: help:res.partner,credit_policy_id:0
+#, fuzzy
+msgid ""
+"The Credit Control Policy used for this partner. This setting can be forced "
+"on the invoice. If nothing is defined, it will use the company setting."
+msgstr ""
+"La política de control de crédito utilizada para esta pareja. Este ajuste "
+"puede ser forzado en la factura. Si no se define, se utilizará el valor de "
+"la empresa."
+
+#. module: account_credit_control
+#: help:res.company,credit_policy_id:0
+msgid ""
+"The Credit Control Policy used on partners by default. This setting can be "
+"overridden on partners or invoices."
+msgstr ""
+"La política de control de crédito utilizada en los socios de forma "
+"predeterminada. Esta configuración se puede anular en socios o facturas."
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+msgid "The line was deprecated by a manual change of policy on invoice."
+msgstr ""
+"La línea está desfasada por un cambio manual de la política en la factura."
+
+#. module: account_credit_control
+#: help:credit.control.line,currency_id:0
+msgid "The optional other currency if it is a multi-currency entry."
+msgstr "La otra divisa opcional si es un asiento multi-divisa."
+
+#. module: account_credit_control
+#: code:addons/account_credit_control/policy.py:258
+#, python-format
+msgid "The smallest level can not be of type Previous Reminder"
+msgstr "El nivel más pequeño no puede ser de tipo Recordatorio Anterior"
+
+#. module: account_credit_control
+#: view:credit.control.line:account_credit_control.credit_control_line_search
+msgid "These lines are ready to send by email or by letter using the Actions."
+msgstr ""
+"Estas líneas están listos para enviar por correo electrónico o por carta "
+"usando las acciones."
+
+#. module: account_credit_control
+#: help:credit.control.policy,account_ids:0
+msgid "This policy will be active only for the selected accounts"
+msgstr "Esta política estará activo sólo para las cuentas seleccionadas"
+
+#. module: account_credit_control
+#: view:credit.control.policy.changer:account_credit_control.credit_control_policy_changer_form
+msgid ""
+"This wizard will let you set the overdue policy and level for selected "
+"invoices"
+msgstr ""
+"Este asistente le permitirá configurar la política de atraso y el nivel de "
+"las facturas seleccionadas"
+
+#. module: account_credit_control
+#: view:website:account_credit_control.report_credit_control_summary_document
+msgid "Total Due"
+msgstr "Total a pagar"
+
+#. module: account_credit_control
+#: view:website:account_credit_control.report_credit_control_summary_document
+msgid "Total Invoiced"
+msgstr "Total facturé"
+
+#. module: account_credit_control
+#: field:credit.control.communication,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: account_credit_control
+#: view:credit.control.marker:account_credit_control.credit_line_marker_form
+msgid "Warning: you will maybe not be able to revert this operation."
+msgstr "Advertencia: tal vez no será capaz de revertir esta operación."
+
+#. module: account_credit_control
+#: code:addons/account_credit_control/line.py:226
+#, python-format
+msgid ""
+"You are not allowed to delete a credit control line that is not in draft "
+"state."
+msgstr ""
+"No se le permite eliminar una línea de control de crédito que no se "
+"encuentra en estado de borrador."
+
+#. module: account_credit_control
+#: code:addons/account_credit_control/policy.py:203
+#, python-format
+msgid ""
+"You can only use a policy set on account %s.\n"
+"Please choose one of the following policies:\n"
+" %s"
+msgstr ""
+"Sólo se puede utilizar un juego de políticas en cuenta %s.\n"
+"Por favor elija una de las siguientes políticas:\n"
+"  %s"
+
+#. module: account_credit_control
+#: code:addons/account_credit_control/invoice.py:57
+#, python-format
+msgid ""
+"You cannot cancel this invoice.\n"
+"A payment reminder has already been sent to the customer.\n"
+"You must create a credit note and issue a new invoice."
+msgstr ""
+"No se puede cancelar esta factura.\n"
+"Un recordatorio de pago ya ha sido enviado al cliente.\n"
+"No debe crear una nota de crédito y emitir una nueva factura."
+
+#. module: account_credit_control
+#: model:ir.model,name:account_credit_control.model_credit_control_communication
+msgid "credit control communication"
+msgstr "la comunicación de control de crédito"
+
+#. module: account_credit_control
+#: field:credit.control.line,level:0
+msgid "credit.control.policy.level"
+msgstr "credit.control.policy.level"
+
+#. module: account_credit_control
+#: view:credit.control.emailer:account_credit_control.credit_line_emailer_form
+#: view:credit.control.marker:account_credit_control.credit_line_marker_form
+#: view:credit.control.policy.changer:account_credit_control.credit_control_policy_changer_form
+#: view:credit.control.printer:account_credit_control.credit_line_printer_form
+msgid "or"
+msgstr "o"

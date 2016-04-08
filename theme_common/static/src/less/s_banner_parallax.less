@@ -1,0 +1,57 @@
+@s_banner_parallax_height: 500px;
+@s_banner_parallax_padding: 130px;
+.s_banner_parallax_row_hook (){};
+.s_banner_parallax_hero_bg_hook (){};
+.s_banner_parallax {
+    margin-bottom: 0px !important;
+
+    @media screen and (max-width: 768px) {
+        background-position: center !important;
+    }
+
+    .container-fluid {
+        padding: 0;
+
+        .row {
+            height: @s_banner_parallax_height;
+            .s_banner_parallax_row_hook;
+
+            .hero-bg {
+                padding-left: @s_banner_parallax_padding;
+                color: @color-alpha;
+                .s_banner_parallax_hero_bg_hook;
+
+                @media screen and (max-width: 768px) {
+                    text-align: center;
+                    padding-left: 15px;
+                }
+
+                h1 {
+                    font-size: 80px;
+                    text-shadow: 1px 1px 11px rgba(0, 0, 0, 0.86);
+
+                    @media screen and (max-width: 360px) {
+                        font-size: 50px;
+                    }
+                }
+
+                h2 {
+                    font-size: 40px;
+                    text-shadow: 1px 1px 11px rgba(0, 0, 0, 0.86);
+
+                    @media screen and (max-width: 360px) {
+                        font-size: 30px;
+                    }
+                }
+
+                img {
+                    max-height: 200px;
+
+                    @media screen and (max-width: 360px) {
+                        max-height: 200px;
+                    }
+                }
+            }
+        }
+    }
+}

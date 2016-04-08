@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="invoice_discount_report" inherit_id="account.report_invoice_document">
+
+            <xpath expr="//table[1]//th[text()='Discount (%)']" position="replace">
+                <th t-if="o.disc_total != 0.0"
+                    groups="sale.group_discount_per_so_line">Total
+                </th>
+                <th t-if="o.disc_total != 0.0"
+                    groups="sale.group_discount_per_so_line">Discount (%)
+                </th>
+                <th t-if="o.disc_total != 0.0" class="text-right"
+                    groups="sale.group_discount_per_so_line">Disc.
+                </th>
+            </xpath>
+
+            <xpath expr="//tbody//td[@groups='sale.group_discount_per_so_line']" position="replace">
+                <td t-if="o.disc_total != 0.0" groups="sale.group_discount_per_so_line">
+                    <span t-field="l.total_wo_disc"/>
+                </td>
+                <td t-if="o.disc_total" groups="sale.group_discount_per_so_line">
+                    <span t-field="l.discount"/>
+                </td>
+                <td t-if="o.disc_total != 0.0" class="text-right" groups="sale.group_discount_per_so_line">
+                    <span t-field="l.disc_amount"/>
+                </td>
+            </xpath>
+
+            <xpath expr="//table//tr[@class='border-black']" position="before">
+
+                <tr class="border-black" t-if="o.disc_total != 0.0"
+                    groups="sale.group_discount_per_so_line">
+                    <td>Total sin descuento</td>
+                    <td class="text-right">
+                        <span t-field="o.total_b4_disc"/>
+                    </td>
+                </tr>
+                <tr t-if="o.disc_total != 0.0" groups="sale.group_discount_per_so_line">
+                    <td>Descuento</td>
+                    <td class="text-right">
+                        <span t-field="o.disc_total"/>
+                    </td>
+                </tr>
+
+            </xpath>
+
+        </template>
+    </data>
+</openerp>
+
+

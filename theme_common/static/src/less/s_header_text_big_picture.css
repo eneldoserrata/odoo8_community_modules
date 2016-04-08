@@ -1,0 +1,9 @@
+.s_header_text_big_picture .col-md-12 img {
+  width: 100%;
+}
+.s_header_text_big_picture .col-md-6 {
+  padding: 0 40px;
+}
+.s_header_text_big_picture .col-md-12:last-child {
+  padding: 0;
+}

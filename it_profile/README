@@ -1,0 +1,38 @@
+template for odoo 8.0
+
+Copyright (c) 
+    2015 - Ait-Mlouk addi (aitmlouk@gmail.com)
+    http://odoo-services.esy.es/
+
+License
+-------
+We chose to distribute this module under AGPL-3 license term. See LICENCE file
+for details.
+
+Required dependencies
+---------------------
+ - An Odoo 8.0 environment .
+
+Description
+-----------
+this module is about profile template 
+
+Configuration
+-------------
+Just install this module under name it_profile in odoo 8.0, then you get new page added in website odoo.
+We hope it work for you.
+
+=======================
+-------------------------------------
+Follow me  :
+---------------------------------------
+Ait-Mlouk Addi (Technico-Functional Consultant Junior Odoo)
+
+    
+# site web : http://odoo-services.esy.es/
+# blog     : http://odoo-services.esy.es/17-2/
+# linkedin : http://ma.linkedin.com/pub/addi-ait-mlouk/56/850/32a
+# viadeo   : http://ma.viadeo.com/en/profile/addi.mlk
+# Google+  : https://plus.google.com/+AitMloukAddi
+# twitter   : https://twitter.com/aitmlouk
+

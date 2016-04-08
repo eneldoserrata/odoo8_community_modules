@@ -1,0 +1,2 @@
+var cycle_snippet_effects = ['blindX', 'blindY', 'blindZ', 'cover', 'curtainX', 'curtainY', 'fade', 'fadeZoom', 'growX', 'growY', 'none', 'scrollUp', 'scrollDown', 'scrollLeft', 'scrollRight', 'scrollHorz', 'scrollVert', 'shuffle', 'slideX', 'slideY', 'toss', 'turnUp', 'turnDown', 'turnLeft', 'turnRight', 'uncover', 'wipe', 'zoom', ];
+var cycle_snippet_intervals = {'no-interval' : 0, '05s' : 500, '1s' : 1000, '2s' : 2000, '5s' : 5000, '10s' : 10000 };

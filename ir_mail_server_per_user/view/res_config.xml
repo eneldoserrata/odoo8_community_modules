@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="view_general_configuration_mail_user_ept" model="ir.ui.view">
+			<field name="name">Outgoing Mail User Configuration</field>
+			<field name="model">base.config.settings</field>
+			<field name="inherit_id" ref="base_setup.view_general_configuration" />
+			<field name="priority" eval="50" />
+			<field name="arch" type="xml">
+				<data>
+					<xpath expr="//div[@name='email']" position="inside">
+						<div>
+							<label for="group_visible_outgoing_mail_per_user" class="oe_inline" />
+							<field name="group_visible_outgoing_mail_per_user" class="oe_inline" />
+						</div>
+					</xpath>
+				</data>
+			</field>
+		</record>
+	</data>
+</openerp>

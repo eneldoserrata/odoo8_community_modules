@@ -1,0 +1,59 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_discount
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0-3ea978b\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-12-19 22:59+0000\n"
+"PO-Revision-Date: 2014-12-20 00:59+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
+
+#. module: sale_discount
+#: view:website:sale.report_saleorder_document
+msgid "Disc."
+msgstr "خصم"
+
+#. module: sale_discount
+#: view:website:sale.report_saleorder_document
+msgid "Disc.(%)"
+msgstr "نسبة الخصم (%)"
+
+#. module: sale_discount
+#: field:sale.order.line,disc_line:0
+msgid "Discount"
+msgstr "خصم"
+
+#. module: sale_discount
+#: model:ir.model,name:sale_discount.model_sale_order
+msgid "Sales Order"
+msgstr "أمر المبيعات"
+
+#. module: sale_discount
+#: model:ir.model,name:sale_discount.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "بند أمر مبيعات"
+
+#. module: sale_discount
+#: field:sale.order.line,total_line:0
+#: view:website:sale.report_saleorder_document
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: sale_discount
+#: field:sale.order,total_b4_disc:0
+#: view:website:sale.report_saleorder_document
+msgid "Total Before Discount"
+msgstr "اجمالي قبل الخصم"
+
+#. module: sale_discount
+#: field:sale.order,disc_total:0 view:website:sale.report_saleorder_document
+msgid "Total Discount"
+msgstr "اجمالي الخصم"

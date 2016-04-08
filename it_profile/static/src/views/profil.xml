@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<template id="website.profil" name="Profile" page="True">
+    <t t-call="website.layout">
+           <div id="home-sec">
+            <div class="overlay">
+             <div class="container">            
+                <div class="row">
+                <div class="col-md-12">
+                   <h1 class="wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".2s" >Ait-Mlouk Addi</h1>
+                    <h2 class="wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".2s" >Freelancer</h2>
+                    <h2 class="wow bounceIn animated" data-wow-duration="2s" data-wow-delay=".4s" >2+ Years Experience</h2>
+                    <h2 class="wow bounceIn animated" data-wow-duration="3s" data-wow-delay=".6s" >Consultant and developer Odoo</h2>
+                    <div id="fixed-menu-custom" class="scroll-me wow bounceIn animated" data-wow-duration="4s" data-wow-delay=".8s" >
+                        <a href="#home-sec" class="btn btn-info"  data-toggle="tooltip" data-placement="left"  data-original-title="Home" ><i class="fa fa-home"></i></a>
+                        <a href="#about" class="btn btn-success"  data-toggle="tooltip" data-placement="left"  data-original-title="About" ><i class="fa fa-edit"></i></a>
+                        <a href="#skills" class="btn btn-danger"  data-toggle="tooltip" data-placement="left"  data-original-title="Skills" ><i class="fa fa-comments-o"></i></a>
+                        <a href="#contact-sec" class="btn btn-warning" data-toggle="tooltip" data-placement="left"  data-original-title="Contact"  ><i class="fa fa-map-marker"></i></a>
+                    </div>
+                </div>
+            </div>
+            </div>            
+            </div>
+        </div>
+        <!--HOME SECTION END  -->
+        <section id="about">
+        <div class="container">
+            <div class="row text-center pad-bottom">
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+                    <h1 class="wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".2s" >What can I do?</h1>
+                     <p class="wow bounceIn animated" data-wow-duration="2s" data-wow-delay=".4s" >
+                        I provide many services like odoo developpment, training, consulting, mobile...
+                    </p>
+                </div>
+            </div>
+            <div class="row text-center wow bounceIn animated" data-wow-duration="3s" data-wow-delay=".6s" >
+
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <img src="/it_profile/static/src/img/2.png" alt="" class="img-circle" />
+                    <h3>ODOO</h3>
+                    <p>
+                        Development based on open source solutions especially Odoo...
+                    </p>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <img src="/it_profile/static/src/img/3.png" alt="" class="img-circle" />
+
+                    <h3>DEVELOPMENT </h3>
+                    <p>
+                        Web developpment based open source CMS solutions, Php,bootstrap...
+                    </p>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <img src="/it_profile/static/src/img/4.png" alt="" class="img-circle" />
+
+                    <h3>MOBILE </h3>
+                    <p>
+                        Mobile Application Development based jQuery Mobile and Android platforms.
+                    </p>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <img src="/it_profile/static/src/img/5.png" alt="" class="img-circle" />
+
+                    <h3>TRAINING</h3>
+                    <p>
+                       Technical and functional training Odoo, python, web, office ...
+                    </p>
+                </div>
+                 
+            </div>
+        </div>
+    </section>
+     <!--ABOUT SECTION END  -->
+     <div id="stats-sec">
+            <div class="overlay">
+             <div class="container">            
+                <div class="row text-center">
+                <div class="col-md-2 col-sm-2 col-sm-6 wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".2s" >
+                    <h2>20</h2>
+                    <h2>Projects</h2>
+                    <hr />
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-sm-6 wow bounceIn animated" data-wow-duration="2s" data-wow-delay=".4s">
+                    <h2>5</h2>
+                    <h2>Customers</h2>
+                        <hr />
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-sm-6 wow bounceIn animated" data-wow-duration="3s" data-wow-delay=".6s">
+                    <h2>4</h2>
+                    <h2>Countries</h2>
+                        <hr />
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-sm-6 wow bounceIn animated" data-wow-duration="5s" data-wow-delay="1s">
+                    <h2>50 K</h2>
+                    <h2>Question</h2>
+                        <hr />
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-sm-6 wow bounceIn animated" data-wow-duration="6s" data-wow-delay="1.2s">
+                    <h2>90 K</h2>
+                    <h2>Lines</h2>
+                        <hr />
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-sm-6 wow bounceIn animated" data-wow-duration="6s" data-wow-delay="1.2s">
+                    <h2>20</h2>
+                    <h2>Publications</h2>
+                        <hr />
+                    </div>
+                    <br /><br />
+                     <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 wow bounceIn animated" data-wow-duration="7s" data-wow-delay="1.4s">
+                    <h2>Client Satisfaction Assured</h2>
+                     <p>
+                        Quality assured
+                    </p>
+                     </div>
+                    </div>
+                 </div>
+                </div>
+         </div>
+     <!--STATS SECTION END  -->
+      <section id="skills"  class="wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".2s">
+        <div class="container">
+            <div class="row text-center pad-bottom">
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+                    <h1>My skills</h1>
+                     <p>
+                        Professionally Consultant Junior Odoo (e.g OpenERP) and integrator of open source solutions.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-4 col-sm-4 col-md-offset-1 col-sm-offset-1">
+                   <label>Odoo ( 95% )</label>
+                    <div class="progress">
+                         
+					  <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%">
+					    <span class="sr-only">90% Complete (success)</span>
+					  </div>
+					</div>
+					                     <label>Training ( 80% )</label>
+					<div class="progress">
+					  <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+					     <span class="sr-only">80% Complete</span>
+					  </div>
+					</div>
+					                     <label>HTML ( 60% )</label>
+					<div class="progress">
+					  <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+					    <span class="sr-only">60% Complete (warning)</span>
+					  </div>
+					</div>
+					                     <label>Python ( 80% )</label>
+					<div class="progress">
+					  <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+					    <span class="sr-only">80% Complete (80%)</span>
+					  </div>
+					</div>
+					                    <label>Bootstrap ( 90% )</label>
+					<div class="progress">
+					  <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+					     <span class="sr-only">90% Complete</span>
+					  </div>
+					</div>
+                </div>
+                
+               <div class="col-md-6 col-sm-6 col-md-offset-1 col-sm-offset-1">
+                   <div class="alert alert-info">
+                   Professionally Consultant Junior Odoo (eg OpenERP) and integrator of open source solutions,
+                   my training, my experience allowed me to acquire large solid skills especially on open source products namely Odoo ...
+                   <h5 class="get-right"><strong> - Ait-Mlouk Addi </strong></h5>
+               </div>
+                     <div class="alert alert-warning">
+                    I developed my sense of responsibility, team work spirit, adaptation, communication, and strong technical skills.
+                    Curious, dynamic and passionate about new technologies.
+                   <h5 class="get-right"><strong> - Ait-Mlouk Addi </strong></h5>
+               </div>
+               </div>
+                 
+            </div>
+        </div>
+    </section>
+    
+      <section id="contact-sec" class="wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".2s">
+        <div class="container">
+            <div class="row text-center pad-bottom">
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+                    <h1>Contact</h1>
+                     <p>
+                        Contact me for details.
+                    </p>
+                </div>
+            </div>
+            <div class="row text-center">
+                  
+                 
+                 <div class="col-md-4 col-sm-4">
+                     <h4 align="left"><strong>Physical Location : </strong> </h4> 
+                     <h4 align="left">  Marrakech ,</h4>
+                     <h4 align="left"> Morocco . </h4>
+                     <br />
+                 </div>
+                <div class="col-md-4 col-sm-4">
+                   
+                        <a href="https://www.facebook.com/iminoika" class="btn btn-social btn-facebook">
+                             Facebook</a>
+                        <a href="https://plus.google.com/+AitMloukAddi/posts" class="btn btn-social btn-google">
+                             Google</a>
+                        <a href="https://twitter.com/" class="btn btn-social btn-twitter">
+                             Twitter</a>
+                     <br />
+                     
+                </div>
+                 <div class="col-md-3 col-sm-3 ">
+                     <h4 align="left"><strong>Quick Contact : </strong> </h4> 
+                     <h4 align="left"><strong>Call : </strong> (+212)672977726</h4>
+                     <h4 align="left"><strong>Email : </strong> aitmlouk@gmail.com</h4>
+                     <h4 align="left"><strong>Website : </strong> <a href="http://www.odoo-services.esy.es"> Website</a></h4>
+                     <br />
+                 </div>
+
+            </div>
+
+        </div>
+    </section>
+    
+	 </t>
+</template>
+
+<record id="profil_menu" model="website.menu">
+    <field name="name">Profile</field>
+    <field name="url">/page/profil</field>
+    <field name="parent_id" ref="website.main_menu"/>
+    <field name="sequence" type="int">20</field>
+</record>
+
+
+ <template id="layout_inherit" inherit_id="website.layout">
+    <xpath expr="//html/head" position="inside">
+		<!-- core CSS -->	
+		  <link rel="stylesheet" href="/it_profile/static/src/css/animate.css"/>
+          <link rel="stylesheet" href="/it_profile/static/src/css/style.css"/>
+          <link href='http://fonts.googleapis.com/css?family=Dosis:500' rel='stylesheet' type='text/css'/>
+		
+
+ 		
+    </xpath> 
+ </template>
+    
+<template id="profile_theme_asset" name="website assete for profile theme" inherit_id="website.theme">
+    <xpath expr="." position="inside">
+          <script type="text/javascript" src="/it_profile/static/src/js/custom.js"></script>
+          <script type="text/javascript" src="/it_profile/static/src/js/jquery.easing.min.js"></script>
+          <script type="text/javascript" src="/it_profile/static/src/js/wow.min.js"></script>
+    </xpath>
+</template>
+</data>
+</openerp>

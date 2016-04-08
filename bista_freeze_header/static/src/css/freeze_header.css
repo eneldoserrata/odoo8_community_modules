@@ -1,0 +1,12 @@
+/*.openerp th, .openerp td .oe_list_field_cell{
+  text-align: center;
+}*/
+.openerp .oe_form_sheetbg {
+    padding: 45px 0;
+}
+
+.openerp .oe_form header{
+position: fixed;
+z-index: 1;
+width: 82%;
+}

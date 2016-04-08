@@ -1,0 +1,8 @@
+.s_logo_bar {
+  min-height: 192px;
+  color: white;
+  padding: 48px 0;
+}
+.s_logo_bar img {
+  max-height: 80px;
+}

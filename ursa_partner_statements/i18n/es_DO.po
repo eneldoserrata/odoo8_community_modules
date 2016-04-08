@@ -1,0 +1,291 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ursa_partner_statements
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-04 04:56+0000\n"
+"PO-Revision-Date: 2015-10-04 01:00-0400\n"
+"Last-Translator: Eneldo Serrata <eneldoserrata@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es_DO\n"
+"X-Generator: Poedit 1.8.5\n"
+
+#. module: ursa_partner_statements
+#: model:ir.model,name:ursa_partner_statements.model_ursa_account_common_partner_report
+msgid "Account Common Partner Report"
+msgstr "Informe de la cuenta común de empresa"
+
+#. module: ursa_partner_statements
+#: model:ir.model,name:ursa_partner_statements.model_ursa_account_common_report
+msgid "Account Common Report"
+msgstr "Contabilidad. Informe común"
+
+#. module: ursa_partner_statements
+#: model:ir.model,name:ursa_partner_statements.model_account_partner_ledger
+msgid "Account Partner Ledger"
+msgstr "Contabilidad. Libro mayor empresa"
+
+#. module: ursa_partner_statements
+#: view:account.partner.ledger:ursa_partner_statements.ursa_account_partner_ledger_view
+msgid "All Account Activity"
+msgstr "Toda la actividad de cuenta"
+
+#. module: ursa_partner_statements
+#: code:addons/ursa_partner_statements/report/common_report_header.py:67
+#: selection:ursa.account.common.partner.report,target_move:0
+#: selection:ursa.account.common.report,target_move:0
+#, python-format
+msgid "All Entries"
+msgstr "Todos los asientos"
+
+#. module: ursa_partner_statements
+#: code:addons/ursa_partner_statements/report/common_report_header.py:68
+#: selection:ursa.account.common.partner.report,target_move:0
+#: selection:ursa.account.common.report,target_move:0
+#, python-format
+msgid "All Posted Entries"
+msgstr "Todos los asientos asentados"
+
+#. module: ursa_partner_statements
+#: view:ursa.account.common.report:ursa_partner_statements.ursa_account_common_report_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: ursa_partner_statements
+#: field:ursa.account.common.partner.report,chart_account_id:0
+#: field:ursa.account.common.report,chart_account_id:0
+msgid "Chart of Account"
+msgstr "Plan de cuentas"
+
+#. module: ursa_partner_statements
+#: model:ir.actions.act_window,name:ursa_partner_statements.action_account_common_menu
+msgid "Common Report"
+msgstr "Informe común"
+
+#. module: ursa_partner_statements
+#: field:ursa.account.common.partner.report,company_id:0
+#: field:ursa.account.common.report,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: ursa_partner_statements
+#: field:ursa.account.common.partner.report,create_uid:0
+#: field:ursa.account.common.report,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: ursa_partner_statements
+#: field:ursa.account.common.partner.report,create_date:0
+#: field:ursa.account.common.report,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: ursa_partner_statements
+#: selection:ursa.account.common.partner.report,filter:0
+#: selection:ursa.account.common.report,filter:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: ursa_partner_statements
+#: view:ursa.account.common.report:ursa_partner_statements.ursa_account_common_report_view
+msgid "Dates"
+msgstr "Fechas"
+
+#. module: ursa_partner_statements
+#: field:ursa.account.common.partner.report,date_to:0
+#: field:ursa.account.common.report,date_to:0
+msgid "End Date"
+msgstr "Fecha final"
+
+#. module: ursa_partner_statements
+#: field:ursa.account.common.partner.report,period_to:0
+#: field:ursa.account.common.report,period_to:0
+msgid "End Period"
+msgstr "Periodo final"
+
+#. module: ursa_partner_statements
+#: code:addons/ursa_partner_statements/report/common_report_header.py:92
+#: code:addons/ursa_partner_statements/wizard/account_report_common.py:164
+#: code:addons/ursa_partner_statements/wizard/account_report_common.py:170
+#, python-format
+msgid "Error!"
+msgstr "¡Error!"
+
+#. module: ursa_partner_statements
+#: field:ursa.account.common.partner.report,filter:0
+#: field:ursa.account.common.report,filter:0
+msgid "Filter by"
+msgstr "Filtrar por"
+
+#. module: ursa_partner_statements
+#: view:ursa.account.common.report:ursa_partner_statements.ursa_account_common_report_view
+msgid "Filters"
+msgstr "Filtros"
+
+#. module: ursa_partner_statements
+#: field:ursa.account.common.partner.report,fiscalyear_id:0
+#: field:ursa.account.common.report,fiscalyear_id:0
+msgid "Fiscal Year"
+msgstr "Ejercicio fiscal"
+
+#. module: ursa_partner_statements
+#: field:ursa.account.common.partner.report,id:0
+#: field:ursa.account.common.report,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: ursa_partner_statements
+#: field:account.partner.ledger,no_pmts:0
+msgid "Invoices Only"
+msgstr "Facturas sólo"
+
+#. module: ursa_partner_statements
+#: field:ursa.account.common.partner.report,journal_ids:0
+#: view:ursa.account.common.report:ursa_partner_statements.ursa_account_common_report_view
+#: field:ursa.account.common.report,journal_ids:0
+msgid "Journals"
+msgstr "Diarios"
+
+#. module: ursa_partner_statements
+#: help:ursa.account.common.partner.report,fiscalyear_id:0
+#: help:ursa.account.common.report,fiscalyear_id:0
+msgid "Keep empty for all open fiscal year"
+msgstr "Dejarlo vacío para todos los ejercicios fiscales abiertos."
+
+#. module: ursa_partner_statements
+#: field:ursa.account.common.partner.report,write_uid:0
+#: field:ursa.account.common.report,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: ursa_partner_statements
+#: field:ursa.account.common.partner.report,write_date:0
+#: field:ursa.account.common.report,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: ursa_partner_statements
+#: selection:ursa.account.common.partner.report,filter:0
+#: selection:ursa.account.common.report,filter:0
+msgid "No Filters"
+msgstr "No filtros"
+
+#. module: ursa_partner_statements
+#: code:addons/ursa_partner_statements/report/common_report_header.py:92
+#: code:addons/ursa_partner_statements/wizard/account_report_common.py:170
+#, python-format
+msgid "Not implemented."
+msgstr "No implementado."
+
+#. module: ursa_partner_statements
+#: model:ir.model,name:ursa_partner_statements.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: ursa_partner_statements
+#: model:ir.actions.act_window,name:ursa_partner_statements.ursa_action_account_partner_ledger
+msgid "Partner Statement"
+msgstr "Estado de cuenta"
+
+#. module: ursa_partner_statements
+#: field:ursa.account.common.partner.report,result_selection:0
+msgid "Partner's"
+msgstr "De empresas"
+
+#. module: ursa_partner_statements
+#: code:addons/ursa_partner_statements/report/account_partner_ledger.py:475
+#: selection:ursa.account.common.partner.report,result_selection:0
+#, python-format
+msgid "Payable Accounts"
+msgstr "Cuentas a pagar"
+
+#. module: ursa_partner_statements
+#: selection:ursa.account.common.partner.report,filter:0
+#: view:ursa.account.common.report:ursa_partner_statements.ursa_account_common_report_view
+#: selection:ursa.account.common.report,filter:0
+msgid "Periods"
+msgstr "Periodos"
+
+#. module: ursa_partner_statements
+#: view:ursa.account.common.report:ursa_partner_statements.ursa_account_common_report_view
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: ursa_partner_statements
+#: code:addons/ursa_partner_statements/report/account_partner_ledger.py:473
+#: selection:ursa.account.common.partner.report,result_selection:0
+#, python-format
+msgid "Receivable Accounts"
+msgstr "Cuentas a cobrar"
+
+#. module: ursa_partner_statements
+#: code:addons/ursa_partner_statements/report/account_partner_ledger.py:477
+#: selection:ursa.account.common.partner.report,result_selection:0
+#, python-format
+msgid "Receivable and Payable Accounts"
+msgstr "Cuentas a cobrar y a pagar"
+
+#. module: ursa_partner_statements
+#: view:ursa.account.common.report:ursa_partner_statements.ursa_account_common_report_view
+msgid "Report Options"
+msgstr "Opciones del informe"
+
+#. module: ursa_partner_statements
+#: help:account.partner.ledger,no_pmts:0
+msgid "Run the report with no payments at all."
+msgstr "Ejecutar el informe con ningún pago en absoluto."
+
+#. module: ursa_partner_statements
+#: help:ursa.account.common.partner.report,chart_account_id:0
+#: help:ursa.account.common.report,chart_account_id:0
+msgid "Select Charts of Accounts"
+msgstr "Seleccionar plan contable."
+
+#. module: ursa_partner_statements
+#: code:addons/ursa_partner_statements/wizard/account_report_common.py:164
+#, python-format
+msgid "Select a starting and an ending period."
+msgstr "Seleccione un periodo de inicio y de fin."
+
+#. module: ursa_partner_statements
+#: field:ursa.account.common.partner.report,date_from:0
+#: field:ursa.account.common.report,date_from:0
+msgid "Start Date"
+msgstr "Fecha inicial"
+
+#. module: ursa_partner_statements
+#: field:ursa.account.common.partner.report,period_from:0
+#: field:ursa.account.common.report,period_from:0
+msgid "Start Period"
+msgstr "Periodo inicial"
+
+#. module: ursa_partner_statements
+#: field:ursa.account.common.partner.report,target_move:0
+#: field:ursa.account.common.report,target_move:0
+msgid "Target Moves"
+msgstr "Movimientos destino"
+
+#. module: ursa_partner_statements
+#: constraint:account.partner.ledger:0
+#: constraint:ursa.account.common.partner.report:0
+#: constraint:ursa.account.common.report:0
+msgid "The fiscalyear, periods or chart of account chosen have to belong to the same company."
+msgstr "El ejercicio fiscal, periodos y árbol de cuentas escogido deben pertenecer a la misma compañía."
+
+#. module: ursa_partner_statements
+#: code:addons/ursa_partner_statements/report/account_partner_ledger.py:70
+#, python-format
+msgid "Unreconciled Entries"
+msgstr "Asientos no conciliados"
+
+#. module: ursa_partner_statements
+#: view:ursa.account.common.report:ursa_partner_statements.ursa_account_common_report_view
+msgid "or"
+msgstr "o"

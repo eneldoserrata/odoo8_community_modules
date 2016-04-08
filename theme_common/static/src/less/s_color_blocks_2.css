@@ -1,0 +1,13 @@
+/* Color Block */
+.s_color_blocks_2_block {
+  padding: 8% 5%;
+  height: 100%;
+  min-height: 100%;
+}
+.s_color_blocks_2_block .fa {
+  color: white;
+}
+.s_color_blocks_2_block img {
+  max-width: 100%;
+  height: auto;
+}

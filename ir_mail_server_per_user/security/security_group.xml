@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="base.group_outgoing_mail_per_user" model="res.groups">
+			<field name="name">Send Outgoing mail per user</field>
+			<field name="category_id" ref="base.module_category_hidden"/>
+		</record>
+	</data>
+</openerp>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="invoice_form" model="ir.ui.view">
+            <field name="name">account.invoice.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='price_unit']" position="after">
+                    <field name="total_wo_disc" groups="sale.group_discount_per_so_line"/>
+                </xpath>
+                <!--<xpath expr="//field[@name='discount']" position="after">-->
+                <!--<field name="disc_amount" groups="sale.group_discount_per_so_line" />-->
+                <!--</xpath>-->
+                <xpath expr="//field[@name='amount_untaxed']" position="before">
+                    <field name="total_b4_disc" groups="sale.group_discount_per_so_line"/>
+                    <field name="disc_total" groups="sale.group_discount_per_so_line"/>
+                </xpath>
+            </field>
+
+        </record>
+    </data>
+</openerp>
+
+
+

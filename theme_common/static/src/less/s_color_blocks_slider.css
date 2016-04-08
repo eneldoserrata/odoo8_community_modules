@@ -1,0 +1,24 @@
+/* Color Blocks Slider */
+.s_color_blocks_slider_block {
+  padding: 0px;
+  margin: 0;
+}
+.s_color_blocks_slider_img {
+  padding: 0px;
+  margin: 0;
+}
+.s_color_blocks_slider_img img {
+  max-width: auto;
+  padding: 0px;
+}
+.s_color_blocks_slider_content {
+  padding: 8% 5%;
+  height: auto;
+}
+.s_color_blocks_slider_content .fa {
+  color: white;
+}
+.s_color_blocks_slider_content img {
+  max-width: 100%;
+  height: auto;
+}

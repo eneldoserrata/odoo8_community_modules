@@ -1,0 +1,25 @@
+@charset "utf-8";
+.openerp .oe_kanban_view .oe_kanban_content_ept {
+  text-align: right;
+ 
+}
+.openerp .oe_kanban_outer_box {
+ width:250px;margin:0px auto;background-color:azure;border: 1px solid aqua; padding-bottom:10px;
+ height:200px;
+} 
+.openerp .oe_kanban_img_box {
+  width: 90px;
+  height:90px;
+ float:left;align:left;
+ 
+}
+.openerp .oe_kanban_content_box {
+   color: red;
+ float:left;width:110px;text-align:right;margin-left: 3px;
+} 
+.openerp .oe_kanban_view .oe_kanban_bottom_right {
+  float: right;
+  position: relative;
+  top: 2px;
+  width:60px;
+}

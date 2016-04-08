@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- vim:fdn=3:
+-->
+<openerp>
+    <data>
+        <template id="assets_backend_freeze_header" name="freeze_header assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/bista_freeze_header/static/src/css/freeze_header.css"/>
+            </xpath>
+        </template>
+    </data>
+</openerp>

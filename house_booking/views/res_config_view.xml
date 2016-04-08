@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Configuration form -->
+
+        <record id="view_booking_config_settings" model="ir.ui.view">
+            <field name="name">Booking Settings</field>
+            <field name="model">booking.config.settings</field>
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <form string="Configure Booking" version="7.0" class="oe_form_configuration">
+                    <header>
+                        <button string="Apply" type="object" name="execute" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" type="object" name="cancel" class="oe_link"/>
+                    </header>
+                    <separator string="Booking management"/>
+                    <group>
+                        <label for="id" string="Test"/>
+                        <div>
+                            <div>
+                                <label for="booking_title"/>
+                                <field name="booking_title" class="oe_inline"/>
+                            </div>
+                            <div>
+                                <label for="advance_payment"/>
+                                <field name="advance_payment" class="oe_inline"/>
+                            </div>
+                            <div>
+                                <label for="deposit"/>
+                                <field name="deposit" class="oe_inline"/>
+                            </div>
+                        </div>
+                    </group>
+                    <separator string="Configure Voucher"/>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Actions -->
+
+        <record id="action_booking_config" model="ir.actions.act_window">
+            <field name="name">Configure Booking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">booking.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+
+
+        <!-- Menus -->
+
+        <menuitem id="menu_booking_config"
+            name="Booking"
+            parent="base.menu_config"
+            sequence="50"
+            action="action_booking_config"/>
+
+    </data>
+</openerp>

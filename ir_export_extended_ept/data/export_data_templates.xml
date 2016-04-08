@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data noupdate="1">
+        <!--Email template-->           
+        <record id="email_template_export_with_domain_ept" model="email.template">
+            <field name="name">Export with Domain</field>
+            <field name="subject">Export with Domain Report</field>
+            <field name="model_id" ref="base.model_ir_exports"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html">
+             <![CDATA[
+			 Hello,<br/>             
+             Here we have attached Export data file.<br/><br/>      		  
+      		 ]]>
+           </field>
+            <field name="lang"></field>
+        </record> 
+  </data>
+</openerp>

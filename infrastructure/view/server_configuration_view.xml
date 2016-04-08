@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- infrastructure.server_configuration -->
+<openerp>
+<data>
+
+<!-- SEARCH VIEW -->
+<record id="view_infrastructure_server_configuration_filter" model="ir.ui.view">
+    <field name="name">infrastructure.server_configuration.select</field>
+    <field name="model">infrastructure.server_configuration</field>
+    <field name="arch" type="xml">
+        <search string="server_configuration">
+            <field name="name"/>
+            <field name="distrib_codename"/>
+        </search>
+    </field>
+</record>
+
+<!-- FORMVIEW -->
+<record id="view_infrastructure_server_configuration_form" model="ir.ui.view">
+    <field name="name">infrastructure.server_configuration.form</field>
+    <field name="model">infrastructure.server_configuration</field>
+    <field name="arch" type="xml">
+        <form string="server_configuration">
+            <header>
+            </header>
+            <sheet string="server_configuration">
+             <group>
+                <field name="name"/>
+                <field name="distrib_codename"/>
+                <field name="install_command_ids"/>
+             </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<!-- TREEVIEW -->
+<record id="view_infrastructure_server_configuration_tree" model="ir.ui.view">
+    <field name="name">infrastructure.server_configuration.tree</field>
+    <field name="model">infrastructure.server_configuration</field>
+    <field name="arch" type="xml">
+        <tree string="server_configuration">
+            <field name="name"/>
+            <field name="distrib_codename"/>
+        </tree>
+    </field>
+</record>
+
+<record id="action_infrastructure_server_configuration_server_configurations" model="ir.actions.act_window">
+    <field name="name">Server Configurations</field>
+    <field name="res_model">infrastructure.server_configuration</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+    <field name="view_id" ref="view_infrastructure_server_configuration_tree"/>
+    <field name="search_view_id" ref="view_infrastructure_server_configuration_filter"/>
+    <field name="domain">[]</field>
+</record>
+
+<menuitem
+    name="Server Configurations"
+    id="menu_server_configurations"
+    sequence="10"
+    action="action_infrastructure_server_configuration_server_configurations"
+    parent="menu_serv__env_and_inst"
+    groups="group_manager"
+    />
+
+</data>
+</openerp>

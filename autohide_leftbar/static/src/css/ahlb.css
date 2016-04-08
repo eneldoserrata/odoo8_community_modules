@@ -1,0 +1,7 @@
+.openerp .oe_leftbar > div a.oe_logo img { width:70px !important; height: 100px;  }
+.openerp .oe_leftbar:hover > div a.oe_logo img { width: 200px !important; transition: width .5s; }
+.openerp .oe_leftbar > div { width: 75px !important; }
+.openerp .oe_leftbar:hover > div { width: 220px !important; transition: all .1s; }
+.openerp .oe_leftbar > div > div > div > div.oe_secondary_menus_container {background-color: #bbf;}
+.openerp .oe_leftbar:hover > div > div > div > div.oe_secondary_menus_container {transition: background-color .1s; background-color: initial;}
+.openerp .oe_secondary_menu_section {white-space: nowrap !important;  overflow: hidden !important; text-overflow: ellipsis !important; }

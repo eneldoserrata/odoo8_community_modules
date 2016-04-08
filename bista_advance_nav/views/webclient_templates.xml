@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- vim:fdn=3:
+-->
+<openerp>
+    <data>
+        <template id="assets_backend5" name="bista_advance_nav assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/bista_advance_nav/static/src/css/advance_nav.css"/>
+                <script type="text/javascript" src="/bista_advance_nav/static/src/js/advance_nav.js"></script>
+            </xpath>
+        </template>
+
+        <template id="bista_advance_nav.webclient_bootstrap" inherit_id="web.webclient_bootstrap" name="Webclient Bootstrap">
+            <xpath expr="//div[@id='oe_main_menu_placeholder']" position="replace">
+                    <div class="navbar-collapse collapse" id="oe_main_menu_placeholder">
+                        <button class="oe_leftbar_open show1" title="Left menu button">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <t t-call="web.menu"/>
+                    </div>
+             </xpath>
+
+             <xpath expr="//div[@class='openerp openerp_webclient_container']" position="replace">
+                <div class="openerp openerp_webclient_container">
+                    <div class="oe_webclient">
+                            <div class="oe_leftbar leftbarhide" valign="top">
+                                <div groups="base.group_user,base.group_portal">
+                                    <t t-call="web.menu_secondary"/>
+                                </div>
+                            </div>
+                            <div class="oe_application"/>
+                    </div>
+                </div>
+             </xpath>
+        </template>
+
+        <template id="bista_advance_nav.menu" inherit_id="web.menu">
+            <xpath expr="//ul[@class='nav navbar-nav navbar-left oe_application_menu_placeholder']" position="replace">
+                <ul class="nav navbar-nav navbar-left oe_application_menu_placeholder">
+                    <li t-foreach="menu_data['children']" t-as="menu" class="tnav">
+                        <t t-call="web.menu_link"/>
+                        <t t-call="web.menu_secondary_submenu"/>
+                    </li>
+                    <li id="menu_more_container" class="dropdown open1" style="display: none;">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                        <ul id="menu_more" class="dropdown-menu"></ul>
+                    </li>
+                </ul>
+            </xpath>
+        </template>
+    </data>
+</openerp>

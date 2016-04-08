@@ -1,0 +1,112 @@
+@s_banner_3_carosel_control_color: transparent;
+@s_banner_3_padding: 130px;
+@s_banner_3_fa_color: @color-gamma;
+.s_banner_3_col_center_hook(){};
+.s_banner_3 {
+
+    .fa {
+        color: @s_banner_3_fa_color;
+        font-size: 35px;
+        transition: all 0.3s ease 0s;
+        .VAlignMiddle;
+        &:hover {
+            color: @color-beta;
+        }
+    }
+
+    .carousel-inner {
+        height: 500px;
+    }
+
+    .carousel-control {
+        opacity: 1;
+        top: 205px;
+        width: 70px;
+        height: 70px;
+        text-shadow: none;
+    }
+
+    .carousel-indicators {
+        bottom: 0px;
+    }
+
+    .carousel-control.left, .carousel-control.right {
+        background-color: @s_banner_3_carosel_control_color;
+        background-image: none;
+        height: 100%;
+        top: 0px;
+    }
+
+    .carousel-control.left {
+        left: 0px;
+
+        .fa-chevron-left {
+            right: 39%;
+            top: 50%;
+        }
+    }
+
+    .carousel-control.right {
+        right: 0px;
+
+        .fa-chevron-right {
+            left: 39%;
+            top: 50%;
+        }
+    }
+
+    .carousel .carousel-control.left *, .carousel .carousel-control.right * {
+        position: relative;
+        top: 19px;
+        z-index: 5;
+    }
+
+    .container-fluid {
+        padding: 0;
+        overflow: hidden;
+
+        .row {
+            height: 500px;
+
+            .hero-bg {
+                .s_banner_3_col_center_hook;
+                padding-left: @s_banner_3_padding;
+                color: @color-alpha;
+                @media screen and (max-width: 768px) {
+                    top: 0px;
+                    text-align: center;
+                    padding-left: 0px;
+                }
+                @media screen and (max-width: 360px) {
+                    padding-left: 15px;
+                }
+
+                h1 {
+                    font-size: 80px;
+                    text-shadow: 1px 1px 11px rgba(0, 0, 0, 0.86);
+
+                    @media screen and (max-width: 360px) {
+                        font-size: 50px;
+                    }
+                }
+
+                h2 {
+                    font-size: 40px;
+                    text-shadow: 1px 1px 11px rgba(0, 0, 0, 0.86);
+
+                    @media screen and (max-width: 360px) {
+                        font-size: 30px;
+                    }
+                }
+
+                img {
+                    max-height: 200px;
+
+                    @media screen and (max-width: 360px) {
+                        max-width: 250px;
+                    }
+                }
+            }
+        }
+    }
+}

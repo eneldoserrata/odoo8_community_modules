@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- infrastructure.database_type -->
+<openerp>
+<data>
+
+<!-- SEARCH VIEW -->
+<record id="view_infrastructure_database_type_filter" model="ir.ui.view">
+    <field name="name">infrastructure.database_type.select</field>
+    <field name="model">infrastructure.database_type</field>
+    <field name="arch" type="xml">
+        <search string="database_type">
+            <field name="name"/>
+            <field name="prefix"/>
+            <field name="type"/>
+        </search>
+    </field>
+</record>
+
+<!-- FORMVIEW -->
+<record id="view_infrastructure_database_type_form" model="ir.ui.view">
+    <field name="name">infrastructure.database_type.form</field>
+    <field name="model">infrastructure.database_type</field>
+    <field name="arch" type="xml">
+        <form string="database_type">
+            <header>
+            </header>
+            <sheet string="database_type">
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="type"/>
+                        <field name="prefix"/>
+                    </group>
+                    <group>
+                        <field name="description" nolabel="1" placeholder="Description..."/>
+                    </group>
+                </group>
+                <group>
+                    <group string="Instance Parameters">
+                        <field name="url_prefix"/>
+                        <field name="service_type"/>
+                        <field name="sources_type"/>
+                        <field name="sources_from_id" attrs="{'invisible': [('sources_type', '=', 'own')], 'required': [('sources_type', '!=', 'own')]}"/>
+                        <field name="workers"/>
+                        <field name="workers_number" attrs="{'invisible':[('workers','=','clasic_rule')],'required':[('workers','!=','clasic_rule')]}"/>
+                        <field name="instance_log_level"/>
+                        <label for="instance_admin_pass"/>
+                        <div>
+                            <field
+                                name="instance_admin_pass"
+                                password="True"
+                                class="oe_inline"/>
+                            <button name="show_instance_admin_pass"
+                                string="⇒ View Password"
+                                type="object"
+                                class="oe_link oe_read_only"/>
+                        </div>
+                        <field name="db_filter"/>
+                        <field name="server_mode_value"/>
+                    </group>
+                    <group string="Database Parameters">
+                        <field name="backups_enable"/>
+                        <field name="check_database"/>
+                        <field name="auto_deactivation_days"/>
+                        <field name="auto_drop_days"/>
+                        <field name="install_lang_id"/>
+                        <field name="demo_data"/>
+                        <label for="db_admin_pass"/>
+                        <div>
+                            <field
+                                name="db_admin_pass"
+                                password="True"
+                                class="oe_inline"/>
+                            <button name="show_db_admin_pass"
+                                string="⇒ View Password"
+                                type="object"
+                                class="oe_link oe_read_only"/>
+                        </div>
+                    </group>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<!-- TREEVIEW -->
+<record id="view_infrastructure_database_type_tree" model="ir.ui.view">
+    <field name="name">infrastructure.database_type.tree</field>
+    <field name="model">infrastructure.database_type</field>
+    <field name="arch" type="xml">
+        <tree string="database_type">
+            <field name="sequence" widget="handle"/>
+            <field name="name"/>
+            <field name="type"/>
+            <field name="prefix"/>
+            <field name="url_prefix"/>
+            <field name="service_type"/>
+            <field name="auto_deactivation_days"/>
+            <field name="auto_drop_days"/>
+            <field name="install_lang_id"/>
+        </tree>
+    </field>
+</record>
+
+<record id="action_infrastructure_database_type_database_types" model="ir.actions.act_window">
+    <field name="name">Database Types</field>
+    <field name="res_model">infrastructure.database_type</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+    <field name="view_id" ref="view_infrastructure_database_type_tree"/>
+    <field name="search_view_id" ref="view_infrastructure_database_type_filter"/>
+    <field name="domain">[]</field>
+</record>
+
+<menuitem
+    name="Database Types"
+    id="menu_database_types"
+    sequence="100"
+    action="action_infrastructure_database_type_database_types"
+    parent="menu_databases_conf"
+    groups="group_manager"
+    />
+
+</data>
+</openerp>

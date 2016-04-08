@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="export_wizard_view_ept" model="ir.ui.view">
+            <field name="name">Export</field>
+            <field name="model">export.wizard.ept</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Export" version="7.0">
+					<label for="export_version" string="Do you want to export " class="oe_inline"/><field name="export_version" nolabel="1" class="oe_inline"/>
+					<footer>
+                        <button string="Download" name="download_file" type="object" class="oe_highlight"/>                                                
+					 </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>
