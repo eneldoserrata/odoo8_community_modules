@@ -38,7 +38,6 @@ come with the standard code:
     "depends": [
         'base',
         'web',
-        'website',
         'mail',
     ],
     "data": [
