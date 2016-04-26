@@ -1,41 +1,278 @@
-.navbar-inverse {
-	background-color: orange; /*#222;*/
-	border-color: orange; /*#080808;*/
+@charset "UTF-8";
+
+@media (max-width: 768px) {
+    .openerp .oe_leftbar a.oe_logo img {
+        display: none !important;
+    }
+
+    .openerp .oe_leftbar {
+        display: none !important;
+    }
 }
 
-.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-	border-color: orange; /*#101010;*/
+.modal-header {
+    font-size: 20px;
+    padding: 8px 20px;
+    background: #F8981C;
+    color: #FFF;
+}
+
+.openerp .oe_leftbar a.oe_logo img {
+    margin: 14px !important;
+}
+
+/*.modal-header button.close {*/
+    /*padding: 9px !important;*/
+/*}*/
+
+.modal-header .close {
+    opacity: 1 !important;
+    color: #FFF !important;
+}
+
+body {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.openerp {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.openerp .oe_secondary_menu_section {
+    font-size: 15px;
+}
+
+.label-default {
+    background-color: #337AB7 !important;
+}
+
+.breadcrumb > .active {
+    font-weight: bold;
+}
+
+.openerp .oe_searchview .oe_searchview_unfold_drawer {
+    top: 0px !important;
+    right: 0px !important;
+    background: rgb(51, 122, 183) none repeat scroll 0% 0%;
+    padding: 7px 0px;
+    color: rgb(255, 255, 255);
+    /*width: 28px;*/
+}
+
+.dropdown-menu {
+    margin: 0px 0px 0px !important;
+    border-radius: 0px !important;
+}
+
+#oe_main_menu_navbar .o_planner_systray > .progress {
+    margin-top: 19px !important;
+}
+
+.oe_user_menu_placeholder li a.dropdown-toggle {
+    padding: 4px !important;
+    margin-top: 1px !important;
+    margin-bottom: 1px;
+}
+
+.oe_topbar_name {
+    display: none !important;
+}
+
+#oe_main_menu_navbar .oe_topbar_avatar {
+    max-height: 40px !important;
+    width: 40px !important;
+}
+
+.fa-2 {
+    font-size: 1.5em;
+}
+
+.ul_toggle_leftmenu {
+    padding-left: 0px;
+    list-style: outside none none;
+    list-style-type: none;
+    list-style-image: none;
+    list-style-position: outside;
+    margin-bottom: 0px !important;
+    max-width: 50px;
+}
+
+.toggle_leftmenu {
+    color: #FFF !important;
+    padding: 14px 15px;
+}
+
+.toggle_leftmenu:hover {
+    color: #9D9D9D !important;
+    cursor: pointer;
+}
+
+.openerp .oe_loading {
+    background: #8e5616 !important;
+    border: 1px solid #6d3916 !important;;
+}
+
+.openerp .nav-pills > li.active > a, .openerp a.list-group-item.active > a {
+    background-color: #337AB7 !important;
+}
+
+.openerp .nav-pills li > a:hover, .openerp .nav-pills li > a:focus {
+    background-color: #C8CEEE;
+    border-radius: 0px !important;
+}
+
+.openerp .oe_list_content > tbody > tr > td.oe_list_field_cell {
+    padding: 6px 6px !important;
+}
+
+.openerp .oe_list_content > tbody > tr {
+    height: 33px !important;
+}
+
+.openerp input, .openerp textarea, .openerp select {
+    border-radius: 0px !important;
+}
+
+.input-sm {
+    border-radius: 0px !important;
+}
+
+.btn-sm,
+.btn-group-sm > .btn {
+    border-radius: 0px !important;
+}
+
+.openerp thead th {
+    border-left: 0px solid #dfdfdf !important;
+}
+
+.openerp .oe_form > :not(.oe_form_nosheet) header, .openerp .oe_form > .oe_form_nosheet header {
+    padding: 2px 0px 2px 14px !important;
+}
+
+.openerp .oe_form header {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ededed)) !important;
+    background-image: -webkit-linear-gradient(top, #ededed, #ededed) !important;
+    background-image: -moz-linear-gradient(top, #ededed, #ededed) !important;
+    background-image: -ms-linear-gradient(top, #ededed, #ededed) !important;
+    background-image: -o-linear-gradient(top, #ededed, #ededed) !important;
+    background-image: linear-gradient(to bottom, #ededed, #ededed) !important;
+}
+
+.openerp ul.oe_form_status li, .openerp ul.oe_form_status_clickable li {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ededed)) !important;
+    background-image: -webkit-linear-gradient(top, #ededed, #ededed) !important;
+    background-image: -moz-linear-gradient(top, #ededed, #ededed) !important;
+    background-image: -ms-linear-gradient(top, #ededed, #ededed) !important;
+    background-image: -o-linear-gradient(top, #ededed, #ededed) !important;
+    background-image: linear-gradient(to bottom, #ededed, #ededed) !important;
+}
+
+.openerp ul.oe_form_status li > .arrow, .openerp ul.oe_form_status_clickable li > .arrow {
+    margin-left: 5px !important;
+}
+
+.openerp ul.oe_form_status li > .arrow span, .openerp ul.oe_form_status_clickable li > .arrow span {
+    margin-left: -20px !important;
+    box-shadow: 2px 0px 1px rgba(255, 255, 255, 0.2), inset -3px 3px 0px rgba(0, 0, 0, 0.2) !important;
+    background-color: #ededed !important;
+    background: -moz-linear-gradient(135deg, #ededed, #ededed) !important;
+    background: -o-linear-gradient(135deg, #ededed, #ededed) !important;
+    background: -webkit-gradient(linear, left top, right bottom, from(#ededed), to(#ededed)) !important;
+    background: -ms-linear-gradient(top, #ededed, #ededed) !important;
+    -moz-border-radius: 0px !important;
+    -webkit-border-radius: 0px !important;
+    border-radius: 0px !important;
+
+}
+
+.openerp ul.oe_form_status li.oe_active > .arrow span, .openerp ul.oe_form_status_clickable li.oe_active > .arrow span {
+    box-shadow: 2px 0px 1px rgba(255, 255, 255, 0.2), inset -3px 3px 0px #F8981C !important;
+    background-color: #ededed !important;
+    background: -moz-linear-gradient(135deg, #ededed, #ededed) !important;
+    background: -o-linear-gradient(135deg, #ededed, #ededed) !important;
+    background: -webkit-gradient(linear, left top, right bottom, from(#ededed), to(#ededed)) !important;
+    background: -ms-linear-gradient(top, #ededed, #ededed) !important;
+}
+
+.openerp ul.oe_form_status li.oe_active > .label, .openerp ul.oe_form_status_clickable li.oe_active > .label {
+    color: #F8981C !important;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #ededed !important;
+}
+
+.openerp ul.oe_form_status li:first-child > .label, .openerp ul.oe_form_status_clickable li:first-child > .label {
+    border-left: 0px solid #cacaca !important;
+}
+
+#oe_main_menu_navbar {
+    min-height: 51px !important;
+    /*max-height: 51px !important;*/
+}
+
+.oe_application_menu_placeholder li a, .oe_application_menu_placeholder li button {
+    padding: 15px !important;
+    margin-top: 0px !important;
+}
+
+.oe_systray li a, .oe_systray li button {
+    padding: 15px !important;
+    margin-top: 0px !important;
+}
+
+.navbar {
+    border: 0px solid transparent !important;
+}
+
+.navbar-nav {
+    margin: 0px !important;
+}
+
+.navbar-inverse {
+    background-color: #F8981C !important;
+    border-color: #8c5510 !important;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+    color: #fff !important;
+    background-color: #28517a !important;
+}
+
+.navbar-inverse .navbar-text {
+    color: #fff !important;
 }
 
 .navbar-inverse .navbar-nav > li > a {
-	color:  black; /*#777;*/
-	background-color: orange;	
+    color: #fff !important;
 }
 
-
-
-.navbar-inner
-{
-	background-color: red;
-	/* remove the gradient */
-	background-image: none;
-	/* set font color to black */
-	color: black;
-}	
-
-
-/* set hover and focus to lightblue */
-.navbar .nav > li > a:focus,
-.navbar .nav > li > a:hover {
-	background-color: #FFC457;
-	color: black;
-}
-/* set active item to darkgreen */
-.navbar .nav > .active > a,
-.navbar .nav > .active > a:hover,
-.navbar .nav > .active > a:focus {
-
-	background-color: #FFC457;
-	color: black;
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+    /*color: black !important;*/
+    /*background-color: white;*/
+	font-weight: bold;
 }
 
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+    color: #fff !important;
+    background-color: #28517a !important;
+    font-weight: bold;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+    color: #fff;
+    background-color: #28517a !important;
+}
+
+.openerp_webclient_container {
+    height: calc(100% - 51px) !important;
+}
