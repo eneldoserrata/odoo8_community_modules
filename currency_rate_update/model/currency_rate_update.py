@@ -287,8 +287,8 @@ class Currency_rate_update_service(models.Model):
                             do_create = False
                             break
                     if do_create:
+                        import pdb;pdb.set_trace()
                         vals = {
-                            'currency_id': curr.id,
                             'rate': res[curr.name],
                             'name': rate_name
                         }

@@ -193,7 +193,7 @@ class Currency_rate_update(osv.osv):
                     ## we initalize the class that will handle the request
                     ## and return a dict of rate
                     getter = factory.register(service.service)
-                    print "getter =", getter
+
                     curr_to_fetch = map(lambda x : x.name, service.currency_to_update)
                     res, log_info = getter.get_updated_currency(curr_to_fetch, main_curr, service.max_delta_days)
                     rate_name = time.strftime('%Y-%m-%d')
