@@ -1,0 +1,160 @@
+# German translation for hr_employee_time_clock
+
+msgid ""
+msgstr ""
+
+#. module: hr_employee_time_clock
+#: field:hr_timesheet_sheet.sheet,calculate_diff_hours:0
+#: model:ir.model,name:hr_employee_time_clock.model_hr_timesheet_sheet_sheet
+#: view:hr_timesheet_sheet.sheet:hr_employee_time_clock.timesheet_overtime
+msgid "Total balance"
+msgstr "Total Saldo"
+
+#. module: hr_employee_time_clock
+#: field:hr_timesheet_sheet.sheet,total_duty_hours:0
+#: model:ir.model,name:hr_employee_time_clock.model_hr_timesheet_sheet_sheet
+#: view:hr_timesheet_sheet.sheet:hr_employee_time_clock.timesheet_overtime
+msgid "Remaining this timesheet"
+msgstr "Verbleibend diese Zeiterfassung"
+
+#. module: hr_employee_time_clock
+#: field:hr_timesheet_sheet.sheet,prev_timesheet_diff:0
+#: model:ir.model,name:hr_employee_time_clock.model_hr_timesheet_sheet_sheet
+#: view:hr_timesheet_sheet.sheet:hr_employee_time_clock.timesheet_overtime
+msgid "Last timesheets"
+msgstr "Letzte Zeiterfassung"
+
+#. module: hr_employee_time_clock
+#: field:hr_timesheet_sheet.sheet,total_attendance:0
+#: model:ir.model,name:hr_employee_time_clock.model_hr_timesheet_sheet_sheet
+#: view:hr_timesheet_sheet.sheet:hr_employee_time_clock.timesheet_overtime
+msgid "Attendance this timesheet"
+msgstr "Anwesenheit diese Zeiterfassung"
+
+#. module: hr_employee_time_clock
+#: field:hr_timesheet_sheet.sheet,analysis:0
+msgid "Attendance Analysis"
+msgstr "Anwesenheit Analyse"
+
+#. module: hr_employee_time_clock
+#: view:hr_timesheet_sheet.sheet:hr_employee_time_clock.timesheet_overtime
+msgid "Overtime Analysis"
+msgstr "Überzeit Analyse"
+
+#. module: hr_employee_time_clock
+#: view:hr.timesheet.current.open:hr_employee_time_clock.view_hr_timesheet_current_open_inherit
+msgid "Generate timesheets for employees having the following tag:"
+msgstr "Generiere Zeiterfassungen für Mitarbeiter mit folgendem Tag:"
+
+#. module: hr_employee_time_clock
+#: field:hr.timesheet.current.open,category_id:0
+#: model:ir.model,name:hr.model_hr_employee_category
+msgid "Employee Tag"
+msgstr "Mitarbeiter Tag"
+
+#. module: hr_employee_time_clock
+#: field:hr.timesheet.current.open,date_from:0
+msgid "Start Date"
+msgstr "Startdatum"
+
+#. module: hr_employee_time_clock
+#: field:hr.timesheet.current.open,date_to:0
+msgid "End Date"
+msgstr "Enddatum"
+
+#. module: hr_employee_time_clock
+#: code:addons/hr_employee_time_clock/wizard/create_timesheet_with_tag.py:44
+#, python-format
+msgid "Timesheet already exists for %s."
+msgstr "Zeiterfassung existiert bereits für %s."
+
+#. module: hr_employee_time_clock
+#: code:addons/hr_employee_time_clock/wizard/import_leave_requests.py:31
+#, python-format
+msgid "Data Error!"
+msgstr ""
+
+#. module: hr_employee_time_clock
+#: code:addons/hr_employee_time_clock/wizard/import_leave_requests.py:31
+#, python-format
+msgid "Date format in your .csv file does not match with database date format."
+msgstr ""
+
+#. module: hr_employee_time_clock
+#: view:import.leave.requests:hr_employee_time_clock.view_import_leave_requests
+msgid "Generate timesheets for employees having the following tag:"
+msgstr "Generiere Zeiterfassungen für Mitarbeiter mit folgendem Tag:"
+
+#. module: hr_employee_time_clock
+#: field:import.leave.requests,leave_dates:0
+msgid "Select *.csv"
+msgstr "Wähle *.csv"
+
+#. module: hr_employee_time_clock
+#: field:import.leave.requests,leave_type_id:0
+#: model:ir.model,name:hr_holidays.model_hr_holidays_status
+#: view:import.leave.requests:hr_employee_time_clock.view_import_leave_requests
+msgid "Leave Type"
+msgstr "Abwesenheitstyp"
+
+#. module: hr_employee_time_clock
+#: field:import.leave.requests,employee_tag_id:0
+#: model:ir.model,name:hr.model_hr_employee_category
+#: view:import.leave.requests:hr_employee_time_clock.view_import_leave_requests
+msgid "Employee Tag"
+msgstr "Mitarbeiter Tag"
+
+#. module: hr_employee_time_clock
+#: view:import.leave.requests:hr_employee_time_clock.view_import_leave_requests
+#: model:ir.actions.act_window,name:hr_employee_time_clock.action_import_leave_requests
+#: model:ir.ui.menu,name:hr_employee_time_clock.menu_import_leave_requests
+msgid "Import Leave Requests"
+msgstr "Importiere Abwesenheiten"
+
+#. module: hr_employee_time_clock
+#: view:hr.timesheet.current.open:hr_employee_time_clock.view_hr_timesheet_current_open_inherit
+#: model:ir.ui.menu,name:hr_employee_time_clock.menu_act_hr_timesheet_sheet_form_open_current
+msgid "Generate Timesheets"
+msgstr "Generiere Zeiterfassungen"
+
+#. module: hr_employee_time_clock
+#: code:addons/hr_employee_time_clock/models.py:104
+#, python-format
+msgid "Previous Timesheet:"
+msgstr "Letzte Zeiterfassung:"
+
+#. module: hr_employee_time_clock
+#: code:addons/hr_employee_time_clock/models.py:124
+#, python-format
+msgid "Total:"
+msgstr "Total:"
+
+#. module: hr_employee_time_clock
+#: code:addons/hr_employee_time_clock/models.py:227
+#, python-format
+msgid "Date"
+msgstr "Datum"
+
+#. module: hr_employee_time_clock
+#: code:addons/hr_employee_time_clock/models.py:228
+#, python-format
+msgid "Duty Hours"
+msgstr "Pflichtstunden"
+
+#. module: hr_employee_time_clock
+#: code:addons/hr_employee_time_clock/models.py:229
+#, python-format
+msgid "Worked Hours"
+msgstr "Gearbeitete Stunden"
+
+#. module: hr_employee_time_clock
+#: code:addons/hr_employee_time_clock/models.py:230
+#, python-format
+msgid "Difference"
+msgstr "Differenz"
+
+#. module: hr_employee_time_clock
+#: code:addons/hr_employee_time_clock/models.py:231
+#, python-format
+msgid "Running"
+msgstr "Laufend"
