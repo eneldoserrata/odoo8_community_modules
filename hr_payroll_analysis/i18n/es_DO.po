@@ -1,0 +1,250 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_payroll_analysis
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-07-22 12:38+0000\n"
+"PO-Revision-Date: 2015-07-22 12:38+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_payroll_analysis
+#: field:hr.payslip.analysis.line,amount:0
+msgid "Amount"
+msgstr "Importe"
+
+#. module: hr_payroll_analysis
+#: field:hr.payslip,analysis_line_ids:0
+msgid "Analysis Lines"
+msgstr "Líneas de Análisis"
+
+#. module: hr_payroll_analysis
+#: field:hr.payroll.analysis,period:0
+msgid "Analysis Period"
+msgstr "Período de Análisis"
+
+#. module: hr_payroll_analysis
+#: field:hr.payroll.analysis,type:0
+msgid "Analysis Type"
+msgstr "Tipo de Análisis"
+
+#. module: hr_payroll_analysis
+#: selection:hr.payroll.analysis,type:0
+msgid "By Company"
+msgstr "Por Compañía(s)"
+
+#. module: hr_payroll_analysis
+#: selection:hr.payroll.analysis,type:0
+msgid "By Employee"
+msgstr "Por Empleado(s)"
+
+#. module: hr_payroll_analysis
+#: selection:hr.payroll.analysis,type:0
+msgid "By Payslip Run"
+msgstr "Por Lote(s) de Nómina"
+
+#. module: hr_payroll_analysis
+#: selection:hr.payroll.analysis,type:0
+msgid "By Salary Rule"
+msgstr "Por Regla(s) Salarial"
+
+#. module: hr_payroll_analysis
+#: view:hr.payroll.analysis:hr_payroll_analysis.payroll_analysis_config_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: hr_payroll_analysis
+#: field:hr.payroll.analysis,company_ids:0
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: hr_payroll_analysis
+#: view:hr.payslip.analysis.line:hr_payroll_analysis.payroll_analysis_analytic_filter
+#: view:hr.payslip.analysis.line:hr_payroll_analysis.view_payroll_analysis_analytic_search
+#: field:hr.payslip.analysis.line,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: hr_payroll_analysis
+#: field:hr.payroll.analysis,create_uid:0
+#: field:hr.payslip.analysis.line,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: hr_payroll_analysis
+#: field:hr.payroll.analysis,create_date:0
+#: field:hr.payslip.analysis.line,create_date:0
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: hr_payroll_analysis
+#: selection:hr.payroll.analysis,period:0
+msgid "Current Year"
+msgstr "Este Año"
+
+#. module: hr_payroll_analysis
+#: view:hr.payslip.analysis.line:hr_payroll_analysis.payroll_analysis_analytic_filter
+#: view:hr.payslip.analysis.line:hr_payroll_analysis.view_payroll_analysis_analytic_search
+#: field:hr.payslip.analysis.line,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: hr_payroll_analysis
+#: view:hr.payslip.analysis.line:hr_payroll_analysis.payroll_analysis_analytic_filter
+#: view:hr.payslip.analysis.line:hr_payroll_analysis.view_payroll_analysis_analytic_search
+#: field:hr.payslip.analysis.line,employee_id:0
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: hr_payroll_analysis
+#: field:hr.payroll.analysis,employee_ids:0
+msgid "Employees"
+msgstr "Empleados"
+
+#. module: hr_payroll_analysis
+#: field:hr.payroll.analysis,end_date:0
+msgid "End Date"
+msgstr "Fecha Final"
+
+#. module: hr_payroll_analysis
+#: selection:hr.payroll.analysis,period:0
+msgid "Every Year"
+msgstr "Cada Año"
+
+#. module: hr_payroll_analysis
+#: view:hr.payroll.analysis:hr_payroll_analysis.payroll_analysis_config_form
+msgid "Generate the Report"
+msgstr "Generar el Informe"
+
+#. module: hr_payroll_analysis
+#: view:hr.payslip.analysis.line:hr_payroll_analysis.payroll_analysis_analytic_filter
+#: view:hr.payslip.analysis.line:hr_payroll_analysis.view_payroll_analysis_analytic_search
+msgid "Group By..."
+msgstr "Agrupar Por..."
+
+#. module: hr_payroll_analysis
+#: field:hr.payroll.analysis,id:0
+#: field:hr.payslip.analysis.line,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_payroll_analysis
+#: help:hr.salary.rule,include_in_payroll_analysis:0
+msgid "If True, every payslip line related to this salary rule will appear in the payroll analysis report."
+msgstr "Si es Verdadero, aparecerá cada línea de la boleta de pago relacionados con esta norma salarial en el informe de análisis de la nómina"
+
+#. module: hr_payroll_analysis
+#: field:hr.salary.rule,include_in_payroll_analysis:0
+msgid "Include in Payroll Analysis"
+msgstr "Incluir en Análisis de Nómina"
+
+#. module: hr_payroll_analysis
+#: field:hr.payroll.analysis,write_uid:0
+#: field:hr.payslip.analysis.line,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: hr_payroll_analysis
+#: field:hr.payroll.analysis,write_date:0
+#: field:hr.payslip.analysis.line,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización realizada por"
+
+#. module: hr_payroll_analysis
+#: view:hr.payroll.analysis:hr_payroll_analysis.payroll_analysis_config_form
+msgid "Model"
+msgstr "Modelo"
+
+#. module: hr_payroll_analysis
+#: model:ir.model,name:hr_payroll_analysis.model_hr_payslip
+msgid "Pay Slip"
+msgstr "Hoja de pago"
+
+#. module: hr_payroll_analysis
+#: code:addons/hr_payroll_analysis/wizard/payroll_analysis.py:197
+#: view:hr.payroll.analysis:hr_payroll_analysis.payroll_analysis_config_form
+#: model:ir.actions.act_window,name:hr_payroll_analysis.action_payroll_analysis_config
+#: model:ir.ui.menu,name:hr_payroll_analysis.menu_action_payroll_analysis
+#, python-format
+msgid "Payroll Analysis"
+msgstr "Análisis de Nómina"
+
+#. module: hr_payroll_analysis
+#: model:ir.actions.act_window,name:hr_payroll_analysis.action_payroll_analysis_report
+#: model:ir.ui.menu,name:hr_payroll_analysis.menu_action_payroll_analysis_report
+msgid "Payroll Analysis Graph"
+msgstr "Análisis de Nómina Gráfico"
+
+#. module: hr_payroll_analysis
+#: view:hr.payslip.analysis.line:hr_payroll_analysis.view_payslip_analysis_line_tree
+msgid "Payroll Analysis Lines"
+msgstr "Líneas del Análisis de Nómina "
+
+#. module: hr_payroll_analysis
+#: model:ir.model,name:hr_payroll_analysis.model_hr_payroll_analysis
+msgid "Payroll Analysis Wizard"
+msgstr "Asistente de Análisis de Nómina"
+
+#. module: hr_payroll_analysis
+#: field:hr.payslip.analysis.line,payslip_id:0
+msgid "Payslip"
+msgstr "Nomina"
+
+#. module: hr_payroll_analysis
+#: view:hr.payslip.analysis.line:hr_payroll_analysis.view_payroll_analysis_report_graph
+msgid "Payslip Analysis"
+msgstr "Análisis de Nómina"
+
+#. module: hr_payroll_analysis
+#: field:hr.payslip.analysis.line,payslip_line_id:0
+msgid "Payslip Line"
+msgstr "Línea de Nómina"
+
+#. module: hr_payroll_analysis
+#: field:hr.payroll.analysis,payslip_run_ids:0
+#: view:hr.payslip.analysis.line:hr_payroll_analysis.payroll_analysis_analytic_filter
+#: view:hr.payslip.analysis.line:hr_payroll_analysis.view_payroll_analysis_analytic_search
+#: field:hr.payslip.analysis.line,payslip_run_id:0
+msgid "Payslip Run"
+msgstr "Lote de Nómina"
+
+#. module: hr_payroll_analysis
+#: selection:hr.payroll.analysis,period:0
+msgid "Previous Year"
+msgstr "Año Anterior"
+
+#. module: hr_payroll_analysis
+#: view:hr.payslip.analysis.line:hr_payroll_analysis.payroll_analysis_analytic_filter
+#: view:hr.payslip.analysis.line:hr_payroll_analysis.view_payroll_analysis_analytic_search
+#: field:hr.payslip.analysis.line,salary_rule_id:0
+msgid "Salary Rule"
+msgstr "Regla Salarial"
+
+#. module: hr_payroll_analysis
+#: field:hr.payroll.analysis,salary_rule_ids:0
+msgid "Salary Rules"
+msgstr "Regla(s) Salarial"
+
+#. module: hr_payroll_analysis
+#: view:hr.payslip.analysis.line:hr_payroll_analysis.payroll_analysis_analytic_filter
+#: view:hr.payslip.analysis.line:hr_payroll_analysis.view_payroll_analysis_analytic_search
+msgid "Search Payslip Lines"
+msgstr "Buscar Líneas de Nómina"
+
+#. module: hr_payroll_analysis
+#: field:hr.payroll.analysis,start_date:0
+msgid "Start Date"
+msgstr "Fecha de Inicio"
+
+#. module: hr_payroll_analysis
+#: view:hr.payroll.analysis:hr_payroll_analysis.payroll_analysis_config_form
+msgid "or"
+msgstr "o"
+
