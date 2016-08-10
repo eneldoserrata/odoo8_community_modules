@@ -208,6 +208,12 @@ class QueueJob(models.Model):
         jobs.unlink()
         return True
 
+    @api.multi
+    def set_enqueued(self):
+        self.state = "enqueued"
+        self.date_enqueued = datetime.now()
+        self.date_started = None
+
 
 class QueueWorker(models.Model):
     """ Worker """

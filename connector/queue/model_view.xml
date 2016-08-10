@@ -53,6 +53,12 @@
                 <form string="Jobs" create="false"
                         delete="false" version="7.0">
                     <header>
+                        <button name="set_enqueued"
+                            states="pending"
+                            class="oe_highlight"
+                            string="Poner en cola"
+                            type="object"/>
+
                         <button name="requeue"
                             states="failed"
                             class="oe_highlight"
