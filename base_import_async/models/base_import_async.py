@@ -26,7 +26,6 @@ import csv
 import os
 from cStringIO import StringIO
 
-from openerp import models, api
 from openerp.models import TransientModel
 from openerp.models import fix_import_export_id_paths
 from openerp.tools.translate import _
@@ -70,7 +69,6 @@ def _create_csv_attachment(session, fields, data, options, file_name):
         writer.writerow(_encode(row, encoding))
     # create attachment
     attachment = session.env['ir.attachment'].create({
-        'type': "binary",
         'name': file_name,
         'datas': f.getvalue().encode('base64')
     })
@@ -91,7 +89,6 @@ def _read_csv_attachment(session, att_id, options):
 
 def _link_attachment_to_job(session, job_uuid, att_id):
     job = session.env['queue.job'].search([('uuid', '=', job_uuid)], limit=1)
-    job.state = "enqueued"
     session.env['ir.attachment'].browse(att_id).write({
         'res_model': 'queue.job',
         'res_id': job.id,
@@ -134,12 +131,15 @@ def related_attachment(session, thejob):
 @related_action(action=related_attachment)
 def import_one_chunk(session, res_model, att_id, options):
     model_obj = session.pool[res_model]
+    context = session.context.copy()
+    if not session.context.get('lang', False):
+        context.update({'lang': session.env.user.lang})
     fields, data = _read_csv_attachment(session, att_id, options)
     result = model_obj.load(session.cr,
                             session.uid,
                             fields,
                             data,
-                            context=session.context)
+                            context=context)
     error_message = [message['message'] for message in result['messages']
                      if message['type'] == 'error']
     if error_message:
@@ -239,22 +239,3 @@ class BaseImportConnector(TransientModel):
         _link_attachment_to_job(session, job_uuid, att_id)
 
         return []
-
-from openerp.addons.connector.controllers.main import RunJobController
-
-
-class QueueJob(models.Model):
-    _inherit = 'queue.job'
-
-    @api.model
-    def do_job(self):
-        jobs = self.search([('state','=','pending')])
-        for job in jobs:
-            if job.state == "pending":
-                job.state = "enqueued"
-
-        jobs = self.search([('state','=','enqueued')])
-        for job in jobs:
-            RunJobController().runjob(self.env.registry.db_name, job.uuid)
-        return True
-
