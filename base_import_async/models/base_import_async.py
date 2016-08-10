@@ -26,6 +26,7 @@ import csv
 import os
 from cStringIO import StringIO
 
+from openerp import models, api
 from openerp.models import TransientModel
 from openerp.models import fix_import_export_id_paths
 from openerp.tools.translate import _
@@ -69,6 +70,7 @@ def _create_csv_attachment(session, fields, data, options, file_name):
         writer.writerow(_encode(row, encoding))
     # create attachment
     attachment = session.env['ir.attachment'].create({
+        'type': "binary",
         'name': file_name,
         'datas': f.getvalue().encode('base64')
     })
@@ -89,6 +91,7 @@ def _read_csv_attachment(session, att_id, options):
 
 def _link_attachment_to_job(session, job_uuid, att_id):
     job = session.env['queue.job'].search([('uuid', '=', job_uuid)], limit=1)
+    job.state = "enqueued"
     session.env['ir.attachment'].browse(att_id).write({
         'res_model': 'queue.job',
         'res_id': job.id,
@@ -164,11 +167,11 @@ def split_file(session, model_name, translated_model_name,
                                              chunk_size):
         chunk = str(priority - INIT_PRIORITY).zfill(padding)
         description = _("Import %s from file %s - #%s - lines %s to %s") % \
-                      (translated_model_name,
-                       file_name,
-                       chunk,
-                       row_from + 1 + header_offset,
-                       row_to + 1 + header_offset)
+            (translated_model_name,
+             file_name,
+             chunk,
+             row_from + 1 + header_offset,
+             row_to + 1 + header_offset)
         # create a CSV attachment and enqueue the job
         root, ext = os.path.splitext(file_name)
         att_id = _create_csv_attachment(session,
@@ -217,7 +220,7 @@ class BaseImportConnector(TransientModel):
         else:
             translated_model_name = self.pool[record.res_model]._description
         description = _("Import %s from file %s") % \
-                      (translated_model_name, record.file_name)
+            (translated_model_name, record.file_name)
 
         # create a CSV attachment and enqueue the job
         session = ConnectorSession(cr, uid, context)
@@ -236,3 +239,22 @@ class BaseImportConnector(TransientModel):
         _link_attachment_to_job(session, job_uuid, att_id)
 
         return []
+
+from openerp.addons.connector.controllers.main import RunJobController
+
+
+class QueueJob(models.Model):
+    _inherit = 'queue.job'
+
+    @api.model
+    def do_job(self):
+        jobs = self.search([('state','=','pending')])
+        for job in jobs:
+            if job.state == "pending":
+                job.state = "enqueued"
+
+        jobs = self.search([('state','=','enqueued')])
+        for job in jobs:
+            RunJobController().runjob(self.env.registry.db_name, job.uuid)
+        return True
+
