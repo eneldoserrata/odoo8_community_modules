@@ -21,10 +21,12 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ##############################################################################
+
 from openerp.osv import fields, osv
+from openerp import fields as fields2, _
 
 import time
-from openerp.addons.decimal_precision import decimal_precision as dp
+import openerp.addons.decimal_precision as dp
 
 
 class ResCurrencyRate(osv.Model):
@@ -40,27 +42,37 @@ class ResCurrencyRate(osv.Model):
 class ResCurrency(osv.Model):
 
     def _current_rate(self, cr, uid, ids, name, arg, context=None):
+        return self._get_current_rate(cr, uid, ids, context=context)
+
+    def _get_current_rate(self, cr, uid, ids, raise_on_no_rate=True, context=None):
         if context is None:
             context = {}
         res = {}
-        if 'date' in context:
-            date = context['date']
-        else:
-            date = time.strftime('%Y-%m-%d')
-        date = date or time.strftime('%Y-%m-%d')
+
+        date = fields2.Datetime.now()
+        if context.get('date', False):
+            date = "{} {}".format(context.get('date'), "24:00:00")
+
+
         for id in ids:
-            cr.execute(
-                "SELECT currency_id, rate\
-                    FROM res_currency_rate\
-                WHERE currency_id = %s\
-                AND name <= %s\
-                ORDER BY name desc LIMIT 1", (id, date))
+            query = "SELECT rate FROM res_currency_rate WHERE currency_id = {} AND name <= '{}' ORDER BY name desc LIMIT 1".format(
+                id, date)
+            cr.execute(query)
+
+
             if cr.rowcount:
-                id, rate = cr.fetchall()[0]
-                res[id] = rate
-            else:
+                res[id] = cr.fetchone()[0]
+            elif not raise_on_no_rate:
                 res[id] = 0
+            else:
+                if id == 3:
+                    print query
+                    import pdb;
+                    pdb.set_trace()
+                currency = self.browse(cr, uid, id, context=context)
+                raise osv.except_osv(_('Error!'),_("No currency rate associated for currency '%s' for the given period" % (currency.name)))
         return res
+
 
     _inherit = "res.currency"
     _columns = {

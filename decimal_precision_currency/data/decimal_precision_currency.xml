@@ -4,7 +4,7 @@
         <!-- Decimal Precision -->
         <record forcecreate="True" id="decimal_precision_currency" model="decimal.precision">
             <field name="name">Currency</field>
-            <field name="digits">2</field>
+            <field name="digits">16</field>
         </record>
     </data>
 </openerp>
