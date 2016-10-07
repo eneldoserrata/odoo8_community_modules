@@ -51,8 +51,7 @@ class ResCurrency(osv.Model):
 
         date = fields2.Datetime.now()
         if context.get('date', False):
-            date = "{} {}".format(context.get('date'), "24:00:00")
-
+            date = "{} {}".format(context.get('date').split(" ")[0], "24:00:00")
 
         for id in ids:
             query = "SELECT rate FROM res_currency_rate WHERE currency_id = {} AND name <= '{}' ORDER BY name desc LIMIT 1".format(
