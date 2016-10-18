@@ -51,25 +51,25 @@ class ResCurrency(osv.Model):
 
         date = fields2.Datetime.now()
         if context.get('date', False):
-            date = "{} {}".format(context.get('date').split(" ")[0], "24:00:00")
+            date = "{}".format(context.get('date').split(" ")[0])
 
         for id in ids:
-            query = "SELECT rate FROM res_currency_rate WHERE currency_id = {} AND name <= '{}' ORDER BY name desc LIMIT 1".format(
-                id, date)
-            cr.execute(query)
 
+            query = "SELECT rate FROM res_currency_rate WHERE currency_id = {} AND name = '{}' ORDER BY name desc LIMIT 1".format(
+                id, date)
+
+            cr.execute(query)
 
             if cr.rowcount:
                 res[id] = cr.fetchone()[0]
             elif not raise_on_no_rate:
                 res[id] = 0
             else:
-                if id == 3:
-                    print query
-                    import pdb;
-                    pdb.set_trace()
-                currency = self.browse(cr, uid, id, context=context)
-                raise osv.except_osv(_('Error!'),_("No currency rate associated for currency '%s' for the given period" % (currency.name)))
+                if id != 74:
+                    currency = self.browse(cr, uid, id, context=context)
+                    raise osv.except_osv(_('Advertencia!'),_("No hay tasa de cambio asociado de la moneda '%s' para la fecha de la factura" % (currency.name)))
+                else:
+                    res[id] = 1
         return res
 
 
