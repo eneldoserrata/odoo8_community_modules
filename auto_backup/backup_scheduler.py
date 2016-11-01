@@ -92,10 +92,10 @@ class db_backup(osv.Model):
                  }
 
     def _check_db_exist(self, cr, user, ids):
-        for rec in self.browse(cr,user,ids):
-            db_list = self.get_db_list(cr, user, ids, rec.host, rec.port)
-            if rec.name in db_list:
-                return True
+        # for rec in self.browse(cr,user,ids):
+        #     db_list = self.get_db_list(cr, user, ids, rec.host, rec.port)
+        #     if rec.name in db_list:
+        #         return True
         return True
 
     _constraints = [
