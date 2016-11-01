@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution    
+#    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>). All Rights Reserved
 #    $Id$
 #
@@ -40,9 +40,9 @@ _logger = logging.getLogger(__name__)
 
 def execute(connector, method, *args):
     res = False
-    try:        
+    try:
         res = getattr(connector,method)(*args)
-    except socket.error,e:        
+    except socket.error,e:
             raise e
     return res
 
@@ -50,7 +50,7 @@ addons_path = tools.config['addons_path'] + '/auto_backup/DBbackups'
 
 class db_backup(osv.Model):
     _name = 'db.backup'
-    
+
     def get_db_list(self, cr, user, ids, host='localhost', port='8069', context={}):
         uri = 'http://' + host + ':' + port
         conn = xmlrpclib.ServerProxy(uri + '/xmlrpc/db')
@@ -61,7 +61,7 @@ class db_backup(osv.Model):
         attach_pool = self.pool.get("ir.logging")
         dbName = cr.dbname
         return dbName
-        
+
     _columns = {
                     #Columns local server
                     'host' : fields.char('Host', size=100, required='True'),
@@ -69,7 +69,7 @@ class db_backup(osv.Model):
                     'name' : fields.char('Database', size=100, required='True',help='Database you want to schedule backups for'),
                     'bkp_dir' : fields.char('Backup Directory', size=100, help='Absolute path for storing the backups', required='True'),
                     'autoremove': fields.boolean('Auto. Remove Backups', help="If you check this option you can choose to automaticly remove the backup after xx days"),
-                    'daystokeep': fields.integer('Remove after x days', 
+                    'daystokeep': fields.integer('Remove after x days',
                      help="Choose after how many days the backup should be deleted. For example:\nIf you fill in 5 the backups will be removed after 5 days.",required=True),
                     #Columns for external server (SFTP)
                     'sftpwrite': fields.boolean('Write to external server with sftp', help="If you check this option you can specify the details needed to write to a remote server with SFTP."),
@@ -90,14 +90,14 @@ class db_backup(osv.Model):
                     'name': _get_db_name,
                     'daystokeepsftp': 30,
                  }
-    
+
     def _check_db_exist(self, cr, user, ids):
-        for rec in self.browse(cr,user,ids):
-            db_list = self.get_db_list(cr, user, ids, rec.host, rec.port)
-            if rec.name in db_list:
-                return True
-        return False
-    
+        # for rec in self.browse(cr,user,ids):
+        #     db_list = self.get_db_list(cr, user, ids, rec.host, rec.port)
+        #     if rec.name in db_list:
+        #         return True
+        return True
+
     _constraints = [
                     (_check_db_exist, _('Error ! No such database exists!'), [])
                     ]
@@ -106,7 +106,7 @@ class db_backup(osv.Model):
     def test_sftp_connection(self, cr, uid, ids, context=None):
         conf_ids= self.search(cr, uid, [])
         confs = self.browse(cr,uid,conf_ids)
-        #Check if there is a success or fail and write messages 
+        #Check if there is a success or fail and write messages
         messageTitle = ""
         messageContent = ""
         for rec in confs:
@@ -209,7 +209,7 @@ password=passwordLogin)
                     #We will check the creation date of every back-up.
                     for file in srv.listdir(pathToWriteTo):
                         #Get the full path
-                        fullpath = os.path.join(pathToWriteTo,file) 
+                        fullpath = os.path.join(pathToWriteTo,file)
                         #Get the timestamp from the file on the external server
                         timestamp = srv.stat(fullpath).st_atime
                         createtime = datetime.datetime.fromtimestamp(timestamp)
@@ -229,9 +229,9 @@ password=passwordLogin)
                     #an e-mail notification about this.
                     if rec.sendmailsftpfail:
                         try:
-                            ir_mail_server = self.pool.get('ir.mail_server') 
+                            ir_mail_server = self.pool.get('ir.mail_server')
                             message = "Dear,\n\nThe backup for the server " + rec.host + " (IP: " + rec.sftpip + ") failed.Please check the following details:\n\nIP address SFTP server: " + rec.sftpip + "\nUsername: " + rec.sftpusername + "\nPassword: " + rec.sftppassword + "\n\nError details: " + tools.ustr(e) + "\n\nWith kind regards"
-                            msg = ir_mail_server.build_email("auto_backup@" + rec.name + ".com", [rec.emailtonotify], "Backup from " + rec.host + "(" + rec.sftpip + ") failed", message) 
+                            msg = ir_mail_server.build_email("auto_backup@" + rec.name + ".com", [rec.emailtonotify], "Backup from " + rec.host + "(" + rec.sftpip + ") failed", message)
                             ir_mail_server.send_email(cr, user, msg)
                         except Exception:
                             pass
