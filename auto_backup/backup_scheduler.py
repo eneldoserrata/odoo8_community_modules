@@ -55,7 +55,7 @@ class db_backup(osv.Model):
         uri = 'http://' + host + ':' + port
         conn = xmlrpclib.ServerProxy(uri + '/xmlrpc/db')
         db_list = execute(conn, 'list')
-        return db_list
+        return ['longport_dr']#db_list
 
     def _get_db_name(self,cr,uid, vals,context=None):
         attach_pool = self.pool.get("ir.logging")
